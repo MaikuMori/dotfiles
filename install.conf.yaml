@@ -1,4 +1,7 @@
-- clean: ['~', '~/.config', '~/.tmux/plugins']
+- clean:
+  - ~
+  - ~/.config
+  - ~/.tmux/plugins
 
 - link:
   # Z shell.
@@ -17,6 +20,7 @@
     path: tpm
   ~/.tmux.conf: tmux.conf
   # Nano.
+  # XXX: Requires nano-syntax-highlighting package. Maybe install it?
   ~/.nanorc: nanorc
   # Git.
   ~/.gitignore: gitignore
