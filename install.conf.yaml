@@ -1,0 +1,27 @@
+- clean: ['~', '~/.config', '~/.tmux/plugins']
+
+- link:
+  # Z shell.
+  ~/.zprezto: prezto
+  # We don't change these.
+  ~/.zlogin: prezto/zlogin
+  ~/.zlogout: prezto/zlogout
+  ~/.zprofile: prezto/zprofile
+  ~/.zshenv: prezto/zshenv
+  # Our customizations.
+  ~/.zpreztorc: zpreztorc
+  ~/.zshrc: zshrc
+  # Tmux.
+  ~/.tmux/plugins/tpm:
+    create: yes
+    path: tpm
+  ~/.tmux.conf: tmux.conf
+  # Nano.
+  ~/.nanorc: nanorc
+  # Git.
+  ~/.gitignore: gitignore
+  ~/.gitconfig: gitconfig
+
+- shell:
+  - [mkdir -p ~/Projects ~/GoProjects, Create directory structure]
+  - [git submodule update --init --recursive, Installing submodules]

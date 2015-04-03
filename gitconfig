@@ -1,0 +1,28 @@
+[user]
+	name = Miks Kalnins
+	email = MiksKalnins@MaikuMori.com
+[github]
+	user = MaikuMori
+[core]
+	excludesfile = ~/.gitignore
+[push]
+	default = tracking
+[color]
+	ui = 1
+[diff]
+	renames = copies
+[alias]
+	switch = !legit switch
+	branches = !legit branches
+	sprout = !legit sprout
+	unpublish = !legit unpublish
+	harvest = !legit harvest
+	sync = !legit sync
+	publish = !legit publish
+	graft = !legit graft
+	resync = !legit resync
+	st = status -sb
+[merge]
+	ff = only
+[help]
+	autocorrect = 1
