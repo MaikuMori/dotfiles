@@ -20,11 +20,13 @@
     path: tpm
   ~/.tmux.conf: tmux.conf
   # Nano.
-  # XXX: Requires nano-syntax-highlighting package. Maybe install it?
-  ~/.nanorc: nanorc
+  ~/.nano: nano/highlights
+  ~/.nanorc: nano/nanorc
   # Git.
-  ~/.gitignore: gitignore
-  ~/.gitconfig: gitconfig
+  ~/.config/git/globalignore:
+    create: yes
+    path: git/globalignore
+  ~/.config/git/config: git/config
 
 - shell:
   - [mkdir -p ~/Projects ~/GoProjects, Create directory structure]
