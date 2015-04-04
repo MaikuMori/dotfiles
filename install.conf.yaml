@@ -1,7 +1,3 @@
-# XXX: Add these:
-#  - .Xresources
-#  - .tmuxinator or the alternative
-#  - .password-store maybe?
 - clean:
   - ~
   - ~/.config
@@ -34,8 +30,10 @@
   ~/.ssh/config: ssh/config
   # Powerline.
   ~/.config/powerline: config/powerline
+  # X.
+  ~/.Xresources: Xresources
 
-
-- shell:``
+- shell:
   - [mkdir -p ~/Projects ~/GoProjects, Create directory structure]
   - [git submodule update --init --recursive, Installing submodules]
+  - [./base16.monokai.dark.sh, Installing Gnome Terminal theme]
