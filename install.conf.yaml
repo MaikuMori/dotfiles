@@ -27,15 +27,15 @@
   ~/.nano: nano/highlights
   ~/.nanorc: nano/nanorc
   # Git.
-  ~/.config/git/globalignore:
-    create: yes
-    path: git/globalignore
-  ~/.config/git/config: git/config
+  ~/.config/git: config/git
   # Bin.
   ~/bin: bin
   # SSH.
   ~/.ssh/config: ssh/config
+  # Powerline.
+  ~/.config/powerline: config/powerline
 
-- shell:
+
+- shell:``
   - [mkdir -p ~/Projects ~/GoProjects, Create directory structure]
   - [git submodule update --init --recursive, Installing submodules]
