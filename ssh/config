@@ -1,0 +1,20 @@
+# No passwords ever.
+IdentitiesOnly yes
+
+# This speeds up scp tab completion tremendously.
+Controlmaster auto
+Controlpath ~/.ssh/ssh-%r@%h:%p.sock
+
+Host heroku.com
+IdentityFile ~/.ssh/protected_rsa
+
+Host github.com
+HostName github.com
+User git
+IdentityFile ~/.ssh/Y
+
+Host maikumori
+HostName 146.185.148.178
+IdentityFile ~/.ssh/protected_rsa
+LocalForward 8889 127.0.0.1:8888
+LocalForward 10001 127.0.0.1:3000

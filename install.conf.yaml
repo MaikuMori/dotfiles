@@ -1,8 +1,7 @@
 # XXX: Add these:
 #  - .Xresources
-#  - bin
-
-
+#  - .tmuxinator or the alternative
+#  - .password-store maybe?
 - clean:
   - ~
   - ~/.config
@@ -34,6 +33,8 @@
   ~/.config/git/config: git/config
   # Bin.
   ~/bin: bin
+  # SSH.
+  ~/.ssh/config: ssh/config
 
 - shell:
   - [mkdir -p ~/Projects ~/GoProjects, Create directory structure]
