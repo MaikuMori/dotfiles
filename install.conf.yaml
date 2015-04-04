@@ -1,3 +1,8 @@
+# XXX: Add these:
+#  - .Xresources
+#  - bin
+
+
 - clean:
   - ~
   - ~/.config
@@ -27,6 +32,8 @@
     create: yes
     path: git/globalignore
   ~/.config/git/config: git/config
+  # Bin.
+  ~/bin: bin
 
 - shell:
   - [mkdir -p ~/Projects ~/GoProjects, Create directory structure]
