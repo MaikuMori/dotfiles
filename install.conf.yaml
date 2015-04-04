@@ -1,39 +1,41 @@
 - clean:
-  - ~
-  - ~/.config
-  - ~/.tmux/plugins
-
-- link:
-  # Z shell.
-  ~/.zprezto: prezto
-  # We don't change these.
-  ~/.zlogin: prezto/zlogin
-  ~/.zlogout: prezto/zlogout
-  ~/.zprofile: prezto/zprofile
-  ~/.zshenv: prezto/zshenv
-  # Our customizations.
-  ~/.zpreztorc: zpreztorc
-  ~/.zshrc: zshrc
-  # Tmux.
-  ~/.tmux/plugins/tpm:
-    create: yes
-    path: tpm
-  ~/.tmux.conf: tmux.conf
-  # Nano.
-  ~/.nano: nano/highlights
-  ~/.nanorc: nano/nanorc
-  # Git.
-  ~/.config/git: config/git
-  # Bin.
-  ~/bin: bin
-  # SSH.
-  ~/.ssh/config: ssh/config
-  # Powerline.
-  ~/.config/powerline: config/powerline
-  # X.
-  ~/.Xresources: Xresources
+  - '~'
+  - '~/.config'
+  - '~/.tmux/plugins'
 
 - shell:
   - [mkdir -p ~/Projects ~/GoProjects, Create directory structure]
   - [git submodule update --init --recursive, Installing submodules]
   - [./base16.monokai.dark.sh, Installing Gnome Terminal theme]
+
+- link:
+    # Z shell.
+    ~/.zprezto: prezto
+    # We don't change these.
+    ~/.zlogin: prezto/runcoms/zlogin
+    ~/.zlogout: prezto/runcoms/zlogout
+    ~/.zprofile: prezto/runcoms/zprofile
+    ~/.zshenv: prezto/runcoms/zshenv
+    # Our customizations.
+    ~/.zpreztorc: zpreztorc
+    ~/.zshrc: zshrc
+    # Tmux.
+    ~/.tmux/plugins/tpm:
+      create: yes
+      path: tpm
+    ~/.tmux.conf: tmux.conf
+    # Nano.
+    ~/.nano: nano/highlights
+    ~/.nanorc: nano/nanorc
+    # Git.
+    ~/.config/git: config/git
+    # Bin.
+    ~/bin: bin
+    # SSH.
+    ~/.ssh/config: ssh/config
+    # Powerline.
+    ~/.config/powerline:
+      force: yes
+      path: config/powerline/
+    # X.
+    ~/.Xresources: Xresources
