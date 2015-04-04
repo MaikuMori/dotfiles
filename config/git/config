@@ -6,7 +6,7 @@
 [core]
 	excludesfile = ~/.config/git/globalignore
 [push]
-	default = tracking
+	default = simple
 [color]
 	ui = 1
 [diff]
