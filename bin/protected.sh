@@ -3,7 +3,7 @@
 
 user=maiku
 cryptdev=data
-cryptpath=~/Dropbox/"$cryptdev"
+cryptpath=/home/maiku/Dropbox/"$cryptdev"
 loopdev=$(losetup -f)
 mountpt=/mnt/"$cryptdev"
 
