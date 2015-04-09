@@ -23,6 +23,12 @@ export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.gem/ruby/2.1.0/bin
 
 # Alias
+
+# Emacs with correct daemon settings for Archlinux.
+alias e="emacsclient -t --socket-name /tmp/emacs1000/server"
+alias emc="emacsclient -c --socket-name /tmp/emacs1000/server"
+export EDITOR="emacsclient -t --socket-name /tmp/emacs1000/server"
+
 # Make these commands ask before clobbering a file. Use -f to override.
 alias rm="rm -i"
 alias cp="cp -i"
