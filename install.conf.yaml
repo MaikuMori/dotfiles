@@ -40,4 +40,4 @@
     # Powerline.
     ~/.config/powerline:
       force: yes
-      path: config/powerline/
+      path: config/powerline
