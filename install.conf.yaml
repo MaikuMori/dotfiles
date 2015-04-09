@@ -29,6 +29,10 @@
     ~/.nanorc: nano/nanorc
     # Git.
     ~/.config/git: config/git
+    # Systemd user files.
+    ~/.config/systemd/user:
+      create: yes
+      path: config/systemd/user
     # Bin.
     ~/bin: bin
     # SSH.
