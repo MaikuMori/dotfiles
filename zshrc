@@ -86,6 +86,11 @@ load-local-conf() {
 }
 add-zsh-hook chpwd load-local-conf
 
+# Shell colors.
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/base16-monokai.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
 # Powerline
 powerline-daemon -q
 . /usr/share/zsh/site-contrib/powerline.zsh

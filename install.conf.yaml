@@ -6,7 +6,6 @@
 - shell:
   - [mkdir -p ~/Projects ~/GoProjects, Create directory structure]
   - [git submodule update --init --recursive, Installing submodules]
-  - [./base16.monokai.dark.sh, Installing Gnome Terminal theme]
 
 - link:
     # Z shell.
@@ -28,7 +27,9 @@
     ~/.nano: nano/highlights
     ~/.nanorc: nano/nanorc
     # Git.
-    ~/.config/git: config/git
+    ~/.config/git:
+      create: yes
+      path: config/git
     # Systemd user files.
     ~/.config/systemd/user:
       create: yes
@@ -41,3 +42,7 @@
     ~/.config/powerline:
       force: yes
       path: config/powerline
+    # Shell theme.
+    ~/.config/base16-shell:
+      create: yes
+      path: config/base16-shell
