@@ -2,10 +2,6 @@
 	"segments": {
 		"right": [
 			{
-				"function": "powerline.segments.common.players.cmus",
-				"name": "player"
-			},
-			{
 				"function": "powerline.segments.common.sys.uptime",
 				"priority": 50
 			},
