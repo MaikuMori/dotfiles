@@ -186,6 +186,7 @@ This makes it much easier to undo things.
     :bind ("C-x g" . magit-status)
     :config
     ;; Full screen magit-status.
+    (setq magit-last-seen-setup-instructions "1.4.0")
     (add-hook 'magit-log-edit-mode-hook
               #'(lambda ()
                   (set-fill-column 72)
