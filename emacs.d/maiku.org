@@ -1,0 +1,253 @@
+#+TITLE: Maiku's Emacs Configuration
+#+AUTHOR: Miks Kalnins
+
+* Info
+
+** Namespace
+
+All custom functions, variables and macros are namespaced using ~mm/~
+prefix.
+
+* Bootstrap
+
+** Directories
+
+I keep any Elisp files not installed from a package repository in the
+=vendor/= directory:
+
+#+NAME: bootstrap
+#+BEGIN_SRC emacs-lisp
+  (defvar mm/vendor-directory (concat user-emacs-directory "vendor/"))
+  (let ((default-directory mm/vendor-directory))
+    (normal-top-level-add-to-load-path '("."))
+    (normal-top-level-add-subdirs-to-load-path))
+#+END_SRC
+
+** Packages
+  
+I use [[https://github.com/jwiegley/use-package][use-package]] to autoload packages and install them if needed,
+but before I can use it, I need to install it and couple other dependencies.
+
+#+NAME: bootstrap
+#+BEGIN_SRC emacs-lisp
+  (eval-when-compile
+    (require 'use-package))
+  (require 'bind-key)
+  (require 'diminish)
+#+END_SRC
+
+* Configuration
+
+Basic non-package configuration.
+
+** Personal information
+
+Tell Emacs a little bit about myself.
+
+#+NAME: config
+#+BEGIN_SRC emacs-lisp
+  (setq user-full-name "Miks Kalnins")
+  (setq user-mail-address "mikskalnins@maikumori.com")
+#+END_SRC
+
+** Disable silly things
+
+Disable menu and toolbars, scrollbar and startup splash screen.
+
+#+NAME: config
+#+BEGIN_SRC emacs-lisp
+  (menu-bar-mode -1)
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
+  (setq inhibit-startup-message t)
+#+END_SRC
+
+** Backups
+
+#+NAME: config
+#+BEGIN_SRC emacs-lisp 
+  (setq backup-directory-alist '(("." . "~/.saves")))
+  (setq make-backup-files t
+        backup-by-copying t
+        version-control t
+        delete-old-versions t
+        delete-by-moving-to-trash t
+        kept-old-versions 6
+        kept-new-versions 9
+        auto-save-default t
+        auto-save-timeout 20
+        auto-save-interval 200)
+#+END_SRC
+
+** Keybindings
+
+#+NAME: config
+#+BEGIN_SRC emacs-lisp 
+  (bind-keys
+    ("M-/" . hippie-expand)
+    ("C-s" . isearch-forward-regexp)
+    ("C-r" . isearch-backward-regexp)
+    ("C-M-s" . isearch-forward)
+    ("C-M-r" . isearch-backward))
+#+END_SRC
+
+** Misc
+
+Answering ~y~ and ~n~ is enough.
+
+#+NAME: config
+#+BEGIN_SRC emacs-lisp 
+  (defalias 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+
+Mouse ... can be useful sometimes.
+
+#+NAME: config
+#+BEGIN_SRC emacs-lisp 
+  (xterm-mouse-mode t)
+#+END_SRC
+
+And couple more things.
+
+#+NAME: config
+#+BEGIN_SRC emacs-lisp 
+  (setq-default indent-tabs-mode nil)
+  (setq x-select-enable-clipboard t
+        x-select-enable-primary t
+        save-interprogram-paste-before-kill t
+        apropos-do-all t
+        mouse-yank-at-point t
+        require-final-newline t
+        visible-bell t
+        load-prefer-newer t
+        ediff-window-setup-function 'ediff-setup-windows-plain)
+#+END_SRC
+
+** Systemd files
+
+~conf-unix-mode~ is fine for now. There is also [[https://github.com/holomorph/systemd-mode][systemd-mode]].
+
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'auto-mode-alist '("\\.service\\'" . conf-unix-mode))
+  (add-to-list 'auto-mode-alist '("\\.timer\\'" . conf-unix-mode))
+  (add-to-list 'auto-mode-alist '("\\.target\\'" . conf-unix-mode))
+  (add-to-list 'auto-mode-alist '("\\.mount\\'" . conf-unix-mode))
+  (add-to-list 'auto-mode-alist '("\\.automount\\'" . conf-unix-mode))
+  (add-to-list 'auto-mode-alist '("\\.slice\\'" . conf-unix-mode))
+  (add-to-list 'auto-mode-alist '("\\.socket\\'" . conf-unix-mode))
+  (add-to-list 'auto-mode-alist '("\\.path\\'" . conf-unix-mode))
+  (add-to-list 'auto-mode-alist '("\\.netdev\\'" . conf-unix-mode))
+  (add-to-list 'auto-mode-alist '("\\.network\\'" . conf-unix-mode))
+  (add-to-list 'auto-mode-alist '("\\.link\\'" . conf-unix-mode))
+  (add-to-list 'auto-mode-alist '("\\.automount\\'" . conf-unix-mode))
+#+END_SRC
+
+* Packages
+
+** Theme
+
+I really like Monokai Theme so lets load it.
+
+#+NAME: packages
+#+BEGIN_SRC emacs-lisp 
+  (load-theme 'monokai t)
+#+END_SRC
+
+** Powerline
+
+I also like powerline so lets use that as well.
+
+#+NAME: packages
+#+BEGIN_SRC emacs-lisp 
+  (use-package powerline
+    :config
+    (powerline-default-theme))
+#+END_SRC
+
+** Undo-Tree
+
+This makes it much easier to undo things.
+
+#+NAME: packages
+#+BEGIN_SRC emacs-lisp
+  (use-package undo-tree
+    :defer t
+    :diminish undo-tree-mode
+    :config
+    (global-undo-tree-mode)
+    (setq undo-tree-visualizer-timestamps t
+          undo-tree-visualizer-diff       t))
+#+END_SRC
+
+** Magit
+
+#+BEGIN_SRC emacs-lisp
+  (use-package magit
+    :bind ("C-x g" . magit-status)
+    :config
+    ;; Full screen magit-status.
+    (add-hook 'magit-log-edit-mode-hook
+              #'(lambda ()
+                  (set-fill-column 72)
+                  (flyspell-mode))))
+#+END_SRC
+
+** Helm
+
+#+BEGIN_SRC emacs-lisp
+  (use-package helm-config
+    :demand t
+
+    :bind (("M-x" . helm-M-x)
+           ;; Todo: fix this:
+           ;; ("C-c h" . helm-command-prefix)
+           ("M-y" . helm-show-kill-ring)
+           ("C-x b" . helm-mini)
+           ("C-x C-f" . helm-find-files)
+           ("C-c h o" . helm-occur))
+    :config
+    (use-package helm
+      :diminish helm-mode
+      :init
+      (helm-mode 1))
+
+    (bind-key "<tab>" 'helm-execute-persistent-action helm-map)
+    (bind-key "C-i" 'helm-execute-persistent-action helm-map)
+    (bind-key "C-z" 'helm-select-action helm-map)
+
+    (when (executable-find "ack")
+      (setq helm-grep-default-command "ack -Hn --no-group --no-color %e %p %f"
+	    helm-grep-default-recurse-command "ack -H --no-group --no-color %e %p %f"))
+
+    (when (executable-find "curl")
+      (setq helm-google-suggest-use-curl-p t))
+
+    (setq helm-buffers-fuzzy-matching           t
+          helm-recentf-fuzzy-match              t
+          helm-split-window-in-side-p           t
+          helm-move-to-line-cycle-in-source     t
+          helm-ff-search-library-in-sexp        t
+          helm-scroll-amount                    8
+          helm-ff-file-name-history-use-recentf t))
+#+END_SRC
+   
+*** TODO Rebind helm prefix?
+
+** Markdown-mode
+
+#+BEGIN_SRC emacs-lisp
+  (use-package markdown-mode
+    :mode (("\\`README\\.md\\'" . gfm-mode)
+           ("\\.md\\'"          . markdown-mode)
+           ("\\.markdown\\'"    . markdown-mode)))
+#+END_SRC
+
+** WS-Buttler
+
+Automatically removes trailing whitespaces.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package ws-butler
+    :config
+    (ws-butler-global-mode t)
+#+END_SRC

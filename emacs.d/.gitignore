@@ -1,0 +1,9 @@
+*.cache
+*.elc
+*.eld
+.cask
+.projectile
+auto-save-list
+elpa
+recentf
+maiku.el

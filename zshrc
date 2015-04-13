@@ -21,6 +21,7 @@ export GPGKEY=24481BFA
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.gem/ruby/2.1.0/bin
+export PATH=$PATH:$HOME/.cask/bin
 
 # Alias
 

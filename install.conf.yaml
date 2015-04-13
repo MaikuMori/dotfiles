@@ -46,3 +46,5 @@
     ~/.config/base16-shell:
       create: yes
       path: config/base16-shell
+    # Emacs ;).
+    ~/.emacs.d: emacs.d
