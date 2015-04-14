@@ -30,6 +30,7 @@ but before I can use it, I need to install it and couple other dependencies.
 
 #+NAME: bootstrap
 #+BEGIN_SRC emacs-lisp
+  (defvar use-package-verbose t)
   (eval-when-compile
     (require 'use-package))
   (require 'bind-key)
@@ -185,8 +186,8 @@ This makes it much easier to undo things.
   (use-package magit
     :bind ("C-x g" . magit-status)
     :config
-    ;; Full screen magit-status.
     (setq magit-last-seen-setup-instructions "1.4.0")
+    ;; Full screen magit-status.
     (add-hook 'magit-log-edit-mode-hook
               #'(lambda ()
                   (set-fill-column 72)
@@ -198,23 +199,22 @@ This makes it much easier to undo things.
 #+BEGIN_SRC emacs-lisp
   (use-package helm-config
     :demand t
-
     :bind (("M-x" . helm-M-x)
            ;; Todo: fix this:
            ;; ("C-c h" . helm-command-prefix)
            ("M-y" . helm-show-kill-ring)
            ("C-x b" . helm-mini)
            ("C-x C-f" . helm-find-files)
-           ("C-c h o" . helm-occur))
+           ("C-c h o" . helm-occur)
+           :map helm-map
+           ("<tab>" . helm-execute-persistent-action)
+           ("C-i" . helm-execute-persistent-action)
+           ("C-z" . helm-select-action))
     :config
     (use-package helm
       :diminish helm-mode
       :init
       (helm-mode 1))
-
-    (bind-key "<tab>" 'helm-execute-persistent-action helm-map)
-    (bind-key "C-i" 'helm-execute-persistent-action helm-map)
-    (bind-key "C-z" 'helm-select-action helm-map)
 
     (when (executable-find "ack")
       (setq helm-grep-default-command "ack -Hn --no-group --no-color %e %p %f"
@@ -231,7 +231,7 @@ This makes it much easier to undo things.
           helm-scroll-amount                    8
           helm-ff-file-name-history-use-recentf t))
 #+END_SRC
-   
+
 *** TODO Rebind helm prefix?
 
 ** Markdown-mode
@@ -252,3 +252,9 @@ Automatically removes trailing whitespaces.
     :config
     (ws-butler-global-mode t)
 #+END_SRC
+
+* Notes
+
+** TODO Checkout ~whole-line-or-region~.
+
+Looks like something I was looking for.
