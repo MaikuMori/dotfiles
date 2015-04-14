@@ -214,7 +214,7 @@ This makes it much easier to undo things.
       :init
       (helm-mode 1))
 
-    (bind-keys :helm-map
+    (bind-keys :map helm-map
                ("o" . helm-occur)
                ("<tab>" . helm-execute-persistent-action)
                ("C-i" . helm-execute-persistent-action)
@@ -257,6 +257,7 @@ Automatically removes trailing whitespaces.
     :config
     (ws-butler-global-mode t))
 #+END_SRC
+
 
 * Notes
 
