@@ -5,6 +5,7 @@
 	user = MaikuMori
 [core]
 	excludesfile = ~/.config/git/globalignore
+	editor = emacsclient -t --socket-name /tmp/emacs1000/server
 [push]
 	default = simple
 [color]
