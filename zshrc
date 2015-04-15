@@ -14,7 +14,7 @@ fi
 
 # ENV
 export BROWSER='google-chrome-unstable'
-export EDITOR='nano'
+export EDITOR="emacsclient -t --socket-name /tmp/emacs1000/server"
 export GOPATH=$HOME/GoProjects
 export GPGKEY=24481BFA
 
@@ -28,7 +28,6 @@ export PATH=$PATH:$HOME/.cask/bin
 # Emacs with correct daemon settings for Archlinux.
 alias e="emacsclient -t --socket-name /tmp/emacs1000/server"
 alias emc="emacsclient -c --socket-name /tmp/emacs1000/server"
-export EDITOR="emacsclient -t --socket-name /tmp/emacs1000/server"
 
 # Make these commands ask before clobbering a file. Use -f to override.
 alias rm="rm -i"
