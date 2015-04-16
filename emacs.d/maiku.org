@@ -1,5 +1,5 @@
 #+TITLE: Maiku's Emacs Configuration
-#+AUTHOR: Miks Kalnins
+#+AUTHOR: Miks Kalniņš
 
 * Info
 
@@ -24,9 +24,10 @@ I keep any Elisp files not installed from a package repository in the
 #+END_SRC
 
 ** Packages
-  
-I use [[https://github.com/jwiegley/use-package][use-package]] to autoload packages and install them if needed,
-but before I can use it, I need to install it and couple other dependencies.
+
+I use [[https://github.com/jwiegley/use-package][use-package]] to autoload packages and install them if needed, but
+before I can use it, I need to install it and couple other
+dependencies.
 
 #+NAME: bootstrap
 #+BEGIN_SRC emacs-lisp
@@ -47,7 +48,7 @@ Tell Emacs a little bit about myself.
 
 #+NAME: config
 #+BEGIN_SRC emacs-lisp
-  (setq user-full-name "Miks Kalnins")
+  (setq user-full-name "Miks Kalniņš")
   (setq user-mail-address "mikskalnins@maikumori.com")
 #+END_SRC
 
@@ -66,7 +67,7 @@ Disable menu and toolbars, scrollbar and startup splash screen.
 ** Backups
 
 #+NAME: config
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   (setq backup-directory-alist '(("." . "~/.saves")))
   (setq make-backup-files t
         backup-by-copying t
@@ -83,7 +84,7 @@ Disable menu and toolbars, scrollbar and startup splash screen.
 ** Keybindings
 
 #+NAME: config
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   (bind-keys
     ("M-/" . hippie-expand)
     ("C-s" . isearch-forward-regexp)
@@ -97,24 +98,25 @@ Disable menu and toolbars, scrollbar and startup splash screen.
 Answering ~y~ and ~n~ is enough.
 
 #+NAME: config
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   (defalias 'yes-or-no-p 'y-or-n-p)
 #+END_SRC
 
 Mouse ... can be useful sometimes.
 
 #+NAME: config
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   (xterm-mouse-mode t)
 #+END_SRC
 
 And couple more things.
 
 #+NAME: config
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   (setq-default indent-tabs-mode nil)
   (setq x-select-enable-clipboard t
         x-select-enable-primary t
+        gc-cons-threshold 50000000
         save-interprogram-paste-before-kill t
         apropos-do-all t
         mouse-yank-at-point t
@@ -150,7 +152,7 @@ And couple more things.
 I really like Monokai Theme so lets load it.
 
 #+NAME: packages
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   (load-theme 'monokai t)
 #+END_SRC
 
@@ -159,7 +161,7 @@ I really like Monokai Theme so lets load it.
 I also like powerline so lets use that as well.
 
 #+NAME: packages
-#+BEGIN_SRC emacs-lisp 
+#+BEGIN_SRC emacs-lisp
   (use-package powerline
     :config
     (powerline-default-theme))
@@ -200,14 +202,14 @@ This makes it much easier to undo things.
 #+BEGIN_SRC emacs-lisp
   (use-package helm-config
     :demand t
-    :bind-keymap ("C-c h" . helm-command-prefix) 
+    :bind-keymap ("C-c h" . helm-command-prefix)
     :bind (("M-x" . helm-M-x)
            ("M-y" . helm-show-kill-ring)
            ("C-x b" . helm-mini)
            ("C-x C-f" . helm-find-files)
            )
-           ;; TODO: Add `:map helm-map` when map keyword is implemented.
-           
+    ;; TODO: Add `:map helm-map` when map keyword is implemented.
+
     :config
     (use-package helm
       :diminish helm-mode
@@ -215,7 +217,7 @@ This makes it much easier to undo things.
       (helm-mode 1))
 
     (bind-keys :map helm-map
-               ("o" . helm-occur)
+               ;; ("o" . helm-occur)
                ("<tab>" . helm-execute-persistent-action)
                ("C-i" . helm-execute-persistent-action)
                ("C-z" . helm-select-action))
@@ -224,7 +226,7 @@ This makes it much easier to undo things.
 
     (when (executable-find "ack")
       (setq helm-grep-default-command "ack -Hn --no-group --no-color %e %p %f"
-	    helm-grep-default-recurse-command "ack -H --no-group --no-color %e %p %f"))
+            helm-grep-default-recurse-command "ack -H --no-group --no-color %e %p %f"))
 
     (when (executable-find "curl")
       (setq helm-google-suggest-use-curl-p t))
@@ -258,9 +260,60 @@ Automatically removes trailing whitespaces.
     (ws-butler-global-mode t))
 #+END_SRC
 
+** Flycheck
 
-* Notes
+#+BEGIN_SRC emacs-lisp
+  (use-package flycheck
+    :defer 3
+    :config
+    (defalias 'flycheck-show-error-at-point-soon 'flycheck-show-error-at-point)
 
-** TODO Checkout ~whole-line-or-region~.
+    (use-package flycheck-cask
+      :config
+      (add-hook 'flycheck-mode-hook #'flycheck-cask-setup))
 
-Looks like something I was looking for.
+    (use-package flycheck-color-mode-line
+      :config
+      (add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
+
+    (global-flycheck-mode t))
+#+END_SRC
+
+** Paredit
+
+#+BEGIN_SRC emacs-lisp
+  (use-package paredit
+    :commands paredit-mode
+    :diminish paredit-mode
+    :init
+    (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
+    (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+    (add-hook 'ielm-mode-hook             #'enable-paredit-mode)
+    (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
+    (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+    (add-hook 'scheme-mode-hook           #'enable-paredit-mode))
+#+END_SRC
+
+** Whole-Line-Or-Region
+
+This one is a must have at least for me. I'm so used to ~cut~ cutting
+whole line when no region is selected.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package whole-line-or-region
+    :diminish whole-line-or-region-mode
+    :config
+    (whole-line-or-region-mode t))
+#+END_SRC
+
+** TODO [[https://github.com/magnars/multiple-cursors.el][Multiple-Cursors]]
+
+Multiple cursors for emacs.
+
+** TODO [[https://github.com/doitian/iy-go-to-char][Iy-Go-To-Char]]
+
+Go to next CHAR which is similar to ~f~ and ~t~ in Vim.
+
+** TODO [[https://github.com/abo-abo/hydra][Hydra]]
+
+   This one looks nice.
