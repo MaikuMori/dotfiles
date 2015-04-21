@@ -1,4 +1,5 @@
 .idea/
+\#*\#
 # srclib build cache
 .srclib-cache/
 .srclib-store/
