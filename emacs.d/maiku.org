@@ -194,14 +194,19 @@ This makes it much easier to undo things.
            ("M-y" . helm-show-kill-ring)
            ("C-x b" . helm-mini)
            ("C-x C-f" . helm-find-files)
-           )
-    ;; TODO: Add `:map helm-map` when map keyword is implemented.
+           ("C-x f" . helm-multi-files))
 
     :config
-    (use-package helm
+    (use-package helm-commands)
+    (use-package helm-files)
+    (use-package helm-buffers)
+    (use-package helm-mode
       :diminish helm-mode
       :init
       (helm-mode 1))
+
+    (helm-adaptative-mode 1)
+    (helm-autoresize-mode 1)
 
     (bind-keys :map helm-map
                ;; ("o" . helm-occur)
@@ -218,6 +223,12 @@ This makes it much easier to undo things.
     (when (executable-find "curl")
       (setq helm-google-suggest-use-curl-p t))
 
+    (setq helm-mini-default-sources '(helm-source-buffers-list
+                                      helm-source-recentf
+                                      helm-source-bookmarks
+                                      helm-source-buffer-not-found
+                                      ))
+
     (setq helm-buffers-fuzzy-matching           t
           helm-recentf-fuzzy-match              t
           helm-split-window-in-side-p           t
@@ -226,6 +237,8 @@ This makes it much easier to undo things.
           helm-scroll-amount                    8
           helm-ff-file-name-history-use-recentf t))
 #+END_SRC
+
+*** TODO Add `:map helm-map` when map keyword is implemented.
 
 ** [[http://jblevins.org/projects/markdown-mode/][Markdown-mode]]
 
