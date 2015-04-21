@@ -15,7 +15,6 @@ prefix.
 I keep any Elisp files not installed from a package repository in the
 =vendor/= directory:
 
-#+NAME: bootstrap
 #+BEGIN_SRC emacs-lisp
   (defvar mm/vendor-directory (concat user-emacs-directory "vendor/"))
   (let ((default-directory mm/vendor-directory))
@@ -29,7 +28,6 @@ I use [[https://github.com/jwiegley/use-package][use-package]] to autoload packa
 before I can use it, I need to install it and couple other
 dependencies.
 
-#+NAME: bootstrap
 #+BEGIN_SRC emacs-lisp
   (defvar use-package-verbose t)
   (eval-when-compile
@@ -46,7 +44,6 @@ Basic non-package configuration.
 
 Tell Emacs a little bit about myself.
 
-#+NAME: config
 #+BEGIN_SRC emacs-lisp
   (setq user-full-name "Miks Kalniņš")
   (setq user-mail-address "mikskalnins@maikumori.com")
@@ -56,7 +53,6 @@ Tell Emacs a little bit about myself.
 
 Disable menu and toolbars, scrollbar and startup splash screen.
 
-#+NAME: config
 #+BEGIN_SRC emacs-lisp
   (menu-bar-mode -1)
   (tool-bar-mode -1)
@@ -66,7 +62,6 @@ Disable menu and toolbars, scrollbar and startup splash screen.
 
 ** Backups
 
-#+NAME: config
 #+BEGIN_SRC emacs-lisp
   (setq backup-directory-alist '(("." . "~/.saves")))
   (setq make-backup-files t
@@ -83,7 +78,6 @@ Disable menu and toolbars, scrollbar and startup splash screen.
 
 ** Keybindings
 
-#+NAME: config
 #+BEGIN_SRC emacs-lisp
   (bind-keys
     ("M-/" . hippie-expand)
@@ -97,21 +91,18 @@ Disable menu and toolbars, scrollbar and startup splash screen.
 
 Answering ~y~ and ~n~ is enough.
 
-#+NAME: config
 #+BEGIN_SRC emacs-lisp
   (defalias 'yes-or-no-p 'y-or-n-p)
 #+END_SRC
 
 Mouse ... can be useful sometimes.
 
-#+NAME: config
 #+BEGIN_SRC emacs-lisp
   (xterm-mouse-mode t)
 #+END_SRC
 
 And couple more things.
 
-#+NAME: config
 #+BEGIN_SRC emacs-lisp
   (setq-default indent-tabs-mode nil)
   (setq x-select-enable-clipboard t
@@ -147,31 +138,28 @@ And couple more things.
 
 * Packages
 
-** Theme
+** [[https://github.com/oneKelvinSmith/monokai-emacs][Monokai-Emacs]]
 
 I really like Monokai Theme so lets load it.
 
-#+NAME: packages
 #+BEGIN_SRC emacs-lisp
   (load-theme 'monokai t)
 #+END_SRC
 
-** Powerline
+** [[https://github.com/milkypostman/powerline][Powerline]]
 
 I also like powerline so lets use that as well.
 
-#+NAME: packages
 #+BEGIN_SRC emacs-lisp
   (use-package powerline
     :config
     (powerline-default-theme))
 #+END_SRC
 
-** Undo-Tree
+** [[http://www.dr-qubit.org/emacs.php#undo-tree][Undo-Tree]]
 
 This makes it much easier to undo things.
 
-#+NAME: packages
 #+BEGIN_SRC emacs-lisp
   (use-package undo-tree
     :diminish undo-tree-mode
@@ -181,7 +169,7 @@ This makes it much easier to undo things.
           undo-tree-visualizer-diff       t))
 #+END_SRC
 
-** Magit
+** [[https://github.com/magit/magit][Magit]]
 
 #+BEGIN_SRC emacs-lisp
   (use-package magit
@@ -196,7 +184,7 @@ This makes it much easier to undo things.
                   (flyspell-mode))))
 #+END_SRC
 
-** TODO Helm
+** [[https://github.com/emacs-helm/helm][Helm]]
 
 #+BEGIN_SRC emacs-lisp
   (use-package helm-config
@@ -239,7 +227,7 @@ This makes it much easier to undo things.
           helm-ff-file-name-history-use-recentf t))
 #+END_SRC
 
-** Markdown-mode
+** [[http://jblevins.org/projects/markdown-mode/][Markdown-mode]]
 
 #+BEGIN_SRC emacs-lisp
   (use-package markdown-mode
@@ -248,7 +236,7 @@ This makes it much easier to undo things.
            ("\\.markdown\\'"    . markdown-mode)))
 #+END_SRC
 
-** WS-Buttler
+** [[https://github.com/lewang/ws-butler][WS-Buttler]]
 
 Automatically removes trailing whitespaces.
 
@@ -259,7 +247,7 @@ Automatically removes trailing whitespaces.
     (ws-butler-global-mode t))
 #+END_SRC
 
-** Flycheck
+** [[https://github.com/flycheck/flycheck][Flycheck]]
 
 #+BEGIN_SRC emacs-lisp
   (use-package flycheck
@@ -278,7 +266,9 @@ Automatically removes trailing whitespaces.
     (global-flycheck-mode t))
 #+END_SRC
 
-** Paredit
+*** TODO Disable it in some modes (like Org+Src)
+
+** [[http://www.emacswiki.org/emacs/ParEdit][Paredit]]
 
 #+BEGIN_SRC emacs-lisp
   (use-package paredit
@@ -290,10 +280,12 @@ Automatically removes trailing whitespaces.
     (add-hook 'ielm-mode-hook             #'enable-paredit-mode)
     (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
     (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
-    (add-hook 'scheme-mode-hook           #'enable-paredit-mode))
+    (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+
+    (add-hook 'emacs-lisp-mode-hook       #'show-paren-mode))
 #+END_SRC
 
-** Whole-Line-Or-Region
+** [[https://github.com/purcell/whole-line-or-region][Whole-Line-Or-Region]]
 
 This one is a must have at least for me. I'm so used to ~cut~ cutting
 whole line when no region is selected.
@@ -347,4 +339,4 @@ Go to next CHAR which is similar to ~f~ and ~t~ in Vim.
 
 ** TODO [[https://github.com/abo-abo/hydra][Hydra]]
 
-   This one looks nice.
+This one looks nice.
