@@ -338,6 +338,10 @@ whole line when no region is selected.
           org-directory "~/Org"
           org-default-notes-file "~/Org/refile.org"
           org-tab-follows-link t
+          org-src-fontify-natively t
+          org-src-tab-acts-natively t
+          org-confirm-babel-evaluate nil
+          org-src-window-setup 'current-window
           org-refile-targets '((nil :maxlevel . 3)
                                (org-agenda-files :maxlevel . 3))))
 #+END_SRC
