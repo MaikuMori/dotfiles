@@ -7,3 +7,5 @@ auto-save-list
 elpa
 recentf
 maiku.el
+helm-adaptive-history
+bookmarks
