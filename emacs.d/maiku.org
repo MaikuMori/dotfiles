@@ -181,7 +181,11 @@ This makes it much easier to undo things.
     (add-hook 'magit-log-edit-mode-hook
               #'(lambda ()
                   (set-fill-column 72)
-                  (flyspell-mode))))
+                  (flyspell-mode)))
+    ;; When commiting enable verbose mode by default.
+    (advice-add #'magit-key-mode-popup-committing :after
+                (lambda ()
+                  (magit-key-mode-toggle-option (quote committing) "--verbose"))))
 #+END_SRC
 
 ** [[https://github.com/emacs-helm/helm][Helm]]
