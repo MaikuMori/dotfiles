@@ -1,5 +1,6 @@
 #+TITLE: Maiku's Emacs Configuration
 #+AUTHOR: Miks Kalniņš
+#+PROPERTY: header-args    :results silent
 
 * Info
 
