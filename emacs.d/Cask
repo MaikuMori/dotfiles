@@ -15,6 +15,7 @@
 (depends-on "magit")
 (depends-on "markdown-mode")
 (depends-on "monokai-theme")
+(depends-on "org-plus-contrib")
 (depends-on "pallet")
 (depends-on "paredit")
 (depends-on "powerline")

@@ -322,6 +322,22 @@ whole line when no region is selected.
     :mode "\\.go\\'")
 #+END_SRC
 
+** [[http://orgmode.org/][Org-Mode]]
+
+#+BEGIN_SRC emacs-lisp
+  (use-package org
+    :bind (("C-c a" . org-agenda)
+           ("C-c c" . org-capture)
+           ("C-c l" . org-store-link))
+    :init
+    (setq org-agenda-files (quote ("~/Org"))
+          org-directory "~/Org"
+          org-default-notes-file "~/Org/refile.org"
+          org-tab-follows-link t
+          org-refile-targets '((nil :maxlevel . 3)
+                               (org-agenda-files :maxlevel . 3))))
+#+END_SRC
+
 ** TODO [[https://github.com/magnars/multiple-cursors.el][Multiple-Cursors]]
 
 Multiple cursors for emacs.
