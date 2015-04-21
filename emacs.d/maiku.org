@@ -315,6 +315,13 @@ whole line when no region is selected.
     :mode ("\\.coffee$"))
 #+END_SRC
 
+** [[https://github.com/moninikh/go-mode.el][Go-Mode]]
+
+#+BEGIN_SRC emacs-lisp
+  (use-package go-mode
+    :mode "\\.go\\'")
+#+END_SRC
+
 ** TODO [[https://github.com/magnars/multiple-cursors.el][Multiple-Cursors]]
 
 Multiple cursors for emacs.
