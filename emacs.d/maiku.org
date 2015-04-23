@@ -17,10 +17,11 @@ I keep any Elisp files not installed from a package repository in the
 =vendor/= directory:
 
 #+BEGIN_SRC emacs-lisp
-  (defvar mm/vendor-directory (concat user-emacs-directory "vendor/"))
-  (let ((default-directory mm/vendor-directory))
-    (normal-top-level-add-to-load-path '("."))
-    (normal-top-level-add-subdirs-to-load-path))
+  ;; Nothing there yet so commented out.
+  ;; (defvar mm/vendor-directory (concat user-emacs-directory "vendor/"))
+  ;; (let ((default-directory mm/vendor-directory))
+  ;;   (normal-top-level-add-to-load-path '("."))
+  ;;   (normal-top-level-add-subdirs-to-load-path))
 #+END_SRC
 
 ** Packages
