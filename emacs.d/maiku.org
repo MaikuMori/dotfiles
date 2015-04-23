@@ -329,7 +329,12 @@ whole line when no region is selected.
 
 #+BEGIN_SRC emacs-lisp
   (use-package go-mode
-    :mode "\\.go\\'")
+    :mode "\\.go\\'"
+    :config
+    (setq gofmt-command "goimports")
+    (add-hook 'go-mode-hook
+              (lambda ()
+                (add-hook 'after-save-hook 'gofmt-before-save 'make-it-local))))
 #+END_SRC
 
 ** [[http://orgmode.org/][Org-Mode]]
