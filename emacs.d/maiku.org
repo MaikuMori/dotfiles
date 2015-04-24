@@ -211,6 +211,9 @@ This makes it much easier to undo things.
       :init
       (helm-mode 1))
 
+    ;; https://github.com/emacs-helm/helm-ls-git
+    (use-package helm-ls-git)
+
     (helm-adaptative-mode 1)
     (helm-autoresize-mode 1)
 
@@ -368,3 +371,16 @@ Go to next CHAR which is similar to ~f~ and ~t~ in Vim.
 ** TODO [[https://github.com/abo-abo/hydra][Hydra]]
 
 This one looks nice.
+
+
+* Notes
+
+** TODO Notification: This could be useful later.
+
+#+BEGIN_SRC emacs-lisp tangle: no
+  ;; (require 'notifications)
+  ;; (notifications-notify :title "Achtung!"
+  ;;                       :body (format "You have an appointment in %d minutes" 10)
+  ;;                       :app-name "Emacs: Org"
+  ;;                       :sound-name "alarm-clock-elapsed")
+#+END_SRC
