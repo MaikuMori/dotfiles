@@ -26,3 +26,4 @@
 (depends-on "use-package")
 (depends-on "whole-line-or-region")
 (depends-on "ws-butler")
+(depends-on "yasnippet")

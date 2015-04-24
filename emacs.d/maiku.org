@@ -383,6 +383,21 @@ Auto-completion.
     (global-company-mode))
 #+END_SRC
 
+** [[https://github.com/capitaomorte/yasnippet][Yasnippet]]
+
+Snippets
+
+#+BEGIN_SRC emacs-lisp
+  (use-package yasnippet
+    :diminish yas-minor-mode
+    :mode ("/\\.emacs\\.d/snippets/" . snippet-mode)
+    :config
+    (yas-load-directory "~/.emacs.d/snippets/")
+    (yas-global-mode 1))
+#+END_SRC
+
+*** Add custom snippets.
+
 ** TODO [[https://github.com/magnars/multiple-cursors.el][Multiple-Cursors]]
 
 Multiple cursors for emacs.
