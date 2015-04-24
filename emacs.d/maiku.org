@@ -372,6 +372,17 @@ whole line when no region is selected.
                                (org-agenda-files :maxlevel . 3))))
 #+END_SRC
 
+** [[https://github.com/company-mode/company-mode][Company]]
+
+Auto-completion.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package company
+    :diminish company-mode
+    :config
+    (global-company-mode))
+#+END_SRC
+
 ** TODO [[https://github.com/magnars/multiple-cursors.el][Multiple-Cursors]]
 
 Multiple cursors for emacs.
