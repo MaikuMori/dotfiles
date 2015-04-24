@@ -12,6 +12,8 @@
 (depends-on "flycheck-cask")
 (depends-on "flycheck-color-mode-line")
 (depends-on "go-mode")
+(depends-on "guide-key")
+(depends-on "guide-key-tip")
 (depends-on "helm")
 (depends-on "helm-descbinds")
 (depends-on "helm-ls-git")

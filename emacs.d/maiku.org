@@ -398,6 +398,24 @@ Snippets
 
 *** Add custom snippets.
 
+** [[https://github.com/kai2nenobu/guide-key][Guide-Key]]
+
+#+BEGIN_SRC emacs-lisp
+  (use-package guide-key
+    :diminish guide-key-mode
+    :config
+    (setq guide-key/guide-key-sequence '("C-x r"
+                                         "C-x 4"
+                                         "C-c"))
+    (setq guide-key/recursive-key-sequence-flag t)
+    (guide-key-mode 1)
+
+    ;; https://github.com/aki2o/guide-key-tip
+    (use-package guide-key-tip
+      :config
+      (setq guide-key-tip/enabled t)))
+#+END_SRC
+
 ** TODO [[https://github.com/magnars/multiple-cursors.el][Multiple-Cursors]]
 
 Multiple cursors for emacs.
