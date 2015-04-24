@@ -221,7 +221,8 @@ This makes it much easier to undo things.
                ;; ("o" . helm-occur)
                ("<tab>" . helm-execute-persistent-action)
                ("C-i" . helm-execute-persistent-action)
-               ("C-z" . helm-select-action))
+               ("C-z" . helm-select-action)
+               ("SPC" . helm-all-mark-rings))
 
     (unbind-key "C-x c")
 
@@ -240,11 +241,22 @@ This makes it much easier to undo things.
 
     (setq helm-buffers-fuzzy-matching           t
           helm-recentf-fuzzy-match              t
+          helm-locate-fuzzy-match               t
+          helm-M-x-fuzzy-match                  t
+          helm-apropos-fuzzy-match              t
           helm-split-window-in-side-p           t
           helm-move-to-line-cycle-in-source     t
           helm-ff-search-library-in-sexp        t
           helm-scroll-amount                    8
           helm-ff-file-name-history-use-recentf t))
+#+END_SRC
+
+*** [[https://github.com/emacs-helm/helm-descbinds][Helm-Descbinds]]
+
+#+BEGIN_SRC emacs-lisp
+  (use-package helm-descbinds
+    :config
+    (helm-descbinds-mode))
 #+END_SRC
 
 *** TODO Add `:map helm-map` when map keyword is implemented.

@@ -12,6 +12,7 @@
 (depends-on "flycheck-color-mode-line")
 (depends-on "go-mode")
 (depends-on "helm")
+(depends-on "helm-descbinds")
 (depends-on "helm-ls-git")
 (depends-on "magit")
 (depends-on "markdown-mode")
