@@ -340,18 +340,6 @@ whole line when no region is selected.
     :mode "\\.coffee\\'")
 #+END_SRC
 
-** [[https://github.com/moninikh/go-mode.el][Go-Mode]]
-
-#+BEGIN_SRC emacs-lisp
-  (use-package go-mode
-    :mode "\\.go\\'"
-    :config
-    (setq gofmt-command "goimports")
-    (add-hook 'go-mode-hook
-              (lambda ()
-                (add-hook 'after-save-hook 'gofmt-before-save 'make-it-local))))
-#+END_SRC
-
 ** [[http://orgmode.org/][Org-Mode]]
 
 #+BEGIN_SRC emacs-lisp
@@ -381,6 +369,38 @@ Auto-completion.
     :diminish company-mode
     :config
     (global-company-mode))
+#+END_SRC
+
+*** [[https://github.com/nsf/gocode/tree/master/emacs-company][Company-Go]]
+
+#+BEGIN_SRC emacs-lisp
+  (use-package company-go
+    :config
+    (add-to-list 'company-backends 'company-go)
+
+    (setq company-go-begin-after-member-access t
+          company-go-show-annotation t))
+#+END_SRC
+
+** [[https://github.com/moninikh/go-mode.el][Go-Mode]]
+
+#+BEGIN_SRC emacs-lisp
+  (use-package go-mode
+    :mode "\\.go\\'"
+    :config
+    (setq gofmt-command "goimports")
+
+    (add-hook 'go-mode-hook
+              (lambda ()
+                (add-hook 'after-save-hook 'gofmt-before-save 'make-it-local))))
+#+END_SRC
+
+** [[https://github.com/syohex/emacs-go-eldoc][Go-Eldoc]]
+
+#+BEGIN_SRC emacs-lisp
+  (use-package go-eldoc
+        :config
+        (add-hook 'go-mode-hook 'go-eldoc-setup))
 #+END_SRC
 
 ** [[https://github.com/capitaomorte/yasnippet][Yasnippet]]
