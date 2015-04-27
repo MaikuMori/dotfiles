@@ -27,3 +27,5 @@
 	ff = only
 [help]
 	autocorrect = 1
+[include]
+        path = config.secret
