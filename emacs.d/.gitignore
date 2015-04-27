@@ -5,6 +5,7 @@
 .projectile
 auto-save-list
 elpa
+var
 recentf
 maiku.el
 helm-adaptive-history

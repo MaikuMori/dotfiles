@@ -436,6 +436,13 @@ Snippets
       (setq guide-key-tip/enabled t)))
 #+END_SRC
 
+** [[https://github.com/defunkt/gist.el][Gist]]
+
+#+BEGIN_SRC emacs-lisp
+  (use-package gist
+    :defer t)
+#+END_SRC
+
 ** TODO [[https://github.com/magnars/multiple-cursors.el][Multiple-Cursors]]
 
 Multiple cursors for emacs.
