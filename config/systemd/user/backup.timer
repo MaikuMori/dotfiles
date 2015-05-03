@@ -1,0 +1,11 @@
+[Unit]
+Description=Schedules Obnam backup
+
+[Timer]
+OnBootSec=10min
+OnUnitActiveSec=8h
+Unit=backup.service
+Persistent=true
+
+[Install]
+WantedBy=multi-user.target

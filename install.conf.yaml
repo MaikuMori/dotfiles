@@ -48,3 +48,7 @@
       path: config/base16-shell
     # Emacs ;).
     ~/.emacs.d: emacs.d
+    # Obnam - backups.
+    ~/.config/obnam:
+      create: yes
+      path: config/obnam
