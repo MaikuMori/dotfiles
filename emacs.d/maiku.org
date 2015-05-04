@@ -140,6 +140,19 @@ And couple more things.
 
 * Packages
 
+** [[Exec-Path-From-Shell]]
+
+#+BEGIN_SRC emacs-lisp
+  (use-package exec-path-from-shell
+    :init
+    ;; This makes sure that zsh prezto doesn't start tmux and mess up
+    ;; exec-path-from-shell.
+    (setenv "EMACS" "t")
+    (setq exec-path-from-shell-arguments '("-i"))
+    (when (memq window-system '(mac ns x))
+             (exec-path-from-shell-initialize)))
+#+END_SRC
+
 ** [[https://github.com/oneKelvinSmith/monokai-emacs][Monokai-Emacs]]
 
 I really like Monokai Theme so lets load it.
@@ -389,7 +402,7 @@ Auto-completion.
     :mode "\\.go\\'"
     :config
     (setq gofmt-command "goimports")
-
+    (exec-path-from-shell-copy-env "GOPATH")
     (add-hook 'go-mode-hook
               (lambda ()
                 (add-hook 'after-save-hook 'gofmt-before-save 'make-it-local))))

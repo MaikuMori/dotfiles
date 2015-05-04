@@ -9,6 +9,7 @@
 (depends-on "company-go")
 (depends-on "dash")
 (depends-on "diminish")
+(depends-on "exec-path-from-shell")
 (depends-on "flycheck")
 (depends-on "flycheck-cask")
 (depends-on "flycheck-color-mode-line")
