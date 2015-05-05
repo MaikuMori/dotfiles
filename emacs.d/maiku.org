@@ -219,6 +219,20 @@ This makes it much easier to undo things.
     :bind ("C-x g" . magit-status)
     :init
     (setq magit-last-seen-setup-instructions "1.4.0")
+
+    (defun mm/add-PR-fetch ()
+      "If refs/pull is not defined on a GH repo, define it."
+      (let ((fetch-address
+             "+refs/pull/*/head:refs/pull/origin/*")
+            (magit-remotes
+             (magit-get-all "remote" "origin" "fetch")))
+        (unless (or (not magit-remotes)
+                    (member fetch-address magit-remotes))
+          (when (string-match
+                 "github" (magit-get "remote" "origin" "url"))
+            (magit-git-string
+             "config" "--add" "remote.origin.fetch"
+             fetch-address)))))
     :config
     ;; Full screen magit-status.
     (add-hook 'magit-log-edit-mode-hook
@@ -228,7 +242,9 @@ This makes it much easier to undo things.
     ;; When commiting enable verbose mode by default.
     (advice-add #'magit-key-mode-popup-committing :after
                 (lambda ()
-                  (magit-key-mode-toggle-option (quote committing) "--verbose"))))
+                  (magit-key-mode-toggle-option (quote committing) "--verbose")))
+    ;; http://endlessparentheses.com/automatically-configure-magit-to-access-github-prs.html
+    (add-hook 'magit-mode-hook #'mm/add-PR-fetch))
 #+END_SRC
 
 ** [[https://github.com/emacs-helm/helm][Helm]]
