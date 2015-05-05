@@ -153,6 +153,18 @@ And couple more things.
              (exec-path-from-shell-initialize)))
 #+END_SRC
 
+** [[https://github.com/abo-abo/ace-window][Ace-Window]]
+
+#+BEGIN_SRC emacs-lisp
+  (use-package ace-window
+    :bind*   (("C-c SPC" . avi-goto-word-1)
+             ("M-p" . ace-window))
+    :config
+    (setq avi-keys
+          '(?a ?s ?d ?e ?f ?h ?j ?k ?l ?n ?m ?v ?r ?u))
+    (setq aw-keys '(?a ?s ?d ?f ?j ?k ?l)))
+#+END_SRC
+
 ** [[https://github.com/oneKelvinSmith/monokai-emacs][Monokai-Emacs]]
 
 I really like Monokai Theme so lets load it.

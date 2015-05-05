@@ -2,6 +2,7 @@
 (source melpa)
 (source org)
 
+(depends-on "ace-window")
 (depends-on "bind-key")
 (depends-on "cask")
 (depends-on "coffee-mode")
