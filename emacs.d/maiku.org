@@ -138,6 +138,22 @@ And couple more things.
   (add-to-list 'auto-mode-alist '("\\.automount\\'" . conf-unix-mode))
 #+END_SRC
 
+** Highlight comment annotations
+
+#+BEGIN_SRC emacs-lisp
+  ;; Shamelessly stolen from and modified:
+  ;; http://emacsredux.com/blog/2013/07/24/highlight-comment-annotations/
+  (defun mm/font-lock-comment-annotations ()
+    "Highlight a bunch of well known comment annotations.
+
+    This function should be added to the hooks of major modes for programming."
+    (font-lock-add-keywords
+     nil '(("\\<\\(FIX\\(ME\\)?\\|TODO\\|OPTIMIZE\\|XXX\\|HACK\\|REFACTOR\\):"
+            1 font-lock-warning-face t))))
+
+  (add-hook 'prog-mode-hook 'mm/font-lock-comment-annotations)
+#+END_SRC
+
 * Packages
 
 ** [[Exec-Path-From-Shell]]
