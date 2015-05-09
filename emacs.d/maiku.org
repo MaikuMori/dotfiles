@@ -415,7 +415,37 @@ whole line when no region is selected.
           org-confirm-babel-evaluate nil
           org-src-window-setup 'current-window
           org-refile-targets '((nil :maxlevel . 3)
-                               (org-agenda-files :maxlevel . 3))))
+                               (org-agenda-files :maxlevel . 3)))
+
+    (setq org-expiry-inactive-timestamps t)
+
+    (setq org-modules '(org-bbdb
+                        org-gnus
+                        org-drill
+                        org-info
+                        org-jsinfo
+                        org-habit
+                        org-irc
+                        org-mouse
+                        org-annotate-file
+                        org-eval
+                        org-expiry
+                        org-interactive-query
+                        org-man
+                        org-collector
+                        org-panel
+                        org-screen
+                        org-toc))
+    :config
+    (org-load-modules-maybe t))
+#+END_SRC
+
+*** [[https://github.com/sabof/org-bullets][Org-Bullets]]
+
+#+BEGIN_SRC emacs-lisp
+  (use-package org-bullets
+    :config
+    (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 #+END_SRC
 
 ** [[https://github.com/company-mode/company-mode][Company]]
