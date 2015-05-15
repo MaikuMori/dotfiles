@@ -531,6 +531,7 @@ Snippets
     :defer t)
 #+END_SRC
 
+** TODO Setup [[https://github.com/dgutov/diff-hl][diff-hl]]
 ** TODO [[https://github.com/magnars/multiple-cursors.el][Multiple-Cursors]]
 
 Multiple cursors for emacs.

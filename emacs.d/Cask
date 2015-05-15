@@ -9,6 +9,7 @@
 (depends-on "company")
 (depends-on "company-go")
 (depends-on "dash")
+(depends-on "diff-hl")
 (depends-on "diminish")
 (depends-on "exec-path-from-shell")
 (depends-on "flycheck")
