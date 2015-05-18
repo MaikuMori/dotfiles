@@ -475,6 +475,7 @@ Auto-completion.
 #+BEGIN_SRC emacs-lisp
   (use-package go-mode
     :mode "\\.go\\'"
+    :bind ("M-." . godef-jump)
     :config
     (setq gofmt-command "goimports")
     (exec-path-from-shell-copy-env "GOPATH")
