@@ -18,3 +18,9 @@ HostName 146.185.148.178
 IdentityFile ~/.ssh/protected_rsa
 LocalForward 8889 127.0.0.1:8888
 LocalForward 10001 127.0.0.1:3000
+
+Host archpc.local
+IdentityFile ~/.ssh/protected_rsa
+
+Host archbook.local
+IdentityFile ~/.ssh/protected_rsa
