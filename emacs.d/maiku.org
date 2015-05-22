@@ -532,6 +532,13 @@ Snippets
     :defer t)
 #+END_SRC
 
+** [[https://github.com/vspinu/imenu-anywhere][Imenu-Anywhere]]
+
+#+BEGIN_SRC emacs-lisp
+  (use-package imenu-anywhere
+    :bind ("C-." . helm-imenu-anywhere))
+#+END_SRC
+
 ** TODO Setup [[https://github.com/dgutov/diff-hl][diff-hl]]
 ** TODO [[https://github.com/magnars/multiple-cursors.el][Multiple-Cursors]]
 
