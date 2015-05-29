@@ -3,5 +3,5 @@ Description=Run obnam backup
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/obnam backup --lru-size=1024 --upload-queue-size=512
-ExecStartPost=/usr/bin/obnam forget --keep 24h,7d,15w,24m,99y
+ExecStart=/usr/bin/obnam backup
+ExecStartPost=/usr/bin/obnam forget
