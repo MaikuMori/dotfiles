@@ -1,11 +1,55 @@
-# Executes commands at the start of an interactive session.
+###############
+# ZSH OPTIONS #
+###############
 
-# Source Prezto.
+# Change dir by just typing it's name.
+setopt auto_cd
+# Auto pushd when changing directories.
+setopt auto_pushd
+# Don't push dublicate direcories.
+setopt pushd_ignore_dups
+# Careful `rm`s.
+setopt rm_star_wait
+# Timestamps and time in history.
+setopt extended_history
+# When cleaning history remove oldest dups first.
+setopt hist_expire_dups_first
+# Remove comand from history list if first char is space.
+setopt hist_ignore_space
+# Cleanup commands in history.
+setopt hist_reduce_blanks
+# Multiple streams automatically.
+setopt multios
+
+# Add our custom compleations.
+fpath=(~/.zcomplete $fpath)
+
+# When the current working directory changes,
+# run a method that checks for a .env file,
+# then sources it. Happy days.
+autoload -U add-zsh-hook
+load-local-conf() {
+    # Check file exists, is regular file and is readable:
+    if [[ -f .env && -r .env ]]; then
+        source .env
+    fi
+}
+add-zsh-hook chpwd load-local-conf
+
+
+##########
+# PREZTO #
+##########
+
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# ENV
+
+###############
+# ENVIRONMENT #
+###############
+
 export BROWSER='google-chrome-unstable'
 export EDITOR="emacsclient -t --socket-name /tmp/emacs1000/server"
 export GOPATH=$HOME/GoProjects
@@ -16,7 +60,12 @@ export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.gem/ruby/2.1.0/bin
 export PATH=$PATH:$HOME/.cask/bin
 
-# Alias
+export ATOM_REPOS_HOME=$HOME/Projects
+
+
+#########
+# ALIAS #
+#########
 
 # Emacs with correct daemon settings for Archlinux.
 alias e="emacsclient -t --socket-name /tmp/emacs1000/server"
@@ -36,21 +85,28 @@ alias pacup="sudo pacman -Syu"
 alias yaup="yaourt -Syua"
 
 # Fasd
-alias a='fasd -a'        # any
-alias s='fasd -si'       # show / search / select
-alias d='fasd -d'        # directory
-alias f='fasd -f'        # file
-alias sd='fasd -sid'     # interactive directory selection
-alias sf='fasd -sif'     # interactive file selection
-alias z='fasd_cd -d'     # cd, same functionality as j in autojump
-alias zz='fasd_cd -d -i' # cd with interactive selection
+alias a="fasd -a"        # any
+alias s="fasd -si"       # show / search / select
+alias d="fasd -d"        # directory
+alias f="fasd -f"        # file
+alias sd="fasd -sid"     # interactive directory selection
+alias sf="fasd -sif"     # interactive file selection
+alias z="fasd_cd -d"     # cd, same functionality as j in autojump
+alias zz="fasd_cd -d -i" # cd with interactive selection
 
 # npm
 alias npup="sudo npm -g update --python=/usr/bin/python"
 
-# Functions
+# Hub
+alias git="hub"
+
+
+#############
+# FUNCTIONS #
+#############
+
 lock() {
-    if [ $(ps aux | grep -e 'gnome-screensaver$' | grep -v grep | wc -l | tr -s "\n") -eq 0 ];
+    if [ $(ps aux | grep -e "gnome-screensaver$" | grep -v grep | wc -l | tr -s "\n") -eq 0 ];
     then
     ( gnome-screensaver &> /dev/null & );  fi
 
@@ -61,35 +117,25 @@ launch() {
     ( $* &> /dev/null & )
 }
 
-# VirtualEnvWrapper
+
+#####################
+# VIRTUALENVWRAPPER #
+#####################
+
 export WORKON_HOME=~/.virtualenvs
 export PROJECT_HOME=~/Projects
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 source /usr/bin/virtualenvwrapper.sh
 
-# When the current working directory changes,
-# run a method that checks for a .env file,
-# then sources it. Happy days.
-autoload -U add-zsh-hook
-load-local-conf() {
-    # Check file exists, is regular file and is readable:
-    if [[ -f .env && -r .env ]]; then
-        source .env
-    fi
-}
-add-zsh-hook chpwd load-local-conf
 
-# Shell colors.
+######
+# UI #
+######
+
 # Base16 Shell
 BASE16_SHELL=$HOME/.config/base16-shell/base16-monokai.dark.sh
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # Powerline
 powerline-daemon -q
-. /usr/share/zsh/site-contrib/powerline.zsh
-
-# Atom
-export ATOM_REPOS_HOME=$HOME/Projects
-
-# Hub
-eval "$(hub alias -s)"
+source /usr/share/zsh/site-contrib/powerline.zsh
