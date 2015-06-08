@@ -18,6 +18,10 @@
     # Our customizations.
     ~/.zpreztorc: zpreztorc
     ~/.zshrc: zshrc
+    # Hub completions.
+    ~/.zcomplete/_hub:
+        create: yes
+        path: /home/maiku/GoProjects/src/github.com/github/hub/etc/hub.zsh_completion
     # Tmux.
     ~/.tmux/plugins/tpm:
       create: yes
