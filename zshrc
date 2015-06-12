@@ -82,7 +82,7 @@ alias archrss="rsstail -u https://aur.archlinux.org/rss/ -n 10 -d -N -l"
 # Pacman
 alias pacman="sudo pacman"
 alias pacup="sudo pacman -Syu"
-alias yaup="yaourt -Syua"
+alias yaup="yaourt -Syua --noconfirm --devel"
 
 # Fasd
 alias a="fasd -a"        # any
@@ -105,18 +105,19 @@ alias git="hub"
 # FUNCTIONS #
 #############
 
-lock() {
-    if [ $(ps aux | grep -e "gnome-screensaver$" | grep -v grep | wc -l | tr -s "\n") -eq 0 ];
-    then
-    ( gnome-screensaver &> /dev/null & );  fi
-
-    gnome-screensaver-command -l
+# Update emacs plugins and restart emacs server.
+emup() {
+    pushd ~/dotfiles/emacs.d
+    cask update
+    cask upgrade
+    systemctl --user restart emacs
+    popd
 }
 
+# Launch and detach an app.
 launch() {
     ( $* &> /dev/null & )
 }
-
 
 #####################
 # VIRTUALENVWRAPPER #
@@ -139,3 +140,9 @@ BASE16_SHELL=$HOME/.config/base16-shell/base16-monokai.dark.sh
 # Powerline
 powerline-daemon -q
 source /usr/share/zsh/site-contrib/powerline.zsh
+
+#######
+# NVM #
+#######
+
+source /usr/share/nvm/init-nvm.sh
