@@ -3,6 +3,7 @@
 *.eld
 .cask
 .projectile
+.mc-lists.el
 auto-save-list
 elpa
 var

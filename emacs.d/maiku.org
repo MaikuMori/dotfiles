@@ -77,7 +77,7 @@ Disable menu and toolbars, scrollbar and startup splash screen.
         auto-save-interval 200)
 #+END_SRC
 
-** Keybindings
+** Key bindings
 
 #+BEGIN_SRC emacs-lisp
   (bind-keys
@@ -538,11 +538,23 @@ Snippets
   (use-package imenu-anywhere
     :bind ("C-." . helm-imenu-anywhere))
 #+END_SRC
+** [[https://github.com/magnars/multiple-cursors.el][Multiple-Cursors]]
 
+Multiple cursors for Emacs.
+
+#+BEGIN_SRC emacs-lisp
+(use-package multiple-cursors
+    :bind (("C-S-c C-S-c" . mc/edit-lines)
+           ("C->"         . mc/mark-next-like-this)
+           ("C-<"         . mc/mark-previous-like-this)
+           ("C-c C-<"     . mc/mark-all-like-this))
+    :config
+      (setq mc/list-file (expand-file-name "mc-lists.el" user-data-directory)))
+#+END_SRC
+
+** TODO [[https://github.com/bbatsov/projectile][Projectile]]
+[2015-06-03 Wed 12:05]
 ** TODO Setup [[https://github.com/dgutov/diff-hl][diff-hl]]
-** TODO [[https://github.com/magnars/multiple-cursors.el][Multiple-Cursors]]
-
-Multiple cursors for emacs.
 
 ** TODO [[https://github.com/doitian/iy-go-to-char][Iy-Go-To-Char]]
 
