@@ -12,6 +12,7 @@
 (depends-on "diff-hl")
 (depends-on "diminish")
 (depends-on "exec-path-from-shell")
+(depends-on "expand-region")
 (depends-on "flycheck")
 (depends-on "flycheck-cask")
 (depends-on "flycheck-color-mode-line")

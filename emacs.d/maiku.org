@@ -552,6 +552,14 @@ Multiple cursors for Emacs.
       (setq mc/list-file (expand-file-name "mc-lists.el" user-data-directory)))
 #+END_SRC
 
+** [[https://github.com/magnars/expand-region.el][Expand-Region]]
+
+#+BEGIN_SRC emacs-lisp
+(use-package expand-region
+  :bind (("C-=" . er/expand-region)
+         ("C--" . er/contract-region)))
+#+END_SRC
+
 ** TODO [[https://github.com/bbatsov/projectile][Projectile]]
 [2015-06-03 Wed 12:05]
 ** TODO Setup [[https://github.com/dgutov/diff-hl][diff-hl]]
