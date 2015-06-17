@@ -4,10 +4,13 @@
   - '~/.tmux/plugins'
 
 - shell:
-  - [mkdir -p ~/Projects ~/GoProjects, Create directory structure]
+  - [mkdir -p ~/Projects ~/GoProjects, Create directory structure (projects)]
+  - [mkdir -p ~/pacman/package ~/pacman/source ~/pacman/srcpackages, Create directory structure (pacman)]
   - [git submodule update --init --recursive, Installing submodules]
 
 - link:
+    # Pacman.
+    ~/.makepkg.conf: makepkg.conf
     # Z shell.
     ~/.zprezto: prezto
     # We don't change these.
