@@ -236,7 +236,9 @@ This makes it much easier to undo things.
   :config
   ;; When commiting enable verbose mode by default.
   (setq magit-commit-arguments (quote ("--verbose")))
-  ;; http://endlessparentheses.com/automatically-configure-magit-to-access-github-prs.html
+  ;; Turn on Flyspell when writing commit messages.
+  (add-hook 'git-commit-setup-hook #'git-commit-turn-on-flyspell)
+  ;; Http://endlessparentheses.com/automatically-configure-magit-to-access-github-prs.html
   (add-hook 'magit-mode-hook #'mm/add-PR-fetch))
 #+END_SRC
 
