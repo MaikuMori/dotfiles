@@ -145,4 +145,6 @@ source /usr/share/zsh/site-contrib/powerline.zsh
 # NVM #
 #######
 
-source /usr/share/nvm/init-nvm.sh
+if [ -f /usr/share/nvm/init-nvm.sh ] then
+   source /usr/share/nvm/init-nvm.sh
+fi
