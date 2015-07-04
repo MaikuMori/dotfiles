@@ -443,6 +443,26 @@ whole line when no region is selected.
     (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 #+END_SRC
 
+** [[http://orgmode.org/worg/org-tutorials/encrypting-files.html][Org-Crypt]]
+
+#+BEGIN_SRC emacs-lisp
+(use-package org-crypt
+  :config
+  (org-crypt-use-before-save-magic)
+  (setq org-tags-exclude-from-inheritance (quote ("crypt"))
+        org-crypt-key (quote "24481BFA")))
+#+END_SRC
+
+** [[https://github.com/bastibe/org-journal][Org-Journal]]
+
+#+BEGIN_SRC emacs-lisp
+(use-package org-journal
+  :config
+  (setq org-journal-dir "~/Journal"
+        org-journal-file-format "%Y-%m-%d.org"
+        org-journal-enable-encryption t))
+#+END_SRC
+
 ** [[https://github.com/company-mode/company-mode][Company]]
 
 Auto-completion.

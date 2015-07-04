@@ -30,6 +30,7 @@
 (depends-on "monokai-theme")
 (depends-on "multiple-cursors")
 (depends-on "org-bullets")
+(depends-on "org-journal")
 (depends-on "org-plus-contrib")
 (depends-on "pallet")
 (depends-on "paredit")
