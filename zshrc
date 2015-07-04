@@ -123,11 +123,12 @@ launch() {
 # VIRTUALENVWRAPPER #
 #####################
 
-export WORKON_HOME=~/.virtualenvs
-export PROJECT_HOME=~/Projects
-export VIRTUAL_ENV_DISABLE_PROMPT=true
-source /usr/bin/virtualenvwrapper.sh
-
+if [ -f /usr/bin/virtualenvwrapper.sh ]; then
+   export WORKON_HOME=~/.virtualenvs
+   export PROJECT_HOME=~/Projects
+   export VIRTUAL_ENV_DISABLE_PROMPT=true
+   source /usr/bin/virtualenvwrapper.sh
+fi
 
 ######
 # UI #
@@ -138,8 +139,10 @@ BASE16_SHELL=$HOME/.config/base16-shell/base16-monokai.dark.sh
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # Powerline
-powerline-daemon -q
-source /usr/share/zsh/site-contrib/powerline.zsh
+if [ -f /usr/share/zsh/site-contrib/powerline.zsh ]; then
+   powerline-daemon -q
+   source /usr/share/zsh/site-contrib/powerline.zsh
+fi
 
 #######
 # NVM #
