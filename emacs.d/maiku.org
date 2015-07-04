@@ -105,19 +105,30 @@ Mouse ... can be useful sometimes.
 And couple more things.
 
 #+BEGIN_SRC emacs-lisp
-  (setq-default indent-tabs-mode nil)
-  (setq x-select-enable-clipboard t
-        tab-width 4
-        x-select-enable-primary t
-        gc-cons-threshold 50000000
-        save-interprogram-paste-before-kill t
-        apropos-do-all t
-        mouse-yank-at-point t
-        require-final-newline t
-        visible-bell t
-        load-prefer-newer t
-        ediff-window-setup-function 'ediff-setup-windows-plain)
-  (fringe-mode 8)
+(defun mm/bell-function ()
+  "Filter out common things that cause bell and ignore them."
+  (unless (memq this-command
+        '(isearch-abort abort-recursive-edit exit-minibuffer
+              keyboard-quit mwheel-scroll down up next-line previous-line
+              backward-char forward-char))
+    (ding)))
+
+(setq-default indent-tabs-mode nil)
+(setq x-select-enable-clipboard t
+      tab-width 4
+      x-select-enable-primary t
+      gc-cons-threshold 50000000
+      save-interprogram-paste-before-kill t
+      apropos-do-all t
+      mouse-yank-at-point t
+      require-final-newline t
+      visible-bell nil
+      ring-bell-function 'mm/bell-function
+      load-prefer-newer t
+      ediff-window-setup-function 'ediff-setup-windows-plain)
+(fringe-mode 8)
+;; Auto revert if no changes in buffer.
+(global-auto-revert-mode t)
 #+END_SRC
 
 ** Systemd files
