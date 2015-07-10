@@ -166,6 +166,29 @@ And couple more things.
   (add-hook 'prog-mode-hook 'mm/font-lock-comment-annotations)
 #+END_SRC
 
+** Open file as root
+
+#+BEGIN_SRC emacs-lisp
+(defun mm/open-as-root (filename)
+  "Open file as root."
+  (interactive)
+  (find-file (concat "/sudo:root@localhost:"  filename)))
+
+(defun mm/open-buffer-as-root ()
+  "Reopen current buffer as root."
+ (interactive)
+ (let
+     (
+      ;; Get the current buffer file name
+      (filename (buffer-file-name (current-buffer)))
+      ;; Get the current file name
+      (bufname  (buffer-name (current-buffer)))
+     )
+   (progn
+  (kill-buffer bufname)         ;; Kill current buffer
+  (open-as-root filename))))    ;; Open File as root
+#+END_SRC
+
 * Packages
 ** [[Exec-Path-From-Shell]]
 
