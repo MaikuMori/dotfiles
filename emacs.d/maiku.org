@@ -9,6 +9,24 @@
 All custom functions, variables and macros are namespaced using ~mm/~
 prefix.
 
+** List of other Emacs configurations from which I find inspiration
+
+- https://github.com/abo-abo/oremacs
+- https://github.com/bbatsov/prelude
+- https://github.com/overtone/emacs-live
+- https://github.com/syl20bnr/spacemacs
+- https://github.com/purcell/emacs.d
+- http://doc.norang.ca/org-mode.html
+- http://doc.rix.si/org/fsem.html
+- http://writequit.org/org/settings.html
+- http://mescal.imag.fr/membres/arnaud.legrand/misc/init.php
+- http://pages.sachachua.com/.emacs.d/Sacha.html
+- https://github.com/noahfrederick/dots/blob/master/emacs.d/emacs.org
+- https://github.com/jonnay/emagicians-starter-kit/blob/master/Emagician-Org.org
+- https://github.com/cycojesus/emacs/blob/master/babel-init.org
+- https://github.com/samertm/.emacs.d
+- https://github.com/magnars/.emacs.d
+
 * Bootstrap
 ** Directories
 
