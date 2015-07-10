@@ -4,6 +4,7 @@
 .cask
 .projectile
 .mc-lists.el
+.org-id-locations
 auto-save-list
 elpa
 var
