@@ -25,6 +25,7 @@ prefix.
 - https://github.com/cycojesus/emacs/blob/master/babel-init.org
 - https://github.com/samertm/.emacs.d
 - https://github.com/magnars/.emacs.d
+- http://tuhdo.github.io/emacs-tutor3.html
 
 * Bootstrap
 ** Directories
@@ -643,6 +644,9 @@ Multiple cursors for Emacs.
          ("C--" . er/contract-region)))
 #+END_SRC
 
+** TODO [[https://github.com/fxbois/web-mode][Web-Mode]]
+
+[2015-07-11 Sat 01:24]
 ** TODO [[https://github.com/bbatsov/projectile][Projectile]]
 [2015-06-03 Wed 12:05]
 ** TODO Setup [[https://github.com/dgutov/diff-hl][diff-hl]]
@@ -655,6 +659,14 @@ Go to next CHAR which is similar to ~f~ and ~t~ in Vim.
 
 This one looks nice.
 
+** TODO [[https://github.com/syl20bnr/emacs-emoji-cheat-sheet-plus][Emacs-Emoji-Cheat-Sheet-Plus]]
+[2015-07-11 Sat 01:23]
+
+** TODO [[https://github.com/steckerhalter/discover-my-major][Discover-My-Major]]
+
+Not sure about this one. I already have ~helm-descbinds~.
+
+[2015-07-11 Sat 01:31]
 * Notes
 ** TODO Notification: This could be useful later.
 
