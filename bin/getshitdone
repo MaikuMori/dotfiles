@@ -1,0 +1,59 @@
+#!/bin/bash
+
+# Shamelessly stolen from @skazhy:
+# https://github.com/skazhy/dotfiles/blob/master/Zsh/get-shit-done/gsd.sh
+# Modified according to my own needs.
+
+# A super simple version of the "get-shit-done" thing.
+
+GSD_BLACKLIST=(
+    'facebook.com'
+    'news.ycombinator.com'
+    'reddit.com'
+    'twitter.com'
+    'youtube.com'
+)
+
+hosts_file="/etc/hosts"
+hosts_bak="/etc/hosts.bak"
+
+# Ensure we're running as root.
+function ensure_root() {
+    if [ "$(id -u)" != "0" ]; then
+        exec sudo "$0" "$@"
+    fi
+}
+
+function work() {
+    if grep "## getting shit done" $hosts_file &> /dev/null; then
+        exit 1
+    fi
+
+    cp $hosts_file $hosts_bak
+
+    echo "## getting shit done" >> $hosts_file
+
+    for site in "${GSD_BLACKLIST[@]}"
+    do
+        echo "127.0.0.1 $site" >> $hosts_file
+        echo "127.0.0.1 www.$site" >> $hosts_file
+    done
+}
+
+function play() {
+    if [ -f $hosts_bak ]; then
+        mv $hosts_bak $hosts_file
+    fi
+}
+
+case "$1" in
+    "work")
+        ensure_root $@
+        work
+        ;;
+    "play")
+        ensure_root $@
+        play
+        ;;
+    *) echo "usage: getshitdone [work|play]!" ;;
+esac
