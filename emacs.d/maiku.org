@@ -106,6 +106,19 @@ Disable menu and toolbars, scrollbar and startup splash screen.
     ("C-M-r" . isearch-backward))
 #+END_SRC
 
+** Font
+
+Trying out ~Source Code Pro~. I usually find it too wide, but lets
+give it a proper try.
+
+#+BEGIN_SRC emacs-lisp
+(set-face-attribute 'default nil
+                    :family "Source Code Pro for Powerline"
+                    :height 120
+                    :weight 'normal
+                    :width 'normal)
+#+END_SRC
+
 ** Misc
 
 Answering ~y~ and ~n~ is enough.
