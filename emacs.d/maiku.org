@@ -133,6 +133,12 @@ Mouse ... can be useful sometimes.
   (xterm-mouse-mode t)
 #+END_SRC
 
+Prefer UTF-8 encoding.
+
+#+BEGIN_SRC emacs-lisp
+(prefer-coding-system 'utf-8)
+#+END_SRC
+
 And couple more things.
 
 #+BEGIN_SRC emacs-lisp
