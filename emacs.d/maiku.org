@@ -26,6 +26,7 @@ prefix.
 - https://github.com/samertm/.emacs.d
 - https://github.com/magnars/.emacs.d
 - http://tuhdo.github.io/emacs-tutor3.html
+- https://github.com/grettke/home/blob/master/.emacs.el
 
 * Bootstrap
 ** Directories
@@ -149,6 +150,9 @@ And couple more things.
               keyboard-quit mwheel-scroll down up next-line previous-line
               backward-char forward-char))
     (ding)))
+
+;;keep cursor at same position when scrolling
+(setq scroll-preserve-screen-position 1)
 
 (setq-default indent-tabs-mode nil)
 (setq x-select-enable-clipboard t
