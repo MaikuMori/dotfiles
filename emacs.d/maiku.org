@@ -686,6 +686,18 @@ Multiple cursors for Emacs.
          ("C--" . er/contract-region)))
 #+END_SRC
 
+** [[https://github.com/adamrt/sane-term][Sane-Term]]
+
+A sane wrapper around `ansi-term`.
+
+#+BEGIN_SRC emacs-lisp
+(use-package sane-term
+  :bind (("C-c t" . sane-term)
+         ("C-c T" . sane-term-create))
+  :config
+  (setq sane-term-shell-command "/bin/zsh"))
+#+END_SRC
+
 ** TODO [[https://github.com/fxbois/web-mode][Web-Mode]]
 
 [2015-07-11 Sat 01:24]
