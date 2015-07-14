@@ -210,6 +210,19 @@ And couple more things.
 
 There is also [[http://ergoemacs.org/emacs/speck.el][speck.el]], maybe I'll try it at some point.
 
+** Save on focus loss                                           :experiment:
+
+This will save buffers as soon as Emacs loses focus. I've had the same
+behavior in some other editors and it was fine apart from some small
+hiccups.
+
+#+BEGIN_SRC emacs-lisp
+(defun mm/save-all ()
+  (interactive)
+  (save-some-buffers t))
+(add-hook 'focus-out-hook 'mm/save-all)
+#+END_SRC
+
 ** Highlight comment annotations
 
 #+BEGIN_SRC emacs-lisp
