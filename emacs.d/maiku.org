@@ -686,6 +686,14 @@ Multiple cursors for Emacs.
          ("C--" . er/contract-region)))
 #+END_SRC
 
+** [[https://github.com/Fanael/rainbow-delimiters][Rainbow-Delimiters]]
+
+#+BEGIN_SRC emacs-lisp
+(use-package rainbow-delimiters
+  :init
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+#+END_SRC
+
 ** [[https://github.com/adamrt/sane-term][Sane-Term]]
 
 A sane wrapper around `ansi-term`.
