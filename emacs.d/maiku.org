@@ -35,11 +35,11 @@ I keep any Elisp files not installed from a package repository in the
 =vendor/= directory:
 
 #+BEGIN_SRC emacs-lisp
-  ;; Nothing there yet so commented out.
-  ;; (defvar mm/vendor-directory (concat user-emacs-directory "vendor/"))
-  ;; (let ((default-directory mm/vendor-directory))
-  ;;   (normal-top-level-add-to-load-path '("."))
-  ;;   (normal-top-level-add-subdirs-to-load-path))
+;; Nothing there yet so commented out.
+;; (defvar mm/vendor-directory (concat user-emacs-directory "vendor/"))
+;; (let ((default-directory mm/vendor-directory))
+;;   (normal-top-level-add-to-load-path '("."))
+;;   (normal-top-level-add-subdirs-to-load-path))
 #+END_SRC
 
 ** Packages
@@ -49,11 +49,11 @@ before I can use it, I need to install it and couple other
 dependencies.
 
 #+BEGIN_SRC emacs-lisp
-  (defvar use-package-verbose t)
-  (eval-when-compile
-    (require 'use-package))
-  (require 'bind-key)
-  (require 'diminish)
+(defvar use-package-verbose t)
+(eval-when-compile
+  (require 'use-package))
+(require 'bind-key)
+(require 'diminish)
 #+END_SRC
 
 * Configuration
@@ -65,8 +65,8 @@ Basic non-package configuration.
 Tell Emacs a little bit about myself.
 
 #+BEGIN_SRC emacs-lisp
-  (setq user-full-name "Miks Kalniņš")
-  (setq user-mail-address "mikskalnins@maikumori.com")
+(setq user-full-name "Miks Kalniņš")
+(setq user-mail-address "mikskalnins@maikumori.com")
 #+END_SRC
 
 ** Disable silly things
@@ -74,37 +74,37 @@ Tell Emacs a little bit about myself.
 Disable menu and toolbars, scrollbar and startup splash screen.
 
 #+BEGIN_SRC emacs-lisp
-  (menu-bar-mode -1)
-  (tool-bar-mode -1)
-  (scroll-bar-mode -1)
-  (setq inhibit-startup-message t)
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(setq inhibit-startup-message t)
 #+END_SRC
 
 ** Backups
 
 #+BEGIN_SRC emacs-lisp
-  (setq backup-directory-alist '(("." . "~/.saves")))
-  (setq make-backup-files t
-        backup-by-copying t
-        version-control t
-        delete-old-versions t
-        delete-by-moving-to-trash t
-        kept-old-versions 6
-        kept-new-versions 9
-        auto-save-default t
-        auto-save-timeout 20
-        auto-save-interval 200)
+(setq backup-directory-alist '(("." . "~/.saves")))
+(setq make-backup-files t
+      backup-by-copying t
+      version-control t
+      delete-old-versions t
+      delete-by-moving-to-trash t
+      kept-old-versions 6
+      kept-new-versions 9
+      auto-save-default t
+      auto-save-timeout 20
+      auto-save-interval 200)
 #+END_SRC
 
 ** Key bindings
 
 #+BEGIN_SRC emacs-lisp
-  (bind-keys
-    ("M-/" . hippie-expand)
-    ("C-s" . isearch-forward-regexp)
-    ("C-r" . isearch-backward-regexp)
-    ("C-M-s" . isearch-forward)
-    ("C-M-r" . isearch-backward))
+(bind-keys
+  ("M-/" . hippie-expand)
+  ("C-s" . isearch-forward-regexp)
+  ("C-r" . isearch-backward-regexp)
+  ("C-M-s" . isearch-forward)
+  ("C-M-r" . isearch-backward))
 #+END_SRC
 
 ** Font
@@ -125,13 +125,13 @@ give it a proper try.
 Answering ~y~ and ~n~ is enough.
 
 #+BEGIN_SRC emacs-lisp
-  (defalias 'yes-or-no-p 'y-or-n-p)
+(defalias 'yes-or-no-p 'y-or-n-p)
 #+END_SRC
 
 Mouse ... can be useful sometimes.
 
 #+BEGIN_SRC emacs-lisp
-  (xterm-mouse-mode t)
+(xterm-mouse-mode t)
 #+END_SRC
 
 Prefer UTF-8 encoding.
@@ -230,17 +230,17 @@ hiccups.
 ** Highlight comment annotations
 
 #+BEGIN_SRC emacs-lisp
-  ;; Shamelessly stolen from and modified:
-  ;; http://emacsredux.com/blog/2013/07/24/highlight-comment-annotations/
-  (defun mm/font-lock-comment-annotations ()
-    "Highlight a bunch of well known comment annotations.
+;; Shamelessly stolen from and modified:
+;; http://emacsredux.com/blog/2013/07/24/highlight-comment-annotations/
+(defun mm/font-lock-comment-annotations ()
+  "Highlight a bunch of well known comment annotations.
 
-    This function should be added to the hooks of major modes for programming."
-    (font-lock-add-keywords
-     nil '(("\\<\\(FIX\\(ME\\)?\\|TODO\\|OPTIMIZE\\|XXX\\|HACK\\|REFACTOR\\):"
-            1 font-lock-warning-face t))))
+  This function should be added to the hooks of major modes for programming."
+  (font-lock-add-keywords
+   nil '(("\\<\\(FIX\\(ME\\)?\\|TODO\\|OPTIMIZE\\|XXX\\|HACK\\|REFACTOR\\):"
+          1 font-lock-warning-face t))))
 
-  (add-hook 'prog-mode-hook 'mm/font-lock-comment-annotations)
+(add-hook 'prog-mode-hook 'mm/font-lock-comment-annotations)
 #+END_SRC
 
 ** Open file as root
@@ -270,26 +270,26 @@ hiccups.
 ** [[Exec-Path-From-Shell]]
 
 #+BEGIN_SRC emacs-lisp
-  (use-package exec-path-from-shell
-    :init
-    ;; This makes sure that zsh prezto doesn't start tmux and mess up
-    ;; exec-path-from-shell.
-    (setenv "EMACS" "t")
-    (setq exec-path-from-shell-arguments '("-i"))
-    (when (memq window-system '(mac ns x))
-             (exec-path-from-shell-initialize)))
+(use-package exec-path-from-shell
+  :init
+  ;; This makes sure that zsh prezto doesn't start tmux and mess up
+  ;; exec-path-from-shell.
+  (setenv "EMACS" "t")
+  (setq exec-path-from-shell-arguments '("-i"))
+  (when (memq window-system '(mac ns x))
+           (exec-path-from-shell-initialize)))
 #+END_SRC
 
 ** [[https://github.com/abo-abo/ace-window][Ace-Window]]
 
 #+BEGIN_SRC emacs-lisp
-  (use-package ace-window
-    :bind*   (("C-c SPC" . avi-goto-word-1)
-             ("M-p" . ace-window))
-    :config
-    (setq avi-keys
-          '(?a ?s ?d ?e ?f ?h ?j ?k ?l ?n ?m ?v ?r ?u))
-    (setq aw-keys '(?a ?s ?d ?f ?j ?k ?l)))
+(use-package ace-window
+  :bind*   (("C-c SPC" . avi-goto-word-1)
+           ("M-p" . ace-window))
+  :config
+  (setq avi-keys
+        '(?a ?s ?d ?e ?f ?h ?j ?k ?l ?n ?m ?v ?r ?u))
+  (setq aw-keys '(?a ?s ?d ?f ?j ?k ?l)))
 #+END_SRC
 
 ** [[https://github.com/oneKelvinSmith/monokai-emacs][Monokai-Emacs]]
@@ -297,7 +297,7 @@ hiccups.
 I really like Monokai Theme so lets load it.
 
 #+BEGIN_SRC emacs-lisp
-  (load-theme 'monokai t)
+(load-theme 'monokai t)
 #+END_SRC
 
 ** [[https://github.com/milkypostman/powerline][Powerline]]
@@ -305,9 +305,9 @@ I really like Monokai Theme so lets load it.
 I also like powerline so lets use that as well.
 
 #+BEGIN_SRC emacs-lisp
-  (use-package powerline
-    :config
-    (powerline-default-theme))
+(use-package powerline
+  :config
+  (powerline-default-theme))
 #+END_SRC
 
 ** [[http://www.dr-qubit.org/emacs.php#undo-tree][Undo-Tree]]
@@ -315,12 +315,12 @@ I also like powerline so lets use that as well.
 This makes it much easier to undo things.
 
 #+BEGIN_SRC emacs-lisp
-  (use-package undo-tree
-    :diminish undo-tree-mode
-    :config
-    (global-undo-tree-mode)
-    (setq undo-tree-visualizer-timestamps t
-          undo-tree-visualizer-diff       t))
+(use-package undo-tree
+  :diminish undo-tree-mode
+  :config
+  (global-undo-tree-mode)
+  (setq undo-tree-visualizer-timestamps t
+        undo-tree-visualizer-diff       t))
 #+END_SRC
 
 ** [[https://github.com/magit/magit][Magit]]
@@ -434,9 +434,9 @@ This makes it much easier to undo things.
 *** [[https://github.com/emacs-helm/helm-descbinds][Helm-Descbinds]]
 
 #+BEGIN_SRC emacs-lisp
-  (use-package helm-descbinds
-    :config
-    (helm-descbinds-mode))
+(use-package helm-descbinds
+  :config
+  (helm-descbinds-mode))
 #+END_SRC
 
 *** TODO Add `:map helm-map` when map keyword is implemented.
@@ -444,10 +444,10 @@ This makes it much easier to undo things.
 ** [[http://jblevins.org/projects/markdown-mode/][Markdown-mode]]
 
 #+BEGIN_SRC emacs-lisp
-  (use-package markdown-mode
-    :mode (("\\`README\\.md\\'" . gfm-mode)
-           ("\\.md\\'"          . markdown-mode)
-           ("\\.markdown\\'"    . markdown-mode)))
+(use-package markdown-mode
+  :mode (("\\`README\\.md\\'" . gfm-mode)
+         ("\\.md\\'"          . markdown-mode)
+         ("\\.markdown\\'"    . markdown-mode)))
 #+END_SRC
 
 ** [[https://github.com/lewang/ws-butler][WS-Buttler]]
@@ -455,29 +455,29 @@ This makes it much easier to undo things.
 Automatically removes trailing whitespaces.
 
 #+BEGIN_SRC emacs-lisp
-  (use-package ws-butler
-    :diminish ws-butler-mode
-    :config
-    (ws-butler-global-mode t))
+(use-package ws-butler
+  :diminish ws-butler-mode
+  :config
+  (ws-butler-global-mode t))
 #+END_SRC
 
 ** [[https://github.com/flycheck/flycheck][Flycheck]]
 
 #+BEGIN_SRC emacs-lisp
-  (use-package flycheck
-    :defer 3
+(use-package flycheck
+  :defer 3
+  :config
+  (defalias 'flycheck-show-error-at-point-soon 'flycheck-show-error-at-point)
+
+  (use-package flycheck-cask
     :config
-    (defalias 'flycheck-show-error-at-point-soon 'flycheck-show-error-at-point)
+    (add-hook 'flycheck-mode-hook #'flycheck-cask-setup))
 
-    (use-package flycheck-cask
-      :config
-      (add-hook 'flycheck-mode-hook #'flycheck-cask-setup))
+  (use-package flycheck-color-mode-line
+    :config
+    (add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
 
-    (use-package flycheck-color-mode-line
-      :config
-      (add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
-
-    (global-flycheck-mode t))
+  (global-flycheck-mode t))
 #+END_SRC
 
 *** TODO Disable it in some modes (like Org+Src)
@@ -485,18 +485,18 @@ Automatically removes trailing whitespaces.
 ** [[http://www.emacswiki.org/emacs/ParEdit][Paredit]]
 
 #+BEGIN_SRC emacs-lisp
-  (use-package paredit
-    :commands paredit-mode
-    :diminish paredit-mode
-    :init
-    (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
-    (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
-    (add-hook 'ielm-mode-hook             #'enable-paredit-mode)
-    (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
-    (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
-    (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+(use-package paredit
+  :commands paredit-mode
+  :diminish paredit-mode
+  :init
+  (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
+  (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+  (add-hook 'ielm-mode-hook             #'enable-paredit-mode)
+  (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
+  (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+  (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
 
-    (add-hook 'emacs-lisp-mode-hook       #'show-paren-mode))
+  (add-hook 'emacs-lisp-mode-hook       #'show-paren-mode))
 #+END_SRC
 
 ** [[https://github.com/purcell/whole-line-or-region][Whole-Line-Or-Region]]
@@ -505,20 +505,20 @@ This one is a must have at least for me. I'm so used to ~cut~ cutting
 whole line when no region is selected.
 
 #+BEGIN_SRC emacs-lisp
-  (use-package whole-line-or-region
-    :diminish whole-line-or-region-mode
-    :config
-    (whole-line-or-region-mode t))
+(use-package whole-line-or-region
+  :diminish whole-line-or-region-mode
+  :config
+  (whole-line-or-region-mode t))
 #+END_SRC
 
 ** [[https://github.com/defunkt/coffee-mode][Coffee-Mode]]
 
 #+BEGIN_SRC emacs-lisp
-  (use-package coffee-mode
-    :init
-    (setq flycheck-coffeelintrc "coffeelint.json")
-    (setq coffee-tab-width 2)
-    :mode "\\.coffee\\'")
+(use-package coffee-mode
+  :init
+  (setq flycheck-coffeelintrc "coffeelint.json")
+  (setq coffee-tab-width 2)
+  :mode "\\.coffee\\'")
 #+END_SRC
 
 ** [[http://orgmode.org/][Org-Mode]]
@@ -566,9 +566,10 @@ whole line when no region is selected.
 *** [[https://github.com/sabof/org-bullets][Org-Bullets]]
 
 #+BEGIN_SRC emacs-lisp
-  (use-package org-bullets
-    :config
-    (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+(use-package org-bullets
+  :commands org-bullets-mode
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 #+END_SRC
 
 ** [[http://orgmode.org/worg/org-tutorials/encrypting-files.html][Org-Crypt]]
@@ -596,43 +597,44 @@ whole line when no region is selected.
 Auto-completion.
 
 #+BEGIN_SRC emacs-lisp
-  (use-package company
-    :diminish company-mode
-    :config
-    (global-company-mode))
+(use-package company
+  :diminish company-mode
+  :config
+  (global-company-mode))
 #+END_SRC
 
 *** [[https://github.com/nsf/gocode/tree/master/emacs-company][Company-Go]]
 
 #+BEGIN_SRC emacs-lisp
-  (use-package company-go
-    :config
-    (add-to-list 'company-backends 'company-go)
+(use-package company-go
+  :config
+  (add-to-list 'company-backends 'company-go)
 
-    (setq company-go-begin-after-member-access t
-          company-go-show-annotation t))
+  (setq company-go-begin-after-member-access t
+        company-go-show-annotation t))
 #+END_SRC
 
 ** [[https://github.com/moninikh/go-mode.el][Go-Mode]]
 
 #+BEGIN_SRC emacs-lisp
-  (use-package go-mode
-    :mode "\\.go\\'"
-    :bind ("M-." . godef-jump)
-    :config
-    (setq gofmt-command "goimports")
-    (exec-path-from-shell-copy-env "GOPATH")
-    (add-hook 'go-mode-hook
-              (lambda ()
-                (add-hook 'after-save-hook 'gofmt-before-save 'make-it-local))))
+(use-package go-mode
+  :mode "\\.go\\'"
+  :bind ("M-." . godef-jump)
+  :config
+  (setq gofmt-command "goimports")
+  (exec-path-from-shell-copy-env "GOPATH")
+  (add-hook 'go-mode-hook
+            (lambda ()
+              (add-hook 'after-save-hook 'gofmt-before-save 'make-it-local))))
 #+END_SRC
 
 ** [[https://github.com/syohex/emacs-go-eldoc][Go-Eldoc]]
 
 #+BEGIN_SRC emacs-lisp
-  (use-package go-eldoc
-        :config
-        (add-hook 'go-mode-hook 'go-eldoc-setup))
+(use-package go-eldoc
+  :commands go-eldoc-setup
+  :config
+  (add-hook 'go-mode-hook 'go-eldoc-setup))
 #+END_SRC
 
 ** [[https://github.com/capitaomorte/yasnippet][Yasnippet]]
@@ -640,46 +642,46 @@ Auto-completion.
 Snippets
 
 #+BEGIN_SRC emacs-lisp
-  (use-package yasnippet
-    :diminish yas-minor-mode
-    :mode ("/\\.emacs\\.d/snippets/" . snippet-mode)
-    :config
-    (yas-load-directory "~/.emacs.d/snippets/")
-    (yas-global-mode 1))
+(use-package yasnippet
+  :diminish yas-minor-mode
+  :mode ("/\\.emacs\\.d/snippets/" . snippet-mode)
+  :config
+  (yas-load-directory "~/.emacs.d/snippets/")
+  (yas-global-mode 1))
 #+END_SRC
 
-*** Add custom snippets.
+*** TODO Add custom snippets.
 
 ** [[https://github.com/kai2nenobu/guide-key][Guide-Key]]
 
 #+BEGIN_SRC emacs-lisp
-  (use-package guide-key
-    :diminish guide-key-mode
-    :config
-    (setq guide-key/guide-key-sequence '("C-x r"
-                                         "C-x 4"
-                                         "C-c"))
-    (setq guide-key/recursive-key-sequence-flag t)
-    (guide-key-mode 1)
+(use-package guide-key
+  :diminish guide-key-mode
+  :config
+  (setq guide-key/guide-key-sequence '("C-x r"
+                                       "C-x 4"
+                                       "C-c"))
+  (setq guide-key/recursive-key-sequence-flag t)
+  (guide-key-mode 1)
 
-    ;; https://github.com/aki2o/guide-key-tip
-    (use-package guide-key-tip
-      :config
-      (setq guide-key-tip/enabled t)))
+  ;; https://github.com/aki2o/guide-key-tip
+  (use-package guide-key-tip
+    :config
+    (setq guide-key-tip/enabled t)))
 #+END_SRC
 
 ** [[https://github.com/defunkt/gist.el][Gist]]
 
 #+BEGIN_SRC emacs-lisp
-  (use-package gist
-    :defer t)
+(use-package gist
+  :defer t)
 #+END_SRC
 
 ** [[https://github.com/vspinu/imenu-anywhere][Imenu-Anywhere]]
 
 #+BEGIN_SRC emacs-lisp
-  (use-package imenu-anywhere
-    :bind ("C-." . helm-imenu-anywhere))
+(use-package imenu-anywhere
+  :bind ("C-." . helm-imenu-anywhere))
 #+END_SRC
 ** [[https://github.com/magnars/multiple-cursors.el][Multiple-Cursors]]
 
@@ -692,7 +694,7 @@ Multiple cursors for Emacs.
            ("C-<"         . mc/mark-previous-like-this)
            ("C-c C-<"     . mc/mark-all-like-this))
     :config
-      (setq mc/list-file (expand-file-name "mc-lists.el" user-data-directory)))
+    (setq mc/list-file (expand-file-name "mc-lists.el" user-data-directory)))
 #+END_SRC
 
 ** [[https://github.com/magnars/expand-region.el][Expand-Region]]
@@ -707,8 +709,9 @@ Multiple cursors for Emacs.
 
 #+BEGIN_SRC emacs-lisp
 (use-package rainbow-delimiters
+  :commands rainbow-delimiters-mode
   :init
-  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 #+END_SRC
 
 ** [[https://github.com/adamrt/sane-term][Sane-Term]]
