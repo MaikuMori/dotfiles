@@ -154,6 +154,7 @@ And couple more things.
 ;;keep cursor at same position when scrolling
 (setq scroll-preserve-screen-position 1)
 
+(setq-default cursor-type 'bar)
 (setq-default indent-tabs-mode nil)
 (setq x-select-enable-clipboard t
       tab-width 4
