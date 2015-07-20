@@ -169,6 +169,9 @@ And couple more things.
       load-prefer-newer t
       ediff-window-setup-function 'ediff-setup-windows-plain)
 (fringe-mode 8)
+;; More natural way of handling regions.
+;; If text is selected and you type/paste the region is deleted.
+(delete-selection-mode 1)
 ;; Auto revert if no changes in buffer.
 (global-auto-revert-mode t)
 #+END_SRC
