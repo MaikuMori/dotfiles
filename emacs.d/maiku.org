@@ -285,8 +285,9 @@ hiccups.
 
 #+BEGIN_SRC emacs-lisp
 (use-package ace-window
-  :bind*   (("C-c SPC" . avi-goto-word-1)
-           ("M-p" . ace-window))
+  :bind*   (("C-c SPC" . avy-goto-word-or-subword-1)
+            ("s-." . avy-goto-word-or-subword-1)
+            ("s-w" . ace-window))
   :config
   (setq avi-keys
         '(?a ?s ?d ?e ?f ?h ?j ?k ?l ?n ?m ?v ?r ?u))
