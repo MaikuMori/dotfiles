@@ -731,6 +731,19 @@ A sane wrapper around `ansi-term`.
   (setq sane-term-shell-command "/bin/zsh"))
 #+END_SRC
 
+** [[https://github.com/mhayashi1120/Emacs-langtool][Emacs-Langtool]]
+
+#+BEGIN_SRC emacs-lisp
+(use-package langtool
+  :bind (("C-x 4 w" . langtool-check)
+         ("C-x 4 W" . langtool-check-done)
+         ("C-x 4 l" . langtool-switch-default-language)
+         ("C-x 4 4" . langtool-show-message-at-point)
+         ("C-x 4 c" . langtool-correct-buffer))
+  :config
+  (setq langtool-java-classpath "/usr/share/languagetool:/usr/share/java/languagetool/*"))
+#+END_SRC
+
 ** TODO [[https://github.com/fxbois/web-mode][Web-Mode]]
 
 [2015-07-11 Sat 01:24]
