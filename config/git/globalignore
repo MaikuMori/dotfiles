@@ -4,3 +4,5 @@
 # srclib build cache
 .srclib-cache/
 .srclib-store/
+# NPM
+npm-debug.log
