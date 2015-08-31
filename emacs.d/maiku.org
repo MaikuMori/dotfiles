@@ -154,6 +154,10 @@ And couple more things.
 ;;keep cursor at same position when scrolling
 (setq scroll-preserve-screen-position 1)
 
+;; Sentences end with ONE space.
+;; Might add some custom `sentence-end` function later.
+(setq sentence-end-double-space nil)
+
 (setq-default cursor-type 'bar)
 (setq-default indent-tabs-mode nil)
 (setq x-select-enable-clipboard t
@@ -174,6 +178,8 @@ And couple more things.
 (delete-selection-mode 1)
 ;; Auto revert if no changes in buffer.
 (global-auto-revert-mode t)
+;; Use human readable size in dired buffers.
+(setq dired-listing-switches "-alh")
 #+END_SRC
 
 ** AutoModeAlist extensions
