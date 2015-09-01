@@ -611,7 +611,10 @@ Auto-completion.
 (use-package company
   :diminish company-mode
   :config
-  (global-company-mode))
+  (global-company-mode)
+  (use-package company-emoji
+    :config
+    (company-emoji-init)))
 #+END_SRC
 
 *** [[https://github.com/nsf/gocode/tree/master/emacs-company][Company-Go]]
