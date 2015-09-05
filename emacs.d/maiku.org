@@ -740,6 +740,13 @@ A sane wrapper around `ansi-term`.
   (setq sane-term-shell-command "/bin/zsh"))
 #+END_SRC
 
+** [[https://github.com/Fuco1/smartparens][Smartparens]]
+#+BEGIN_SRC emacs-lisp
+(use-package smartparens
+  :commands (smartparens-mode show-smartparens-mode)
+  :config
+  (use-package smartparens-config))
+#+END_SRC
 ** [[https://github.com/mhayashi1120/Emacs-langtool][Emacs-Langtool]]
 
 #+BEGIN_SRC emacs-lisp
