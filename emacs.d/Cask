@@ -40,6 +40,7 @@
 (depends-on "rainbow-delimiters")
 (depends-on "sane-term")
 (depends-on "smartparens")
+(depends-on "systemd")
 (depends-on "undo-tree")
 (depends-on "use-package")
 (depends-on "whole-line-or-region")

@@ -183,25 +183,6 @@ And couple more things.
 #+END_SRC
 
 ** AutoModeAlist extensions
-*** Systemd files
-
-~conf-unix-mode~ is fine for now. There is also [[https://github.com/holomorph/systemd-mode][systemd-mode]].
-
-#+BEGIN_SRC emacs-lisp
-(add-to-list 'auto-mode-alist '("\\.service\\'" . conf-unix-mode))
-(add-to-list 'auto-mode-alist '("\\.timer\\'" . conf-unix-mode))
-(add-to-list 'auto-mode-alist '("\\.target\\'" . conf-unix-mode))
-(add-to-list 'auto-mode-alist '("\\.mount\\'" . conf-unix-mode))
-(add-to-list 'auto-mode-alist '("\\.automount\\'" . conf-unix-mode))
-(add-to-list 'auto-mode-alist '("\\.slice\\'" . conf-unix-mode))
-(add-to-list 'auto-mode-alist '("\\.socket\\'" . conf-unix-mode))
-(add-to-list 'auto-mode-alist '("\\.path\\'" . conf-unix-mode))
-(add-to-list 'auto-mode-alist '("\\.netdev\\'" . conf-unix-mode))
-(add-to-list 'auto-mode-alist '("\\.network\\'" . conf-unix-mode))
-(add-to-list 'auto-mode-alist '("\\.link\\'" . conf-unix-mode))
-(add-to-list 'auto-mode-alist '("\\.automount\\'" . conf-unix-mode))
-#+END_SRC
-
 *** Zsh and Prezto
 
 ~zsh~ and ~prezto~ related files.
@@ -728,6 +709,10 @@ Multiple cursors for Emacs.
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 #+END_SRC
 
+** [[https://github.com/holomorph/systemd-mode][Systemd]]
+#+BEGIN_SRC emacs-lisp
+(use-package systemd)
+#+END_SRC
 ** [[https://github.com/adamrt/sane-term][Sane-Term]]
 
 A sane wrapper around `ansi-term`.
