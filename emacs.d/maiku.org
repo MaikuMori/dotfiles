@@ -258,6 +258,14 @@ hiccups.
 #+END_SRC
 
 * Packages
+** Personal
+*** [[file:lisp/1188.el][1188.el]]
+
+#+BEGIN_SRC emacs-lisp
+(use-package "1188"
+  :load-path "lisp"
+  :commands helm-1188-lookup-transport)
+#+END_SRC
 ** [[Exec-Path-From-Shell]]
 
 #+BEGIN_SRC emacs-lisp
