@@ -24,7 +24,6 @@
 
 ;; TODO:
 ;;
-;;  - Allow timetable list to be configurable.
 ;;  - Add tests.
 ;;  - Allow sorting by different columns (especially arrival time).
 
@@ -99,14 +98,26 @@ Groups:
 
 Regexp: https://regex101.com/r/hX7aU1/1")
 
-(defvar 1188-default-bus-from-id "5492086"
-  "Default departure stop id for buses.")
-(defvar 1188-default-bus-to-id "5495843"
-  "Default arrival stop id for buses.")
-(defvar 1188-default-train-from-id "2051548"
-  "Default departure stop id for trains.")
-(defvar 1188-default-train-to-id "2051475"
-  "Default arrival stop id for trains.")
+(defvar 1188-timetables
+  (list (list "Bus  "
+              1188--bus-url
+              "5492086"
+              "5495843")
+        (list "Train"
+              1188--train-url
+              "2051548"
+              "2051475"))
+  "List of timetables to query.
+Each list consists of list of config describing timetable:
+
+ - Identifier
+   A way to identify specific timetable.
+ - URL
+   It should be either `1188--bus-url` or `1188--train-url`.
+ - Departure ID
+   1188.lv ID for the departure location.
+ - Arrival ID
+   1188.lv ID for the arrival location.")
 
 (defun 1188--perpare-args (args)
   "Prepare GET arguments from ARGS."
@@ -123,13 +134,6 @@ URL is the 1188 URL for given timetable.  FROM-ID is the departure
 location id.  TO-ID is the arrival location id.  DATE is the date
 for which to get the timetables.  It will call the CALLBACK with
 list of results one download is done."
-  (message "Querying: %s" (concat url "?"
-           (1188--perpare-args
-            `(("fc" . "1")
-              ("tc" . "1")
-              ("from-id" . ,from-id)
-              ("to-id" . ,to-id)
-              ("date" . ,date)))))
   (url-retrieve
    (concat url "?"
            (1188--perpare-args
@@ -151,18 +155,10 @@ list of results one download is done."
                                     (match-string 7)) results)))
         (funcall callback results)))) nil t t))
 
-(defun 1188--collect-timetables (date callback)
-  "Collect all timetables at given DATE.
+(defun 1188--collect-timetables (timetables date callback)
+  "Collect all TIMETABLES at given DATE.
 Calls CALLBACK with collected timetables when done."
-  (let ((timetables (list (list "Bus  "
-                                1188--bus-url
-                                1188-default-bus-from-id
-                                1188-default-bus-to-id)
-                          (list "Train"
-                                1188--train-url
-                                1188-default-train-from-id
-                                1188-default-train-to-id)))
-        (fetching 0)
+  (let ((fetching 0)
         (results nil))
     (dolist (table timetables)
 (let (identifier)
@@ -252,6 +248,7 @@ picker."
     (setq is-today (string= date (format-time-string "%F") ))
     (setq buf (buffer-name))
     (1188--collect-timetables
+     1188-timetables
      date
      (lambda (results)
        (let (pick)
