@@ -477,6 +477,10 @@ Automatically removes trailing whitespaces.
     :config
     (add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
 
+  (use-package flycheck-tip
+    :config
+    (flycheck-tip-use-timer 'verbose))
+
   (global-flycheck-mode t))
 #+END_SRC
 
