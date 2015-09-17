@@ -757,11 +757,19 @@ A sane wrapper around `ansi-term`.
   (setq langtool-java-classpath "/usr/share/languagetool:/usr/share/java/languagetool/*"))
 #+END_SRC
 
+** [[https://github.com/bbatsov/projectile][Projectile]]
+#+BEGIN_SRC emacs-lisp
+(use-package projectile
+  :config
+  (projectile-global-mode)
+  (setq projectile-completion-system 'helm)
+  (use-package helm-projectile
+    :config
+    (helm-projectile-on)))
+#+END_SRC
 ** TODO [[https://github.com/fxbois/web-mode][Web-Mode]]
 
 [2015-07-11 Sat 01:24]
-** TODO [[https://github.com/bbatsov/projectile][Projectile]]
-[2015-06-03 Wed 12:05]
 ** TODO Setup [[https://github.com/dgutov/diff-hl][diff-hl]]
 
 ** TODO [[https://github.com/doitian/iy-go-to-char][Iy-Go-To-Char]]
