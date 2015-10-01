@@ -6,6 +6,7 @@
 - shell:
   - [mkdir -p ~/Projects ~/GoProjects, Create directory structure (projects)]
   - [mkdir -p ~/pacman/package ~/pacman/source ~/pacman/srcpackages, Create directory structure (pacman)]
+  - [mkdir -p ~/.local/share/mpd/playlists, Create directory structure (mpd)]
   - [git submodule update --init --recursive, Installing submodules]
 
 - link:
@@ -63,3 +64,5 @@
     ~/.config/mpd:
       create: yes
       path: config/mpd
+    # ncmpcpp.
+    ~/.ncmpcpp/config: ncmpcpp.conf
