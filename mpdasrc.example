@@ -1,0 +1,4 @@
+username = maikumori
+password = md5_hash_of_password
+host = /home/maiku/.local/share/mpd/socket
+debug = 1
