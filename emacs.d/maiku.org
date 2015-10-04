@@ -591,7 +591,6 @@ Automatically removes trailing whitespaces.
   (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
   (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
   (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
-
   (add-hook 'emacs-lisp-mode-hook       #'show-paren-mode))
 #+END_SRC
 
@@ -863,7 +862,6 @@ A sane wrapper around `ansi-term`.
 
 [2015-07-11 Sat 01:24]
 ** TODO Setup [[https://github.com/dgutov/diff-hl][diff-hl]]
-
 ** TODO [[https://github.com/doitian/iy-go-to-char][Iy-Go-To-Char]]
 
 Go to next CHAR which is similar to ~f~ and ~t~ in Vim.
