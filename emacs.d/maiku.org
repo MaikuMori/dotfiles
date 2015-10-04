@@ -376,9 +376,8 @@ With a prefix argument N, (un)comment that many sexps."
 
 #+BEGIN_SRC emacs-lisp
 (use-package ace-window
-  :bind*   (("C-c SPC" . avy-goto-word-or-subword-1)
-            ("s-." . avy-goto-word-or-subword-1)
-            ("s-w" . ace-window))
+  :bind* (("s-q" . avy-goto-char-timer)
+          ("s-w" . ace-window))
   :config
   (setq avi-keys
         '(?a ?s ?d ?e ?f ?h ?j ?k ?l ?n ?m ?v ?r ?u))
