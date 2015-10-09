@@ -27,6 +27,7 @@ prefix.
 - https://github.com/magnars/.emacs.d
 - http://tuhdo.github.io/emacs-tutor3.html
 - https://github.com/grettke/home/blob/master/.emacs.el
+- https://github.com/danielmai/.emacs.d/
 
 * Bootstrap
 ** Directories
@@ -69,17 +70,6 @@ Tell Emacs a little bit about myself.
 (setq user-mail-address "mikskalnins@maikumori.com")
 #+END_SRC
 
-** Disable silly things
-
-Disable menu and toolbars, scrollbar and startup splash screen.
-
-#+BEGIN_SRC emacs-lisp
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(setq inhibit-startup-message t)
-#+END_SRC
-
 ** Backups
 
 #+BEGIN_SRC emacs-lisp
@@ -96,7 +86,7 @@ Disable menu and toolbars, scrollbar and startup splash screen.
       auto-save-interval 200)
 #+END_SRC
 
-** Key bindings
+** General key bindings
 
 #+BEGIN_SRC emacs-lisp
 (bind-keys

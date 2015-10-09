@@ -7,18 +7,28 @@
 
 ;;; Code:
 
-;; Cask manages our package dependencies
+;; Turn off mouse interface early in startup to avoid momentary display.
+(when window-system
+  (menu-bar-mode -1)
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
+  (tooltip-mode -1))
+
+(setq inhibit-startup-message t)
+(setq initial-scratch-message "")
+
+;; Cask manages our package dependencies.
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 
-;; Pallet allows us to use Cask in tandem with package.el
+;; Pallet allows us to use Cask in tandem with `package.el`.
 (require 'pallet)
 (pallet-mode t)
 
-;; Load up Org-babel
+;; Load up Org-babel.
 (require 'ob-tangle)
 
-;; Load our main configuration file
+;; Load our main configuration file.
 (org-babel-load-file (expand-file-name "maiku.org" user-emacs-directory))
 
 ;;; init.el ends here
