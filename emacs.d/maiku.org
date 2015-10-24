@@ -141,8 +141,11 @@ And couple more things.
               backward-char forward-char))
     (ding)))
 
-;;keep cursor at same position when scrolling
+;; Keep cursor at same position when scrolling.
 (setq scroll-preserve-screen-position 1)
+
+;; I always have dark background.
+(setq frame-background-mode 'dark)
 
 ;; Sentences end with ONE space.
 ;; Might add some custom `sentence-end` function later.
@@ -843,10 +846,6 @@ A sane wrapper around `ansi-term`.
 
 [2015-07-11 Sat 01:24]
 ** TODO Setup [[https://github.com/dgutov/diff-hl][diff-hl]]
-** TODO [[https://github.com/doitian/iy-go-to-char][Iy-Go-To-Char]]
-
-Go to next CHAR which is similar to ~f~ and ~t~ in Vim.
-
 ** TODO [[https://github.com/abo-abo/hydra][Hydra]]
 
 This one looks nice.
