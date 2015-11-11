@@ -229,11 +229,6 @@ Return non-nil when entry X should be located before entry Y."
 
 (defun 1188--entry-is-current-p (entry)
   "Return true if ENTRY is not in the past."
-  (message "Date to time: \n %s\n\t%s\n\t%s\n\t%s"
-           (nth 1 entry)
-           (format-time-string "%F %T"(current-time))
-           (format-time-string "%F %T" (date-to-time (nth 1 entry)))
-           (time-less-p (current-time) (date-to-time (nth 1 entry))))
   (time-less-p (current-time) (date-to-time (nth 1 entry))))
 
 (defun helm-1188-lookup-transport (show-date-picker)
