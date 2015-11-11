@@ -6,10 +6,12 @@
 [core]
 	excludesfile = ~/.config/git/globalignore
 	editor = emacsclient -t --socket-name /tmp/emacs1000/server
+	pager = tig
 [push]
 	default = simple
 [color]
 	ui = 1
+	pager = false
 [diff]
 	renames = copies
 [alias]
