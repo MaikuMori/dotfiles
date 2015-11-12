@@ -631,6 +631,7 @@ whole line when no region is selected.
         ;; This looks better with indent mode.
         org-src-preserve-indentation nil
         org-edit-src-content-indentation 0
+        org-ellipsis " ↴"
         ;; Quickly change todo and don't trigger timestamps when using
         ;; shift+arrow keys.
         org-use-fast-todo-selection t
