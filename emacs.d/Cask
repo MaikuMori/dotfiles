@@ -47,4 +47,5 @@
 (depends-on "which-key")
 (depends-on "whole-line-or-region")
 (depends-on "ws-butler")
+(depends-on "yaml-mode")
 (depends-on "yasnippet")

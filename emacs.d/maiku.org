@@ -1059,6 +1059,13 @@ Auto-completion.
               (add-hook 'after-save-hook 'gofmt-before-save 'make-it-local))))
 #+END_SRC
 
+** [[https://github.com/yoshiki/yaml-mode][Yaml-Mode]]
+
+#+BEGIN_SRC emacs-lisp
+(use-package yaml-mode
+  :mode "\\.yml\\'")
+#+END_SRC
+
 ** [[https://github.com/syohex/emacs-go-eldoc][Go-Eldoc]]
 
 #+BEGIN_SRC emacs-lisp
