@@ -12,6 +12,7 @@
 (depends-on "dash")
 (depends-on "diff-hl")
 (depends-on "diminish")
+(depends-on "docker")
 (depends-on "exec-path-from-shell")
 (depends-on "expand-region")
 (depends-on "flycheck")

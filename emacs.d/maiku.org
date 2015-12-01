@@ -1190,6 +1190,12 @@ A sane wrapper around `ansi-term`.
     :config
     (helm-projectile-on)))
 #+END_SRC
+** [[https://github.com/Silex/docker.el][Docker]]
+
+#+BEGIN_SRC emacs-lisp
+(use-package docker)
+#+END_SRC
+
 ** TODO [[https://github.com/fxbois/web-mode][Web-Mode]]
 
 [2015-07-11 Sat 01:24]
