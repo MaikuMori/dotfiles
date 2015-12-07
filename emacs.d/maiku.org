@@ -1195,6 +1195,12 @@ A sane wrapper around `ansi-term`.
 #+BEGIN_SRC emacs-lisp
 (use-package docker)
 #+END_SRC
+** [[https://github.com/spotify/dockerfile-mode][Dockerfile-Mode]]
+
+#+BEGIN_SRC emacs-lisp
+(use-package dockerfile-mode
+  :mode "Dockerfile\\'")
+#+END_SRC
 
 ** TODO [[https://github.com/fxbois/web-mode][Web-Mode]]
 

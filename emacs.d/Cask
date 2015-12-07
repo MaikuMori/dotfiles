@@ -13,6 +13,7 @@
 (depends-on "diff-hl")
 (depends-on "diminish")
 (depends-on "docker")
+(depends-on "dockerfile-mode")
 (depends-on "exec-path-from-shell")
 (depends-on "expand-region")
 (depends-on "flycheck")
