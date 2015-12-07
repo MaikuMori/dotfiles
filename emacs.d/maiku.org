@@ -478,7 +478,7 @@ This makes it much easier to undo things.
   ;; https://github.com/emacs-helm/helm-ls-git
   (use-package helm-ls-git)
 
-  (helm-adaptative-mode 1)
+  (helm-adaptive-mode 1)
   (helm-autoresize-mode 1)
 
   (bind-keys :map helm-map
