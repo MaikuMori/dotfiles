@@ -1,0 +1,12 @@
+[Unit]
+Description=Sync Org files with private git repository.
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/maiku/bin/git-sync/git-sync
+WorkingDirectory=/home/maiku/Org
+
+[Install]
+WantedBy=default.target

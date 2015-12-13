@@ -1,0 +1,10 @@
+[Unit]
+Description=Schedules Org file sync
+
+[Timer]
+OnBootSec=15min
+OnUnitActiveSec=30min
+Unit=sync-org.service
+
+[Install]
+WantedBy=default.target
