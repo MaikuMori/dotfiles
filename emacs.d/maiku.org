@@ -439,8 +439,6 @@ This makes it much easier to undo things.
   ;; Bind visit pull request page on GitHub.
   (bind-keys :map magit-mode-map
              ("v" . mm/visit-pull-request-url))
-  ;; When commiting enable verbose mode by default.
-  (setq magit-commit-arguments (quote ("--verbose")))
   ;; Turn on Flyspell when writing commit messages.
   (add-hook 'git-commit-setup-hook #'git-commit-turn-on-flyspell)
   ;; Http://endlessparentheses.com/automatically-configure-magit-to-access-github-prs.html
