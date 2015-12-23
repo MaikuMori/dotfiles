@@ -1069,6 +1069,12 @@ Auto-completion.
   (setq lua-indent-level 4))
 #+END_SRC
 
+** [[https://github.com/joshwnj/json-mode][Json-Mode]]
+
+#+BEGIN_SRC emacs-lisp
+(use-package json-mode
+  :mode "\\.json\\'")
+#+END_SRC
 ** [[https://github.com/syohex/emacs-go-eldoc][Go-Eldoc]]
 
 #+BEGIN_SRC emacs-lisp
