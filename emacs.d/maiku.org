@@ -1060,6 +1060,15 @@ Auto-completion.
   :mode "\\.yml\\'")
 #+END_SRC
 
+** [[https://github.com/immerrr/lua-mode][Lua-Mode]]
+
+#+BEGIN_SRC emacs-lisp
+(use-package lua-mode
+  :mode "\\.lua\\'"
+  :config
+  (setq lua-indent-level 4))
+#+END_SRC
+
 ** [[https://github.com/syohex/emacs-go-eldoc][Go-Eldoc]]
 
 #+BEGIN_SRC emacs-lisp
