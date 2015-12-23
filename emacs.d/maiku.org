@@ -323,24 +323,17 @@ With a prefix argument N, (un)comment that many sexps."
 ** Open file as root
 
 #+BEGIN_SRC emacs-lisp
-(defun mm/open-as-root (filename)
-  "Open file as root."
-  (interactive)
-  (find-file (concat "/sudo:root@localhost:"  filename)))
+(defun mm/open-as-root (&optional arg)
+  "Edit currently visited file as root.
 
-(defun mm/open-buffer-as-root ()
-  "Reopen current buffer as root."
- (interactive)
- (let
-     (
-      ;; Get the current buffer file name
-      (filename (buffer-file-name (current-buffer)))
-      ;; Get the current file name
-      (bufname  (buffer-name (current-buffer)))
-     )
-   (progn
-  (kill-buffer bufname)         ;; Kill current buffer
-  (open-as-root filename))))    ;; Open File as root
+With a prefix ARG prompt for a file to visit.
+Will also prompt for a file to visit if current
+buffer is not visiting a file."
+  (interactive "P")
+  (if (or arg (not buffer-file-name))
+      (find-file (concat "/sudo:root@localhost:"
+                         (ido-read-file-name "Find file(as root): ")))
+    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
 #+END_SRC
 
 * Packages
