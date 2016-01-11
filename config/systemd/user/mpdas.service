@@ -4,7 +4,7 @@ After=mpd.service
 
 [Service]
 ExecStart=/usr/bin/mpdas --no-daemon
-Restart=Always
+Restart=always
 RestartSec=3
 
 [Install]
