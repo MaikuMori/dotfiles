@@ -88,6 +88,8 @@ Tell Emacs a little bit about myself.
 
 ** General key bindings
 
+Enable some common keybindings.
+
 #+BEGIN_SRC emacs-lisp
 (bind-keys
   ("M-/" . hippie-expand)
@@ -95,6 +97,15 @@ Tell Emacs a little bit about myself.
   ("C-r" . isearch-backward-regexp)
   ("C-M-s" . isearch-forward)
   ("C-M-r" . isearch-backward))
+#+END_SRC
+
+Disable some keybindings that I don't use.
+
+#+BEGIN_SRC emacs-lisp
+;; Remove kill emacs keybind.
+(global-unset-key (kbd "C-x C-c"))
+;; Remove minimize keybind.
+(global-unset-key (kbd "C-x C-z"))
 #+END_SRC
 
 ** Font
