@@ -46,6 +46,7 @@
 (depends-on "sane-term")
 (depends-on "smartparens")
 (depends-on "systemd")
+(depends-on "terraform-mode")
 (depends-on "undo-tree")
 (depends-on "use-package")
 (depends-on "which-key")

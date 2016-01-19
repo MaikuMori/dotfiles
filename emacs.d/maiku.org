@@ -1084,6 +1084,12 @@ Auto-completion.
 (use-package json-mode
   :mode "\\.json\\'")
 #+END_SRC
+** [[https://github.com/syohex/emacs-terraform-mode][Emacs-Terraform-Mode]]
+
+#+BEGIN_SRC emacs-lisp
+(use-package terraform-mode)
+#+END_SRC
+
 ** [[https://github.com/syohex/emacs-go-eldoc][Go-Eldoc]]
 
 #+BEGIN_SRC emacs-lisp
