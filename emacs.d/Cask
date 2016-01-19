@@ -54,3 +54,4 @@
 (depends-on "ws-butler")
 (depends-on "yaml-mode")
 (depends-on "yasnippet")
+(depends-on "zoom-window")
