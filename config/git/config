@@ -1,37 +1,43 @@
 [user]
-	name = Miks Kalnins
-	email = MiksKalnins@MaikuMori.com
+    name = Miks Kalnins
+    email = MiksKalnins@MaikuMori.com
+    signingkey = 24481BFA
 [github]
-	user = MaikuMori
+    user = MaikuMori
 [core]
-	excludesfile = ~/.config/git/globalignore
-	editor = emacsclient -t --socket-name /tmp/emacs1000/server
-	pager = tig
+    excludesfile = ~/.config/git/globalignore
+    editor = emacsclient -t --socket-name /tmp/emacs1000/server
+    pager = tig
+    whitespace = blank-at-eol,blank-at-eof,space-before-tab,trailing-space
+[apply]
+    whitespace = warn
 [push]
-	default = simple
+    default = simple
 [color]
-	ui = 1
-	pager = false
+    ui = true
+    pager = false
 [diff]
-	renames = copies
+    renames = copies
 [alias]
-	switch = !legit switch
-	branches = !legit branches
-	sprout = !legit sprout
-	unpublish = !legit unpublish
-	harvest = !legit harvest
-	sync = !legit sync
-	publish = !legit publish
-	graft = !legit graft
-	resync = !legit resync
-	st = status -sb
+    switch = !legit switch
+    branches = !legit branches
+    sprout = !legit sprout
+    unpublish = !legit unpublish
+    harvest = !legit harvest
+    sync = !legit sync
+    publish = !legit publish
+    graft = !legit graft
+    resync = !legit resync
+    st = status -sb
+    uncommit = reset HEAD~1 --mixed
 [merge]
-	ff = only
+    summary = true
+    ff = only
 [help]
-	autocorrect = 1
+    autocorrect = 1
 [include]
-        path = config.secret
+    path = config.secret
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+    clean = git-lfs clean %f
+    smudge = git-lfs smudge %f
+    required = true
