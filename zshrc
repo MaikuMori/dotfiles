@@ -38,7 +38,7 @@ fi
 ###############
 
 export BROWSER='google-chrome-unstable'
-export EDITOR="emacsclient --socket-name /tmp/emacs1000/server"
+export EDITOR="emacsclient -t --socket-name /tmp/emacs1000/server"
 export GOPATH=$HOME/GoProjects
 export GPGKEY=24481BFA
 
