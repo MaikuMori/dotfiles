@@ -194,6 +194,8 @@ And couple more things.
 #+BEGIN_SRC emacs-lisp
 (add-to-list 'auto-mode-alist '("\\.zshrc\\'" . sh-mode))
 (add-to-list 'auto-mode-alist '("zshrc\\'" . sh-mode))
+(add-to-list 'auto-mode-alist '("\\.zshenv\\'" . sh-mode))
+(add-to-list 'auto-mode-alist '("zshenv\\'" . sh-mode))
 (add-to-list 'auto-mode-alist '("\\.zpreztorc\\'" . sh-mode))
 (add-to-list 'auto-mode-alist '("zpreztorc\\'" . sh-mode))
 #+END_SRC
