@@ -18,8 +18,8 @@
     ~/.zlogin: prezto/runcoms/zlogin
     ~/.zlogout: prezto/runcoms/zlogout
     ~/.zprofile: prezto/runcoms/zprofile
-    ~/.zshenv: prezto/runcoms/zshenv
     # Our customizations.
+    ~/.zshenv: zshenv
     ~/.zpreztorc: zpreztorc
     ~/.zshrc: zshrc
     # Hub completions.

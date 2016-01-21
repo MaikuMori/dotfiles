@@ -32,24 +32,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-
-###############
-# ENVIRONMENT #
-###############
-
-export BROWSER='google-chrome-unstable'
-export EDITOR="emacsclient -t --socket-name /tmp/emacs1000/server"
-export GOPATH=$HOME/GoProjects
-export GPGKEY=24481BFA
-
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$HOME/bin
-export PATH=$PATH:$HOME/.gem/ruby/2.1.0/bin
-export PATH=$PATH:$HOME/.cask/bin
-
-export ATOM_REPOS_HOME=$HOME/Projects
-
-
 #########
 # ALIAS #
 #########

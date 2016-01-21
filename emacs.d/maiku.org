@@ -364,9 +364,9 @@ buffer is not visiting a file."
   ;; This makes sure that zsh prezto doesn't start tmux and mess up
   ;; exec-path-from-shell.
   (setenv "EMACS" "t")
-  (setq exec-path-from-shell-arguments '("-i"))
   (when (memq window-system '(mac ns x))
-           (exec-path-from-shell-initialize)))
+    (exec-path-from-shell-initialize)
+    (exec-path-from-shell-copy-env "PATH")))
 #+END_SRC
 
 ** [[https://github.com/abo-abo/ace-window][Ace-Window]]
