@@ -16,3 +16,6 @@
 [submodule "bin/git-sync"]
 	path = bin/git-sync
 	url = https://github.com/simonthum/git-sync
+[submodule "emacs.d/yasnippet-snippets"]
+	path = emacs.d/yasnippet-snippets
+	url = https://github.com/AndreaCrotti/yasnippet-snippets

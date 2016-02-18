@@ -15,6 +15,8 @@
 (setq inhibit-startup-message t)
 (setq initial-scratch-message "")
 
+(package-initialize)
+
 ;; Cask manages our package dependencies.
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
