@@ -1115,9 +1115,12 @@ Snippets
 #+BEGIN_SRC emacs-lisp
 (use-package yasnippet
   :diminish yas-minor-mode
-  :mode ("/\\.emacs\\.d/snippets/" . snippet-mode)
+  :mode (("/\\.emacs\\.d/my-snippets/" . snippet-mode)
+         ("/\\.emacs\\.d/yasnippets-snippets/" . snippet-mode))
   :config
-  (yas-load-directory "~/.emacs.d/snippets/")
+  (setq yas-snippet-dirs
+      '("~/.emacs.d/my-snippets"
+        "~/.emacs.d/yasnippet-snippets"))
   (yas-global-mode 1))
 #+END_SRC
 
