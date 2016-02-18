@@ -187,6 +187,16 @@ And couple more things.
 (setq dired-listing-switches "-alh")
 #+END_SRC
 
+** Registers
+
+Let's try storing common files in registers.
+
+#+BEGIN_SRC emacs-lisp
+(set-register ?e (cons 'file "~/dotfiles/emacs.d/maiku.org"))
+(set-register ?t (cons 'file "~/Org/todo.org"))
+(set-register ?r (cons 'file "~/Ledger/ledger.org"))
+#+END_SRC
+
 ** AutoModeAlist extensions
 *** Zsh and Prezto
 
