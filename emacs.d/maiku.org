@@ -363,13 +363,14 @@ buffer is not visiting a file."
 
 #+BEGIN_SRC emacs-lisp
 (use-package exec-path-from-shell
-  :init
+  :config
   ;; This makes sure that zsh prezto doesn't start tmux and mess up
   ;; exec-path-from-shell.
+  (setq exec-path-from-shell-arguments (list "-i")
+        exec-path-from-shell-variables
+        '("PATH" "MANPATH" "GOPATH" "GO15VENDOREXPERIMENT"))
   (setenv "EMACS" "t")
-  (when (memq window-system '(mac ns x))
-    (exec-path-from-shell-initialize)
-    (exec-path-from-shell-copy-env "PATH")))
+  (exec-path-from-shell-initialize))
 #+END_SRC
 
 ** [[https://github.com/abo-abo/ace-window][Ace-Window]]
@@ -1065,7 +1066,6 @@ Auto-completion.
   :bind ("M-." . godef-jump)
   :config
   (setq gofmt-command "goimports")
-  (exec-path-from-shell-copy-env "GOPATH")
   (add-hook 'go-mode-hook
             (lambda ()
               (add-hook 'after-save-hook 'gofmt-before-save 'make-it-local))))
