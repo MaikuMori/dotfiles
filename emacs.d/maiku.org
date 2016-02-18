@@ -540,6 +540,12 @@ This makes it much easier to undo things.
          ("\\.markdown\\'"    . markdown-mode)))
 #+END_SRC
 
+** [[https://github.com/jinzhu/zeal-at-point][Zeal-At-Point]]
+#+BEGIN_SRC emacs-lisp
+(use-package zeal-at-point
+  :bind (("C-c C-." . zeal-at-point))
+  :config)
+#+END_SRC
 ** [[https://github.com/lewang/ws-butler][WS-Buttler]]
 
 Automatically removes trailing whitespaces.
