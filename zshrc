@@ -78,6 +78,7 @@ alias git="hub"
 emup() {
     pushd ~/dotfiles/emacs.d
     cask update
+    cask install
     cask upgrade
     systemctl --user restart emacs
     popd
