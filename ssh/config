@@ -27,3 +27,15 @@ IdentityFile ~/.ssh/protected_rsa
 
 Host archbook.local
 IdentityFile ~/.ssh/protected_rsa
+
+Host olv-bastion
+    User ec2-user
+    Hostname 52.11.101.160
+    IdentityFile ~/.ssh/bastion
+    LogLevel Quiet
+
+Host *.compute.internal
+    User ec2-user
+    IdentityFile ~/.ssh/ecs_instance
+    ProxyCommand ssh olv-bastion -W %h:%p
+    StrictHostKeyChecking no
