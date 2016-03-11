@@ -65,6 +65,8 @@
       create: yes
       path: config/mpd
     # ncmpcpp.
-    ~/.ncmpcpp/config: ncmpcpp.conf
+    ~/.ncmpcpp/config:
+      create: yes
+      path: ncmpcpp.conf
     # mpdas.
     ~/.mpdasrc: mpdasrc.secret
