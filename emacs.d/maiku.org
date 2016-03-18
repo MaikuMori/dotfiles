@@ -668,23 +668,23 @@ whole line when no region is selected.
                              (org-agenda-files :maxlevel . 3)))
 
   ;; Org modules.
-  (setq org-modules '(org-bbdb
-                      org-gnus
-                      org-drill
+  (setq org-modules '(;; org-bbdb
+                      ;; org-gnus
+                      ;; org-drill
                       org-info
-                      org-jsinfo
+                      ;; org-jsinfo
                       org-habit
-                      org-irc
-                      org-inlinetask
+                      ;; org-irc
+                      ;; org-inlinetask
                       org-mouse
                       org-annotate-file
                       org-eval
                       org-expiry
                       org-interactive-query
-                      org-man
+                      ;; org-man
                       org-collector
                       org-panel
-                      org-screen
+                      ;; org-screen
                       org-toc))
   ;; TODO keywords.
   (setq org-todo-keywords
