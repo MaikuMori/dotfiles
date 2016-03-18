@@ -19,7 +19,7 @@ export GO15VENDOREXPERIMENT=1
 
 export GPGKEY=24481BFA
 
-export PATH=$PATH:$GOPATH/bin
+export PATH=$GOPATH/bin:$PATH
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.gem/ruby/2.1.0/bin
 export PATH=$PATH:$HOME/.cask/bin
