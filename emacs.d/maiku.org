@@ -483,7 +483,7 @@ This makes it much easier to undo things.
          ("C-x f" . helm-multi-files))
 
   :config
-  (use-package helm-commands)
+  (use-package helm-helm-commands)
   (use-package helm-files)
   (use-package helm-buffers)
   (use-package helm-mode
