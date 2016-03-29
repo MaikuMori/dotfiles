@@ -167,6 +167,7 @@ And couple more things.
 (setq x-select-enable-clipboard t
       default-tab-width 4
       tab-always-indent 'complete
+      scroll-margin 3
       x-select-enable-primary t
       gc-cons-threshold 50000000
       save-interprogram-paste-before-kill t
