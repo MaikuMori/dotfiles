@@ -374,6 +374,7 @@ buffer is not visiting a file."
 
 #+BEGIN_SRC emacs-lisp
 (use-package exec-path-from-shell
+  :ensure t
   :config
   ;; This makes sure that zsh prezto doesn't start tmux and mess up
   ;; exec-path-from-shell.
@@ -388,6 +389,7 @@ buffer is not visiting a file."
 
 #+BEGIN_SRC emacs-lisp
 (use-package ace-window
+  :ensure t
   :bind* (("s-q" . avy-goto-char-timer)
           ("s-w" . ace-window))
   :config
@@ -401,7 +403,10 @@ buffer is not visiting a file."
 I really like Monokai Theme so lets load it.
 
 #+BEGIN_SRC emacs-lisp
-(load-theme 'monokai t)
+(use-package monokai-theme
+  :ensure t
+  :config
+  (load-theme 'monokai t))
 #+END_SRC
 
 ** [[https://github.com/milkypostman/powerline][Powerline]]
@@ -410,6 +415,7 @@ I also like powerline so lets use that as well.
 
 #+BEGIN_SRC emacs-lisp
 (use-package powerline
+  :ensure t
   :config
   (powerline-default-theme))
 #+END_SRC
@@ -420,6 +426,7 @@ This makes it much easier to undo things.
 
 #+BEGIN_SRC emacs-lisp
 (use-package undo-tree
+  :ensure t
   :diminish undo-tree-mode
   :config
   (global-undo-tree-mode)
@@ -431,6 +438,7 @@ This makes it much easier to undo things.
 
 #+BEGIN_SRC emacs-lisp
 (use-package magit
+  :ensure t
   :bind ("C-x g" . magit-status)
   :init
   (setq magit-last-seen-setup-instructions "2.1.0")
@@ -474,6 +482,9 @@ This makes it much easier to undo things.
 ** [[https://github.com/emacs-helm/helm][Helm]]
 
 #+BEGIN_SRC emacs-lisp
+(use-package helm
+    :ensure t)
+
 (use-package helm-config
   :demand t
   :bind-keymap ("C-c h" . helm-command-prefix)
@@ -484,16 +495,12 @@ This makes it much easier to undo things.
          ("C-x f" . helm-multi-files))
 
   :config
-  (use-package helm-helm-commands)
   (use-package helm-files)
   (use-package helm-buffers)
   (use-package helm-mode
     :diminish helm-mode
     :init
     (helm-mode 1))
-
-  ;; https://github.com/emacs-helm/helm-ls-git
-  (use-package helm-ls-git)
 
   (helm-adaptive-mode 1)
   (helm-autoresize-mode 1)
@@ -537,6 +544,7 @@ This makes it much easier to undo things.
 
 #+BEGIN_SRC emacs-lisp
 (use-package helm-descbinds
+  :ensure t
   :config
   (helm-descbinds-mode))
 #+END_SRC
@@ -547,6 +555,7 @@ This makes it much easier to undo things.
 
 #+BEGIN_SRC emacs-lisp
 (use-package markdown-mode
+  :ensure t
   :mode (("\\`README\\.md\\'" . gfm-mode)
          ("\\.md\\'"          . markdown-mode)
          ("\\.markdown\\'"    . markdown-mode)))
@@ -555,6 +564,7 @@ This makes it much easier to undo things.
 ** [[https://github.com/jinzhu/zeal-at-point][Zeal-At-Point]]
 #+BEGIN_SRC emacs-lisp
 (use-package zeal-at-point
+  :ensure t
   :bind (("C-c C-." . zeal-at-point))
   :config)
 #+END_SRC
@@ -564,6 +574,7 @@ Automatically removes trailing whitespaces.
 
 #+BEGIN_SRC emacs-lisp
 (use-package ws-butler
+  :ensure t
   :diminish ws-butler-mode
   :config
   (ws-butler-global-mode t))
@@ -573,19 +584,18 @@ Automatically removes trailing whitespaces.
 
 #+BEGIN_SRC emacs-lisp
 (use-package flycheck
+  :ensure t
   :defer 3
   :config
   (defalias 'flycheck-show-error-at-point-soon 'flycheck-show-error-at-point)
 
-  (use-package flycheck-cask
-    :config
-    (add-hook 'flycheck-mode-hook #'flycheck-cask-setup))
-
   (use-package flycheck-color-mode-line
+    :ensure t
     :config
     (add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
 
   (use-package flycheck-tip
+    :ensure t
     :config
     (flycheck-tip-use-timer 'verbose))
 
@@ -598,6 +608,7 @@ Automatically removes trailing whitespaces.
 
 #+BEGIN_SRC emacs-lisp
 (use-package paredit
+  :ensure t
   :commands paredit-mode
   :diminish paredit-mode
   :init
@@ -617,6 +628,7 @@ whole line when no region is selected.
 
 #+BEGIN_SRC emacs-lisp
 (use-package whole-line-or-region
+  :ensure t
   :diminish whole-line-or-region-mode
   :config
   (whole-line-or-region-mode t))
@@ -626,6 +638,7 @@ whole line when no region is selected.
 
 #+BEGIN_SRC emacs-lisp
 (use-package coffee-mode
+  :ensure t
   :init
   (setq flycheck-coffeelintrc "coffeelint.json")
   (setq coffee-tab-width 2)
@@ -637,6 +650,7 @@ whole line when no region is selected.
 #+BEGIN_SRC emacs-lisp
 ;; Very inspired by http://doc.norang.ca/org-mode.html
 (use-package org
+  :ensure t
   :bind (("C-c a" . org-agenda)
          ("C-c c" . Org-Capture)
          ("C-c l" . org-store-link))
@@ -1019,6 +1033,7 @@ then scheduled, then non-late deadlines"
 
 #+BEGIN_SRC emacs-lisp
 (use-package org-bullets
+  :ensure t
   :commands org-bullets-mode
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
@@ -1038,6 +1053,7 @@ then scheduled, then non-late deadlines"
 
 #+BEGIN_SRC emacs-lisp
 (use-package org-journal
+  :ensure t
   :config
   (setq org-journal-dir "~/Journal"
         org-journal-file-format "%Y-%m-%d.org"
@@ -1050,10 +1066,12 @@ Auto-completion.
 
 #+BEGIN_SRC emacs-lisp
 (use-package company
+  :ensure t
   :diminish company-mode
   :config
   (global-company-mode)
   (use-package company-emoji
+    :ensure t
     :config
     (company-emoji-init)))
 #+END_SRC
@@ -1062,6 +1080,7 @@ Auto-completion.
 
 #+BEGIN_SRC emacs-lisp
 (use-package company-go
+  :ensure t
   :config
   (add-to-list 'company-backends 'company-go)
 
@@ -1073,6 +1092,7 @@ Auto-completion.
 
 #+BEGIN_SRC emacs-lisp
 (use-package go-mode
+  :ensure t
   :mode "\\.go\\'"
   :bind ("M-." . godef-jump)
   :config
@@ -1086,6 +1106,7 @@ Auto-completion.
 
 #+BEGIN_SRC emacs-lisp
 (use-package yaml-mode
+  :ensure t
   :mode "\\.yml\\'")
 #+END_SRC
 
@@ -1093,6 +1114,7 @@ Auto-completion.
 
 #+BEGIN_SRC emacs-lisp
 (use-package lua-mode
+  :ensure t
   :mode "\\.lua\\'"
   :config
   (setq lua-indent-level 4))
@@ -1102,18 +1124,21 @@ Auto-completion.
 
 #+BEGIN_SRC emacs-lisp
 (use-package json-mode
+  :ensure t
   :mode "\\.json\\'")
 #+END_SRC
 ** [[https://github.com/syohex/emacs-terraform-mode][Emacs-Terraform-Mode]]
 
 #+BEGIN_SRC emacs-lisp
-(use-package terraform-mode)
+(use-package terraform-mode
+  :ensure t)
 #+END_SRC
 
 ** [[https://github.com/syohex/emacs-go-eldoc][Go-Eldoc]]
 
 #+BEGIN_SRC emacs-lisp
 (use-package go-eldoc
+  :ensure t
   :commands go-eldoc-setup
   :config
   (add-hook 'go-mode-hook 'go-eldoc-setup))
@@ -1125,6 +1150,7 @@ Snippets
 
 #+BEGIN_SRC emacs-lisp
 (use-package yasnippet
+  :ensure t
   :diminish yas-minor-mode
   :mode (("/\\.emacs\\.d/my-snippets/" . snippet-mode)
          ("/\\.emacs\\.d/yasnippets-snippets/" . snippet-mode))
@@ -1141,6 +1167,7 @@ Snippets
 
 #+BEGIN_SRC emacs-lisp
 (use-package which-key
+  :ensure t
   :diminish which-key-mode
   :config
   (which-key-mode))
@@ -1150,6 +1177,7 @@ Snippets
 
 #+BEGIN_SRC emacs-lisp
 (use-package gist
+  :ensure t
   :defer t)
 #+END_SRC
 
@@ -1157,6 +1185,7 @@ Snippets
 
 #+BEGIN_SRC emacs-lisp
 (use-package imenu-anywhere
+  :ensure t
   :bind ("C-." . helm-imenu-anywhere))
 #+END_SRC
 ** [[https://github.com/magnars/multiple-cursors.el][Multiple-Cursors]]
@@ -1165,18 +1194,20 @@ Multiple cursors for Emacs.
 
 #+BEGIN_SRC emacs-lisp
 (use-package multiple-cursors
-    :bind (("C-S-c C-S-c" . mc/edit-lines)
-           ("C->"         . mc/mark-next-like-this)
-           ("C-<"         . mc/mark-previous-like-this)
-           ("C-c C-<"     . mc/mark-all-like-this))
-    :config
-    (setq mc/list-file (expand-file-name "mc-lists.el" user-data-directory)))
+  :ensure t
+  :bind (("C-S-c C-S-c" . mc/edit-lines)
+         ("C->"         . mc/mark-next-like-this)
+         ("C-<"         . mc/mark-previous-like-this)
+         ("C-c C-<"     . mc/mark-all-like-this))
+  :config
+  (setq mc/list-file (expand-file-name "mc-lists.el" user-data-directory)))
 #+END_SRC
 
 ** [[https://github.com/magnars/expand-region.el][Expand-Region]]
 
 #+BEGIN_SRC emacs-lisp
 (use-package expand-region
+  :ensure t
   :bind (("C-=" . er/expand-region)
          ("C--" . er/contract-region)))
 #+END_SRC
@@ -1185,6 +1216,7 @@ Multiple cursors for Emacs.
 
 #+BEGIN_SRC emacs-lisp
 (use-package rainbow-delimiters
+  :ensure t
   :commands rainbow-delimiters-mode
   :init
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
@@ -1192,7 +1224,8 @@ Multiple cursors for Emacs.
 
 ** [[https://github.com/holomorph/systemd-mode][Systemd]]
 #+BEGIN_SRC emacs-lisp
-(use-package systemd)
+(use-package systemd
+  :ensure t)
 #+END_SRC
 ** [[https://github.com/adamrt/sane-term][Sane-Term]]
 
@@ -1200,6 +1233,7 @@ A sane wrapper around `ansi-term`.
 
 #+BEGIN_SRC emacs-lisp
 (use-package sane-term
+  :ensure t
   :bind (("C-c t" . sane-term)
          ("C-c T" . sane-term-create))
   :config
@@ -1209,6 +1243,7 @@ A sane wrapper around `ansi-term`.
 ** [[https://github.com/Fuco1/smartparens][Smartparens]]
 #+BEGIN_SRC emacs-lisp
 (use-package smartparens
+  :ensure t
   :commands (smartparens-mode show-smartparens-mode)
   :config
   (use-package smartparens-config))
@@ -1217,6 +1252,7 @@ A sane wrapper around `ansi-term`.
 
 #+BEGIN_SRC emacs-lisp
 (use-package langtool
+  :ensure t
   :bind (("C-x 4 w" . langtool-check)
          ("C-x 4 W" . langtool-check-done)
          ("C-x 4 l" . langtool-switch-default-language)
@@ -1230,35 +1266,47 @@ A sane wrapper around `ansi-term`.
 
 #+BEGIN_SRC emacs-lisp
 (use-package zoom-window
+  :ensure t
   :bind ("C-x C-z" . zoom-window-zoom))
 #+END_SRC
 
 ** [[https://github.com/bbatsov/projectile][Projectile]]
 #+BEGIN_SRC emacs-lisp
 (use-package projectile
+  :ensure t
   :config
   (projectile-global-mode)
   (setq projectile-completion-system 'helm)
   (use-package helm-projectile
+    :ensure t
     :config
     (helm-projectile-on)))
 #+END_SRC
 ** [[https://github.com/Silex/docker.el][Docker]]
 
 #+BEGIN_SRC emacs-lisp
-(use-package docker)
+(use-package docker
+  :ensure t)
 #+END_SRC
 ** [[https://github.com/spotify/dockerfile-mode][Dockerfile-Mode]]
 
 #+BEGIN_SRC emacs-lisp
 (use-package dockerfile-mode
+  :ensure t
   :mode "Dockerfile\\'")
+#+END_SRC
+** [[Https://github.com/dgutov/diff-hl][diff-hl]]
+
+#+BEGIN_SRC emacs-lisp
+(use-package diff-hl
+  :ensure t
+  :config
+  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
 #+END_SRC
 
 ** TODO [[https://github.com/fxbois/web-mode][Web-Mode]]
 
 [2015-07-11 Sat 01:24]
-** TODO Setup [[https://github.com/dgutov/diff-hl][diff-hl]]
 ** TODO [[https://github.com/abo-abo/hydra][Hydra]]
 
 This one looks nice.
