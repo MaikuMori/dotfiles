@@ -115,7 +115,7 @@ give it a proper try.
 
 #+BEGIN_SRC emacs-lisp
 (set-face-attribute 'default nil
-                    :family "Source Code Pro for Powerline"
+                    :family "Source Code Pro"
                     :height 120
                     :weight 'normal
                     :width 'normal)
