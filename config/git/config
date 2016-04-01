@@ -9,6 +9,7 @@
     editor = emacsclient -t --socket-name /tmp/emacs1000/server
     pager = tig
     whitespace = blank-at-eol,blank-at-eof,space-before-tab,trailing-space
+	untrackedCache = true
 [apply]
     whitespace = warn
 [push]
