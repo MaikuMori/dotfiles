@@ -15,15 +15,18 @@
 (setq inhibit-startup-message t)
 (setq initial-scratch-message "")
 
+(require 'package)
+(setq package-enable-at-startup nil)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives
+             '("org" . "http://orgmode.org/elpa/") t)
 (package-initialize)
 
-;; Cask manages our package dependencies.
-(require 'cask "~/.cask/cask.el")
-(cask-initialize)
-
-;; Pallet allows us to use Cask in tandem with `package.el`.
-(require 'pallet)
-(pallet-mode t)
+;; Bootstrap `use-package'.
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
 
 ;; Load up Org-babel.
 (require 'ob-tangle)
