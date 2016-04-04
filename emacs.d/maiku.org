@@ -492,8 +492,14 @@ This makes it much easier to undo things.
          ("M-y" . helm-show-kill-ring)
          ("C-x b" . helm-mini)
          ("C-x C-f" . helm-find-files)
-         ("C-x f" . helm-multi-files))
-
+         ("C-x f" . helm-multi-files)
+         :map helm-map
+         ;; ("o" . helm-occur)
+         ("<tab>" . helm-execute-persistent-action)
+         ("C-i" . helm-execute-persistent-action)
+         ("C-z" . helm-select-action)
+         ;;("SPC" . helm-all-mark-rings)
+         )
   :config
   (use-package helm-files)
   (use-package helm-buffers)
@@ -504,14 +510,6 @@ This makes it much easier to undo things.
 
   (helm-adaptive-mode 1)
   (helm-autoresize-mode 1)
-
-  (bind-keys :map helm-map
-             ;; ("o" . helm-occur)
-             ("<tab>" . helm-execute-persistent-action)
-             ("C-i" . helm-execute-persistent-action)
-             ("C-z" . helm-select-action)
-             ;; ("SPC" . helm-all-mark-rings)
-             )
 
   (unbind-key "C-x c")
 
@@ -548,8 +546,6 @@ This makes it much easier to undo things.
   :config
   (helm-descbinds-mode))
 #+END_SRC
-
-*** TODO Add `:map helm-map` when map keyword is implemented.
 
 ** [[http://jblevins.org/projects/markdown-mode/][Markdown-mode]]
 
@@ -653,10 +649,10 @@ whole line when no region is selected.
   :ensure t
   :bind (("C-c a" . org-agenda)
          ("C-c c" . Org-Capture)
-         ("C-c l" . org-store-link))
+         ("C-c l" . org-store-link)
+         :map org-mode-map
+         ("<return>" . org-return-indent))
   :config
-  (bind-keys :map org-mode-map
-            ("<return>" . org-return-indent))
   :init
   (setq org-agenda-files (quote ("~/Org"))
         org-directory "~/Org"
