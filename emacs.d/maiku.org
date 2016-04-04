@@ -1157,8 +1157,6 @@ Snippets
   (yas-global-mode 1))
 #+END_SRC
 
-*** TODO Add custom snippets.
-
 ** [[https://github.com/justbur/emacs-which-key][Which-Key]]
 
 #+BEGIN_SRC emacs-lisp
