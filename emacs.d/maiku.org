@@ -657,6 +657,8 @@ whole line when no region is selected.
          ("<return>" . org-return-indent))
   :config
   :init
+  (use-package org-plus-contrib
+    :ensure t)
   (setq org-agenda-files (quote ("~/Org"))
         org-directory "~/Org"
         org-default-notes-file "~/Org/refile.org"
