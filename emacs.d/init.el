@@ -15,6 +15,10 @@
 (setq inhibit-startup-message t)
 (setq initial-scratch-message "")
 
+;; Keep custom variable garbage out of my git.
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file 'noerror)
+
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives
