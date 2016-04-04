@@ -1300,9 +1300,21 @@ A sane wrapper around `ansi-term`.
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
 #+END_SRC
 
-** TODO [[https://github.com/fxbois/web-mode][Web-Mode]]
+** [[https://github.com/fxbois/web-mode][Web-Mode]]
 
-[2015-07-11 Sat 01:24]
+#+BEGIN_SRC emacs-lisp
+(use-package web-mode
+  :ensure t
+  :mode (("\\.phtml\\'" . web-mode)
+         ("\\.tpl\\.php\\'" . web-mode)
+         ("\\.[agj]sp\\'" . web-mode)
+         ("\\.as[cp]x\\'" . web-mode)
+         ("\\.erb\\'" . web-mode)
+         ("\\.mustache\\'" . web-mode)
+         ("\\.djhtml\\'" . web-mode)))
+
+#+END_SRC
+
 ** TODO [[https://github.com/abo-abo/hydra][Hydra]]
 
 This one looks nice.
