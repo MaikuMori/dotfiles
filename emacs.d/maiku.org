@@ -1087,6 +1087,44 @@ Auto-completion.
         company-go-show-annotation t))
 #+END_SRC
 
+** [[https://melpa.org/#/go-rename][Go-Rename]]
+
+#+BEGIN_SRC emacs-lisp
+(use-package go-rename
+  :ensure t)
+#+END_SRC
+
+** [[https://github.com/dominikh/go-impl.el][Go-Impl]]
+
+#+BEGIN_SRC emacs-lisp
+(use-package go-impl
+  :ensure t)
+#+END_SRC
+
+** [[https://github.com/benma/go-dlv.el][Go-Dvl]]
+
+#+BEGIN_SRC emacs-lisp
+(use-package go-dlv
+  :ensure t)
+#+END_SRC
+
+** [[https://melpa.org/#/go-guru][Go-Guru]]
+
+#+BEGIN_SRC emacs-lisp
+(use-package go-guru
+  :ensure t)
+#+END_SRC
+
+** [[https://github.com/syohex/emacs-go-eldoc][Go-Eldoc]]
+
+#+BEGIN_SRC emacs-lisp
+(use-package go-eldoc
+  :ensure t
+  :commands go-eldoc-setup
+  :config
+  (add-hook 'go-mode-hook 'go-eldoc-setup))
+#+END_SRC
+
 ** [[https://github.com/moninikh/go-mode.el][Go-Mode]]
 
 #+BEGIN_SRC emacs-lisp
@@ -1131,16 +1169,6 @@ Auto-completion.
 #+BEGIN_SRC emacs-lisp
 (use-package terraform-mode
   :ensure t)
-#+END_SRC
-
-** [[https://github.com/syohex/emacs-go-eldoc][Go-Eldoc]]
-
-#+BEGIN_SRC emacs-lisp
-(use-package go-eldoc
-  :ensure t
-  :commands go-eldoc-setup
-  :config
-  (add-hook 'go-mode-hook 'go-eldoc-setup))
 #+END_SRC
 
 ** [[https://github.com/capitaomorte/yasnippet][Yasnippet]]
