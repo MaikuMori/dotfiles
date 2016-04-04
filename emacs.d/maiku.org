@@ -585,6 +585,11 @@ Automatically removes trailing whitespaces.
   :config
   (defalias 'flycheck-show-error-at-point-soon 'flycheck-show-error-at-point)
 
+  (defun disable-fylcheck-in-org-src-block ()
+    (setq-local flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
+
+  (add-hook 'org-src-mode-hook 'disable-fylcheck-in-org-src-block)
+
   (use-package flycheck-color-mode-line
     :ensure t
     :config
@@ -597,8 +602,6 @@ Automatically removes trailing whitespaces.
 
   (global-flycheck-mode t))
 #+END_SRC
-
-*** TODO Disable it in some modes (like Org+Src)
 
 ** [[http://www.emacswiki.org/emacs/ParEdit][Paredit]]
 
