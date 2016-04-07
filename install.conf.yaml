@@ -70,3 +70,5 @@
       path: ncmpcpp.conf
     # mpdas.
     ~/.mpdasrc: mpdasrc.secret
+    # GPG.
+    ~/.gnupg/gpg.conf: gpg.conf
