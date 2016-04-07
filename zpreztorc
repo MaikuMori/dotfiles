@@ -40,7 +40,8 @@ zstyle ':prezto:load' pmodule \
   'archive' \
   'history-substring-search' \
   'command-not-found' \
-  'autosuggestions'
+  'autosuggestions' \
+  'gpg'
 
 #
 # Editor
