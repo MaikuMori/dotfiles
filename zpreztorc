@@ -39,7 +39,8 @@ zstyle ':prezto:load' pmodule \
   'fasd' \
   'archive' \
   'history-substring-search' \
-  'command-not-found'
+  'command-not-found' \
+  'autosuggestions'
 
 #
 # Editor
