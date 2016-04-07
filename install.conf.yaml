@@ -72,3 +72,4 @@
     ~/.mpdasrc: mpdasrc.secret
     # GPG.
     ~/.gnupg/gpg.conf: gpg.conf
+    ~/.gnupg/gpg-agent.conf: gpg-agent.conf
