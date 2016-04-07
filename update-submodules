@@ -8,7 +8,7 @@
 git submodule foreach "git checkout master && git pull"
 
 # Make sure that submodule submodules are at the correct version.
-git submodule foreach "git submodule update --recursive"
+git submodule foreach "git submodule update --init --recursive"
 
 # And we're done.
 echo "$(tput setaf 5)Done!$(tput sgr0)"
