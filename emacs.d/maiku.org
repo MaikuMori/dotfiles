@@ -370,6 +370,13 @@ buffer is not visiting a file."
   :load-path "lisp"
   :commands helm-1188-lookup-transport)
 #+END_SRC
+** [[https://github.com/rranelli/auto-package-update.el][Auto-Package-Update]]
+
+#+BEGIN_SRC emacs-lisp
+(use-package auto-package-update
+  :ensure t)
+#+END_SRC
+
 ** [[Exec-Path-From-Shell]]
 
 #+BEGIN_SRC emacs-lisp
