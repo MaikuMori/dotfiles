@@ -75,16 +75,6 @@ alias git="hub"
 # FUNCTIONS #
 #############
 
-# Update emacs plugins and restart emacs server.
-emup() {
-    pushd ~/dotfiles/emacs.d
-    cask update
-    cask install
-    cask upgrade
-    systemctl --user restart emacs
-    popd
-}
-
 # Launch and detach an app.
 launch() {
     ( $* &> /dev/null & )
