@@ -1316,7 +1316,14 @@ A sane wrapper around `ansi-term`.
 #+BEGIN_SRC emacs-lisp
 (use-package smartparens
   :ensure t
-  :commands (smartparens-mode show-smartparens-mode)
+  :commands
+  smartparens-mode
+  show-smartparens-mode
+  sp-restrict-to-pairs-interactive
+  sp-local-pair
+  smartparens-strict-mode
+  :init
+  (setq sp-interactive-dwim t)
   :config
   (use-package smartparens-config))
 #+END_SRC
