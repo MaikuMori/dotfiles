@@ -1351,6 +1351,8 @@ A sane wrapper around `ansi-term`.
   (setq projectile-completion-system 'helm)
   (use-package helm-projectile
     :ensure t
+    :bind (("s-f" . helm-projectile-find-file)
+           ("s-F" . helm-projectile-grep))
     :config
     (helm-projectile-on)))
 #+END_SRC
