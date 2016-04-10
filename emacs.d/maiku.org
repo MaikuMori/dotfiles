@@ -1223,12 +1223,15 @@ Snippets
 (use-package yasnippet
   :ensure t
   :diminish yas-minor-mode
+  :commnads yas-minor-mode
   :mode (("/\\.emacs\\.d/my-snippets/" . snippet-mode)
          ("/\\.emacs\\.d/yasnippets-snippets/" . snippet-mode))
-  :config
+  :init
   (setq yas-snippet-dirs
       '("~/.emacs.d/my-snippets"
         "~/.emacs.d/yasnippet-snippets"))
+  :config
+  (yas-reload-all)
   (yas-global-mode 1))
 #+END_SRC
 
