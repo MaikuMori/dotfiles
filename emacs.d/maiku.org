@@ -1280,6 +1280,7 @@ Multiple cursors for Emacs.
 #+BEGIN_SRC emacs-lisp
 (use-package expand-region
   :ensure t
+  :commands 'er/expand-region
   :bind (("C-=" . er/expand-region)
          ("C--" . er/contract-region)))
 #+END_SRC
