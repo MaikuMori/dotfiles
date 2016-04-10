@@ -345,6 +345,21 @@ With a prefix argument N, (un)comment that many sexps."
 
 (global-set-key (kbd "C-M-;") #'comment-or-uncomment-sexp)
 #+END_SRC
+
+** Indent buffer
+
+http://ensime.github.io/editors/emacs/hacks/#formatting
+
+#+BEGIN_SRC emacs-lisp
+(defun mm/indent-buffer ()
+  "Indent the entire buffer."
+  (interactive)
+  (save-excursion
+    (delete-trailing-whitespace)
+    (indent-region (point-min) (point-max) nil)
+    (untabify (point-min) (point-max))))
+#+END_SRC
+
 ** Open file as root
 
 #+BEGIN_SRC emacs-lisp
