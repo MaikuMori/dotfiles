@@ -405,6 +405,15 @@ buffer is not visiting a file."
   (setq aw-keys '(?a ?s ?d ?f ?j ?k ?l)))
 #+END_SRC
 
+** [[https://github.com/abo-abo/define-word][Define-Word]]
+
+#+BEGIN_SRC emacs-lisp
+(use-package define-word
+  :ensure t
+  :bind (("s-d" . define-word-at-point)
+         ("s-D" . define-word)))
+
+#+END_SRC
 ** [[https://github.com/oneKelvinSmith/monokai-emacs][Monokai-Emacs]]
 
 I really like Monokai Theme so lets load it.
