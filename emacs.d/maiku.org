@@ -1356,7 +1356,8 @@ A sane wrapper around `ansi-term`.
   :ensure t
   :config
   (projectile-global-mode)
-  (setq projectile-completion-system 'helm)
+  (setq projectile-completion-system 'helm
+        projectile-create-missing-test-files t)
   (use-package helm-projectile
     :ensure t
     :bind (("s-f" . helm-projectile-find-file)
