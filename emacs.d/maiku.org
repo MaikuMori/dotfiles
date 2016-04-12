@@ -1223,7 +1223,7 @@ Snippets
 (use-package yasnippet
   :ensure t
   :diminish yas-minor-mode
-  :commnads yas-minor-mode
+  :commands yas-minor-mode
   :mode (("/\\.emacs\\.d/my-snippets/" . snippet-mode)
          ("/\\.emacs\\.d/yasnippets-snippets/" . snippet-mode))
   :init
