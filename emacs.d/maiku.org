@@ -1387,6 +1387,18 @@ A sane wrapper around `ansi-term`.
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
 #+END_SRC
 
+** [[https://github.com/mooz/js2-mode][js2-mode]]
+
+#+BEGIN_SRC emacs-lisp
+(use-package js2-mode
+  :ensure t
+  :mode "\\.js\\'"
+  :interpreter ("node" . js2-mode)
+  :config
+  (setq-default js2-basic-offset 4
+                js2-mode-show-parse-errors nil
+                js2-mode-show-strict-warnings nil))
+#+END_SRC
 ** [[https://github.com/fxbois/web-mode][Web-Mode]]
 
 #+BEGIN_SRC emacs-lisp
