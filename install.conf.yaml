@@ -7,6 +7,7 @@
   - [mkdir -p ~/Projects ~/GoProjects, Create directory structure (projects)]
   - [mkdir -p ~/pacman/package ~/pacman/source ~/pacman/srcpackages, Create directory structure (pacman)]
   - [mkdir -p ~/.local/share/mpd/playlists, Create directory structure (mpd)]
+  - [mkdir -p ~/.local/share/beets, Create directory structure (beets)]
   - [git submodule update --init --recursive, Installing submodules]
 
 - link:
@@ -70,6 +71,10 @@
       path: ncmpcpp.conf
     # mpdas.
     ~/.mpdasrc: mpdasrc.secret
+    # Beets.
+    ~/.config/beets/config.yaml:
+      create: yes
+      path: config/beets/config.yaml
     # GPG.
     ~/.gnupg/gpg.conf: gpg.conf
     ~/.gnupg/gpg-agent.conf: gpg-agent.conf
