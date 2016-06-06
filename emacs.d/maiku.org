@@ -545,10 +545,6 @@ This makes it much easier to undo things.
 
   (unbind-key "C-x c")
 
-  (when (executable-find "ack")
-    (setq helm-grep-default-command "ack -Hn --no-group --no-color %e %p %f"
-          helm-grep-default-recurse-command "ack -H --no-group --no-color %e %p %f"))
-
   (when (executable-find "curl")
     (setq helm-google-suggest-use-curl-p t))
 
@@ -577,6 +573,13 @@ This makes it much easier to undo things.
   :ensure t
   :config
   (helm-descbinds-mode))
+#+END_SRC
+
+*** [[https://github.com/syohex/emacs-helm-ag][Helm-Ag]]
+
+#+BEGIN_SRC emacs-lisp
+(use-package helm-ag
+  :ensure t)
 #+END_SRC
 
 ** [[http://jblevins.org/projects/markdown-mode/][Markdown-mode]]
