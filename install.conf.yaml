@@ -69,8 +69,10 @@
     ~/.ncmpcpp/config:
       create: yes
       path: ncmpcpp.conf
-    # mpdas.
-    ~/.mpdasrc: mpdasrc.secret
+    # mpdscribble.
+    ~/.mpdscribble/mpdscribble.conf:
+      create: yes
+      path: mpdscribble.secret
     # Beets.
     ~/.config/beets/config.yaml:
       create: yes
