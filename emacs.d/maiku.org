@@ -28,6 +28,7 @@ prefix.
 - http://tuhdo.github.io/emacs-tutor3.html
 - https://github.com/grettke/home/blob/master/.emacs.el
 - https://github.com/danielmai/.emacs.d/
+- https://github.com/steckerhalter/steckemacs.el/blob/master/steckemacs.el
 
 * Bootstrap
 ** Directories
