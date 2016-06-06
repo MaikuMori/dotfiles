@@ -385,6 +385,7 @@ buffer is not visiting a file."
   :load-path "lisp"
   :commands helm-1188-lookup-transport)
 #+END_SRC
+
 ** [[https://github.com/rranelli/auto-package-update.el][Auto-Package-Update]]
 
 #+BEGIN_SRC emacs-lisp
@@ -427,8 +428,8 @@ buffer is not visiting a file."
   :ensure t
   :bind (("s-d" . define-word-at-point)
          ("s-D" . define-word)))
-
 #+END_SRC
+
 ** [[https://github.com/oneKelvinSmith/monokai-emacs][Monokai-Emacs]]
 
 I really like Monokai Theme so lets load it.
@@ -589,12 +590,14 @@ This makes it much easier to undo things.
 #+END_SRC
 
 ** [[https://github.com/jinzhu/zeal-at-point][Zeal-At-Point]]
+
 #+BEGIN_SRC emacs-lisp
 (use-package zeal-at-point
   :ensure t
   :bind (("C-c C-." . zeal-at-point))
   :config)
 #+END_SRC
+
 ** [[https://github.com/lewang/ws-butler][WS-Buttler]]
 
 Automatically removes trailing whitespaces.
@@ -1208,6 +1211,7 @@ Auto-completion.
   :ensure t
   :mode "\\.json\\'")
 #+END_SRC
+
 ** [[https://github.com/syohex/emacs-terraform-mode][Emacs-Terraform-Mode]]
 
 #+BEGIN_SRC emacs-lisp
@@ -1260,6 +1264,7 @@ Snippets
   :ensure t
   :bind ("C-." . helm-imenu-anywhere))
 #+END_SRC
+
 ** [[https://github.com/magnars/multiple-cursors.el][Multiple-Cursors]]
 
 Multiple cursors for Emacs.
@@ -1314,6 +1319,7 @@ A sane wrapper around `ansi-term`.
 #+END_SRC
 
 ** [[https://github.com/Fuco1/smartparens][Smartparens]]
+
 #+BEGIN_SRC emacs-lisp
 (use-package smartparens
   :ensure t
@@ -1328,6 +1334,7 @@ A sane wrapper around `ansi-term`.
   :config
   (use-package smartparens-config))
 #+END_SRC
+
 ** [[https://github.com/mhayashi1120/Emacs-langtool][Emacs-Langtool]]
 
 #+BEGIN_SRC emacs-lisp
@@ -1351,6 +1358,7 @@ A sane wrapper around `ansi-term`.
 #+END_SRC
 
 ** [[https://github.com/bbatsov/projectile][Projectile]]
+
 #+BEGIN_SRC emacs-lisp
 (use-package projectile
   :ensure t
@@ -1365,12 +1373,14 @@ A sane wrapper around `ansi-term`.
     :config
     (helm-projectile-on)))
 #+END_SRC
+
 ** [[https://github.com/Silex/docker.el][Docker]]
 
 #+BEGIN_SRC emacs-lisp
 (use-package docker
   :ensure t)
 #+END_SRC
+
 ** [[https://github.com/spotify/dockerfile-mode][Dockerfile-Mode]]
 
 #+BEGIN_SRC emacs-lisp
@@ -1378,6 +1388,7 @@ A sane wrapper around `ansi-term`.
   :ensure t
   :mode "Dockerfile\\'")
 #+END_SRC
+
 ** [[Https://github.com/dgutov/diff-hl][diff-hl]]
 
 #+BEGIN_SRC emacs-lisp
@@ -1399,6 +1410,7 @@ A sane wrapper around `ansi-term`.
                 js2-mode-show-parse-errors nil
                 js2-mode-show-strict-warnings nil))
 #+END_SRC
+
 ** [[https://github.com/fxbois/web-mode][Web-Mode]]
 
 #+BEGIN_SRC emacs-lisp
