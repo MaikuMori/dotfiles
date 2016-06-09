@@ -70,6 +70,8 @@ alias npup="sudo npm -g update --python=/usr/bin/python"
 # Hub
 alias git="hub"
 
+# Random
+alias beepbeep="paplay /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga"
 
 #############
 # FUNCTIONS #
