@@ -19,6 +19,7 @@
     pager = false
 [diff]
     renames = copies
+	compactionHeuristic = true
 [alias]
     switch = !legit switch
     branches = !legit branches
@@ -44,3 +45,5 @@
     required = true
 [commit]
 	gpgsign = true
+[interactive]
+	diffFilter = diff-so-fancy
