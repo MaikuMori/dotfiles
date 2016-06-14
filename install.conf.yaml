@@ -61,6 +61,10 @@
     ~/.config/obnam:
       create: yes
       path: config/obnam
+    # MPV.
+    ~/.config/mpv:
+      create: yes
+      path: config/mpv
     # MPD.
     ~/.config/mpd:
       create: yes

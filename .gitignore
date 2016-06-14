@@ -1,3 +1,4 @@
 emacs.d/custom.el
 *.secret
 /emacs.d/.last-package-update-day
+/config/mpv/watch_later/
