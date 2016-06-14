@@ -1430,6 +1430,17 @@ A sane wrapper around `ansi-term`.
 
 #+END_SRC
 
+** [[https://github.com/d12frosted/flyspell-correct][Flyspell-Correct-Helm]]
+
+#+BEGIN_SRC emacs-lisp
+(use-package flyspell-correct-helm
+  :ensure t
+  :commands flyspell-correct-previous-word-generic
+  :bind (:map flyspell-mode-map
+              ;; ("M-$" . flyspell-correct-previous-word-generic)
+              ("M-$" . flyspell-correct-word-before-point)))
+#+END_SRC
+
 ** TODO [[https://github.com/abo-abo/hydra][Hydra]]
 
 This one looks nice.
