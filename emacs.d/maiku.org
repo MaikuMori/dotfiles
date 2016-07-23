@@ -644,18 +644,18 @@ Automatically removes trailing whitespaces.
 ** [[http://www.emacswiki.org/emacs/ParEdit][Paredit]]
 
 #+BEGIN_SRC emacs-lisp
-(use-package paredit
-  :ensure t
-  :commands paredit-mode
-  :diminish paredit-mode
-  :init
-  (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
-  (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
-  (add-hook 'ielm-mode-hook             #'enable-paredit-mode)
-  (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
-  (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
-  (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
-  (add-hook 'emacs-lisp-mode-hook       #'show-paren-mode))
+;; (use-package paredit
+;;   :ensure t
+;;   :commands paredit-mode
+;;   :diminish paredit-mode
+;;   :init
+;;   (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
+;;   (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+;;   (add-hook 'ielm-mode-hook             #'enable-paredit-mode)
+;;   (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
+;;   (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+;;   (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+;;   (add-hook 'emacs-lisp-mode-hook       #'show-paren-mode))
 #+END_SRC
 
 ** [[https://github.com/purcell/whole-line-or-region][Whole-Line-Or-Region]]
