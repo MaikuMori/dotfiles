@@ -1441,6 +1441,37 @@ A sane wrapper around `ansi-term`.
               ("M-$" . flyspell-correct-word-before-point)))
 #+END_SRC
 
+** Clojure
+
+#+BEGIN_SRC emacs-lisp
+(use-package clojure-mode
+  :ensure t
+  :config
+  (add-hook 'clojure-mode-hook #'smartparens-mode))
+
+(use-package cider
+  :ensure t
+  :config
+  (add-hook 'cider-mode-hook #'eldoc-mode)
+  (add-hook 'cider-repl-mode-hook #'smartparens-mode)
+  (setq cider-prompt-for-symbol nil
+        cider-repl-use-pretty-printing t
+      cider-repl-use-clojure-font-lock t)))
+
+(use-package clj-refactor
+  :ensure t
+  :config
+  (add-hook (lambda () ((clj-refactor-mode 1)
+                        (cljr-add-keybindings-with-prefix "C-c C-m")))))
+
+(use-package clojure-cheatsheet
+  :ensure t)
+
+(use-package flycheck-clojure
+  :ensure t
+  :config
+  (eval-after-load 'flycheck '(flycheck-clojure-setup)))
+#+END_SRC
 ** TODO [[https://github.com/abo-abo/hydra][Hydra]]
 
 This one looks nice.
