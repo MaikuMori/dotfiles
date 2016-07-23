@@ -1,14 +1,20 @@
 {
-	"segments": {
+    "segments": {
 		"right": [
 			{
 				"function": "powerline.segments.common.sys.uptime",
 				"priority": 50
 			},
 			{
-				"function": "powerline.segments.common.sys.system_load",
-				"priority": 50
-			},
+                "function": "powerline.segments.common.sys.system_load",
+                "priority": 50
+            },
+            {
+                "function": "powerline.segments.common.net.network_load",
+                "args": {
+                    "si_prefix": true
+                }
+            },
 			{
 				"function": "powerline.segments.common.time.date"
 			},
@@ -19,10 +25,7 @@
 					"format": "%H:%M",
 					"istime": true
 				}
-			},
-			{
-				"function": "powerline.segments.common.net.hostname"
-			}
-		]
+            }
+        ]
 	}
 }
