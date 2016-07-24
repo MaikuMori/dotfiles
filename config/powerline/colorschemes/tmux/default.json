@@ -4,6 +4,7 @@
         "activity_status":      {"fg": "mediumpurple",     "bg": "gray0",    "attrs": []},
         "window:current":       {"fg": "darkestpurple", "bg": "mediumpurple", "attrs": []},
         "window_name":          {"fg": "white",      "bg": "mediumpurple", "attrs": ["bold"]},
-        "session":              {"fg": "white",      "bg": "darkestpurple",   "attrs": ["bold"]}
+        "session":              {"fg": "white",      "bg": "darkestpurple",   "attrs": ["bold"]},
+        "session:prefix":       {"fg": "gray0",      "bg": "white",   "attrs": ["bold"]}
     }
 }

@@ -1,10 +1,10 @@
 {
 	"name": "Default",
     "groups": {
-        "user":                      { "fg": "white", "bg": "darkestpurple", "attrs": ["bold"] },
+        "user":                      { "fg": "white", "bg": "black", "attrs": ["bold"] },
         "date":                      { "fg": "white", "bg": "mediumpurple", "attrs": [] },
         "time":                      { "fg": "white", "bg": "darkestpurple", "attrs": ["bold"] },
-        "uptime":                    { "fg": "gray8", "bg": "gray2", "attrs": [] },
+        "uptime":                    { "fg": "gray10", "bg": "gray2", "attrs": [] },
         "network_load":              { "fg": "gray0", "bg": "gray6", "attrs": [] },
         "system_load_gradient":      { "fg": "gray0", "bg": "gray4", "attrs": [] }
     }
