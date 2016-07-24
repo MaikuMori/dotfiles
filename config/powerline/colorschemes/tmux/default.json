@@ -1,6 +1,6 @@
 {
-	"groups": {
-
+    "groups": {
+        "active_window_status": {"fg": "brightpurple",   "bg": "gray0",    "attrs": []},
         "activity_status":      {"fg": "mediumpurple",     "bg": "gray0",    "attrs": []},
         "window:current":       {"fg": "darkestpurple", "bg": "mediumpurple", "attrs": []},
         "window_name":          {"fg": "white",      "bg": "mediumpurple", "attrs": ["bold"]},
