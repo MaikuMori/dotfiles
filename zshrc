@@ -114,3 +114,11 @@ fi
 if [ -f /usr/share/nvm/init-nvm.sh ]; then
    source /usr/share/nvm/init-nvm.sh
 fi
+
+###########
+# Kubectl #
+###########
+
+if [ -f /opt/google-cloud-sdk/bin/kubectl ]; then
+    source <(kubectl completion zsh)
+fi
