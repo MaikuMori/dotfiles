@@ -122,3 +122,15 @@ fi
 if [ -f /opt/google-cloud-sdk/bin/kubectl ]; then
     source <(kubectl completion zsh)
 fi
+
+####################
+# Google Cloud SDK #
+####################
+
+if [ -f /opt/google-cloud-sdk/completion.zsh.inc ]; then
+    source /opt/google-cloud-sdk/completion.zsh.inc
+fi
+
+if [ -f /opt/google-cloud-sdk/path.zsh.inc ]; then
+    source /opt/google-cloud-sdk/path.zsh.inc
+fi
