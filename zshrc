@@ -134,3 +134,5 @@ fi
 if [ -f /opt/google-cloud-sdk/path.zsh.inc ]; then
     source /opt/google-cloud-sdk/path.zsh.inc
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
