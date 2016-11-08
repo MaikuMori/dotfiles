@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+pip install --upgrade --user \
+    git+git://github.com/powerline/powerline \
+    aws-shell \
+    tvoverlord \
+    yip \
+    yamllint
