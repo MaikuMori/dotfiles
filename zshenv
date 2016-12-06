@@ -26,3 +26,11 @@ export PATH=$PATH:$HOME/.cask/bin
 export PATH=$PATH:$HOME/.local/bin
 
 export ATOM_REPOS_HOME=$HOME/Projects
+
+####################
+# Google Cloud SDK #
+####################
+
+if [ -f /opt/google-cloud-sdk/path.zsh.inc ]; then
+    source /opt/google-cloud-sdk/path.zsh.inc
+fi
