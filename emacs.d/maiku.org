@@ -167,6 +167,7 @@ And couple more things.
 (setq-default indent-tabs-mode nil)
 (setq x-select-enable-clipboard t
       default-tab-width 4
+      tab-width 4
       tab-always-indent 'complete
       scroll-margin 3
       x-select-enable-primary t
