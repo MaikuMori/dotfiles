@@ -394,6 +394,14 @@ buffer is not visiting a file."
 (use-package auto-package-update
   :ensure t)
 #+END_SRC
+** [[https://github.com/editorconfig/editorconfig-emacs][EditorConfig]]
+
+#+BEGIN_SRC emacs-lisp
+(use-package editorconfig
+  :ensure t
+  :config
+  (editorconfig-mode 1))
+#+END_SRC
 
 ** [[Exec-Path-From-Shell]]
 
