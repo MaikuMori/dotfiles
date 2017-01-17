@@ -102,9 +102,9 @@ BASE16_SHELL=$HOME/.config/base16-shell/scripts/base16-monokai.sh
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # Powerline
-if [ -f ~/.local/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh ]; then
+if [ -f ~/.local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh ]; then
    powerline-daemon -q
-   source ~/.local/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
+   source ~/.local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 fi
 
 #######
