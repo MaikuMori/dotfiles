@@ -5,4 +5,5 @@ pip install --upgrade --user \
     aws-shell \
     tvoverlord \
     yip \
-    yamllint
+    yamllint \
+    subliminal
