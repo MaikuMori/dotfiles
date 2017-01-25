@@ -9,7 +9,7 @@
     editor = emacsclient -t --socket-name /tmp/emacs1000/server
     pager = tig
     whitespace = blank-at-eol,blank-at-eof,space-before-tab,trailing-space
-	untrackedCache = true
+    untrackedCache = true
 [apply]
     whitespace = warn
 [push]
@@ -19,7 +19,7 @@
     pager = false
 [diff]
     renames = copies
-	compactionHeuristic = true
+    compactionHeuristic = true
 [alias]
     switch = !legit switch
     branches = !legit branches
@@ -45,6 +45,6 @@
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
 [commit]
-	gpgsign = true
+    gpgsign = true
 [interactive]
-	diffFilter = diff-so-fancy
+    diffFilter = diff-so-fancy
