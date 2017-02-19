@@ -6,4 +6,5 @@ pip install --upgrade --user \
     tvoverlord \
     yip \
     yamllint \
-    subliminal
+    subliminal \
+    pipenv
