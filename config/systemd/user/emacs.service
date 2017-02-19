@@ -1,11 +1,12 @@
 [Unit]
 Description=Emacs: the extensible, self-documenting text editor
+Documentation=info:emacs man:emacs(1) https://gnu.org/software/emacs/
 
 [Service]
-Type=forking
-ExecStart=/usr/bin/emacs --daemon
+Type=simple
+ExecStart=/usr/bin/emacs --new-daemon
 ExecStop=/usr/bin/emacsclient --eval "(kill-emacs)"
-Restart=always
+Restart=on-failure
 Environment=SSH_AUTH_SOCK=%t/keyring/ssh
 TimeoutStartSec=0
 
