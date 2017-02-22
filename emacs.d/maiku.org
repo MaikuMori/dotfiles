@@ -494,11 +494,7 @@ This makes it much easier to undo things.
 (use-package magithub
   :ensure t
   :after magit
-  :config (magithub-feature-autoinject t)
-  :init
-  (magithub-toggle-pull-requests)
-  (magithub-toggle-issues)
-  (magithub-toggle-ci-status-header))
+  :config (magithub-feature-autoinject t))
 #+END_SRC
 
 ** [[https://github.com/emacs-helm/helm][Helm]]
