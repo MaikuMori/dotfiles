@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+
+go get -u -v \
+   github.com/nsf/gocode \
+   github.com/rogpeppe/godef \
+   github.com/mholt/caddy/caddy \
+   github.com/spf13/hugo \
+   github.com/kisielk/errcheck \
+   sourcegraph.com/sqs/goreturns \
+   github.com/alecthomas/gometalinter \
+   github.com/zmb3/gogetdoc \
+   github.com/derekparker/delve/cmd/dlv
