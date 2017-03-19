@@ -103,11 +103,11 @@ Enable some common keybindings.
 Disable some keybindings that I don't use.
 
 #+BEGIN_SRC emacs-lisp
-;; Remove kill emacs keybind.
-(if window-system
-    (global-unset-key (kbd "C-x C-c")))
-;; Remove minimize keybind.
-(global-unset-key (kbd "C-x C-z"))
+;; Remove kill emacs keybind and minimize keybind.
+(mm/on-frame
+   (when (display-graphic-p frame)
+     (global-unset-key (kbd "C-x C-c"))
+     (global-unset-key (kbd "C-x C-z"))))
 #+END_SRC
 
 ** Font
@@ -181,8 +181,10 @@ And couple more things.
       ring-bell-function 'mm/bell-function
       load-prefer-newer t
       ediff-window-setup-function 'ediff-setup-windows-plain)
-(if window-system
-      (fringe-mode 8))
+
+(mm/on-frame
+ (when (display-graphic-p frame)
+     (fringe-mode 8)))
 ;; More natural way of handling regions.
 ;; If text is selected and you type/paste the region is deleted.
 (delete-selection-mode 1)

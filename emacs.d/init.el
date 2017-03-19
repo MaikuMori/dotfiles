@@ -9,10 +9,19 @@
 
 ;; Turn off mouse interface early in startup to avoid momentary display.
 (menu-bar-mode -1)
-(if window-system
-    (progn
-      (scroll-bar-mode -1)
-      (tool-bar-mode -1)))
+
+(defmacro mm/on-frame (&rest body)
+  "Call BODY for every current and future frame creation.
+Inside BODY you can access FRAME variable."
+  (let ((fn `(lambda (frame) ,@body)))
+  `(progn
+     (mapc ,fn (frame-list))
+     (add-hook 'after-make-frame-functions ,fn))))
+
+(mm/on-frame
+ (when (display-graphic-p frame)
+   (scroll-bar-mode -1)
+   (tool-bar-mode -1)))
 
 (setq inhibit-startup-message t)
 (setq initial-scratch-message "")
