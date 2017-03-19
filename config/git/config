@@ -48,3 +48,10 @@
     gpgsign = true
 [interactive]
     diffFilter = diff-so-fancy
+[lfs]
+    batch = true
+    concurrenttransfers = 12
+    tustransfers = true
+[lfs "transfer"]
+    maxretries = 50
+    maxverifies = 50
