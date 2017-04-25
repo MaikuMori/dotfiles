@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+
+yaourt -Syua --noconfirm --devel
