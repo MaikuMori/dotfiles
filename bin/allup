@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+# Has to be in one line becaue that's how tmux expects it.
+tmux new-window -n Updates 'yaup ; zsh' \; split-window -h 'pyup ; zsh' \; split-window -v 'goup ; zsh' \; select-pane -t:.1
