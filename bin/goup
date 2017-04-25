@@ -10,4 +10,8 @@ go get -u -v \
    github.com/alecthomas/gometalinter \
    github.com/zmb3/gogetdoc \
    github.com/derekparker/delve/cmd/dlv \
-   github.com/sourcegraph/thyme/cmd/thyme
+   github.com/sourcegraph/thyme/cmd/thyme \
+   github.com/dominikh/go-tools \
+   github.com/campoy/embedmd \
+   github.com/knqyf263/pet \
+   github.com/rakyll/hey
