@@ -14,9 +14,12 @@
     whitespace = warn
 [push]
     default = simple
+    followTags = true
 [color]
     ui = true
     pager = false
+[status]
+    showUntrackedFiles = all
 [diff]
     renames = copies
     compactionHeuristic = true
@@ -30,11 +33,13 @@
     publish = !legit publish
     graft = !legit graft
     resync = !legit resync
+    stash-all = stash save --include-untracked
     st = status -sb
     uncommit = reset HEAD~1 --mixed
 [merge]
     summary = true
     ff = only
+    conflictstyle = diff3
 [help]
     autocorrect = 1
 [include]
