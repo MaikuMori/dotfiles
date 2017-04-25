@@ -13,6 +13,7 @@ fi
 
 export BROWSER='google-chrome-unstable'
 export EDITOR="emacsclient -t --socket-name /tmp/emacs1000/server"
+export VISUAL="emacsclient -t --socket-name /tmp/emacs1000/server"
 
 export GOPATH=$HOME/GoProjects
 export GO15VENDOREXPERIMENT=1
