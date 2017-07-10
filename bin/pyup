@@ -7,4 +7,5 @@ pip install --upgrade --user \
     yip \
     yamllint \
     subliminal \
-    pipenv
+    pipenv \
+    azure-cli
