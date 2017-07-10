@@ -1207,6 +1207,25 @@ Auto-completion.
   :mode "\\.json\\'")
 #+END_SRC
 
+** [[https://github.com/josteink/csharp-mode][CSharp-Mode
+]]
+#+BEGIN_SRC emacs-lisp
+(use-package csharp-mode
+  :ensure t)
+#+END_SRC
+** TypeScript
+#+BEGIN_SRC emacs-lisp
+(use-package typescript-mode
+  :ensure t)
+
+(use-package tide
+  :ensure t
+  :config
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (tide-hl-identifier-mode +1)
+  (setq company-tooltip-align-annotations t)
+  (add-hook 'before-save-hook 'tide-format-before-save))
+#+END_SRC
 ** [[https://github.com/syohex/emacs-terraform-mode][Emacs-Terraform-Mode]]
 
 #+BEGIN_SRC emacs-lisp
