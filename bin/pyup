@@ -8,4 +8,5 @@ pip install --upgrade --user \
     yamllint \
     subliminal \
     pipenv \
-    azure-cli
+    azure-cli \
+    kube-shell
