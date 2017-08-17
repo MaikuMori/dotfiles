@@ -25,6 +25,7 @@ export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.gem/ruby/2.1.0/bin
 export PATH=$PATH:$HOME/.cask/bin
 export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.cargo/bin
 
 export ATOM_REPOS_HOME=$HOME/Projects
 

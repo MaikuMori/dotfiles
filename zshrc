@@ -45,6 +45,7 @@ alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
 alias lt="lt"
+alias ls="exa"
 
 alias archrss="rsstail -u https://aur.archlinux.org/rss/ -n 10 -d -N -l"
 
