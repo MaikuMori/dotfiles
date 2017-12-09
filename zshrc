@@ -106,6 +106,8 @@ BASE16_SHELL=$HOME/.config/base16-shell/scripts/base16-monokai.sh
 if [ -f ~/.local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh ]; then
    powerline-daemon -q
    source ~/.local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+else
+    zstyle ':prezto:module:prompt' theme 'powerlevel9k'
 fi
 
 #######
