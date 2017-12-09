@@ -24,18 +24,10 @@
     renames = copies
     compactionHeuristic = true
 [alias]
-    switch = !legit switch
-    branches = !legit branches
-    sprout = !legit sprout
-    unpublish = !legit unpublish
-    harvest = !legit harvest
-    sync = !legit sync
-    publish = !legit publish
-    graft = !legit graft
-    resync = !legit resync
     stash-all = stash save --include-untracked
     st = status -sb
     uncommit = reset HEAD~1 --mixed
+    prune-local = !git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -d
 [merge]
     summary = true
     ff = only
