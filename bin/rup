@@ -1,9 +1,9 @@
 #!/usr/bin/env zsh
 
-cargo install cargo-update
-cargo install funzzy
-cargo install tokei
-cargo install --git https://github.com/ogham/exa
-cargo install --git https://github.com/sharkdp/fd
+# cargo install cargo-update
+# cargo install funzzy
+# cargo install tokei
+# cargo install --git https://github.com/ogham/exa
+# cargo install --git https://github.com/sharkdp/fd
 
-cargo install-update -a
+cargo install-update -ag

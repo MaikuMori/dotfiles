@@ -10,3 +10,8 @@ pip install --upgrade --user \
     pipenv \
     azure-cli \
     kube-shell
+
+pip2 install --upgrade --user \
+     bugwarrior \
+     keyring \
+     dbus-python

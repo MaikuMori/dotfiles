@@ -14,4 +14,10 @@ go get -u -v \
    github.com/dominikh/go-tools \
    github.com/campoy/embedmd \
    github.com/knqyf263/pet \
-   github.com/rakyll/hey
+   github.com/rakyll/hey \
+   github.com/rgburke/grv/cmd/grv
+
+
+pushd "$GOPATH/src/github.com/rgburke/grv"
+make install
+popd
