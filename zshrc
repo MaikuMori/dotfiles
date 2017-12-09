@@ -22,6 +22,7 @@ setopt hist_reduce_blanks
 setopt multios
 
 # Add our custom compleations.
+fpath=(/usr/share/bash-completion/bash_completion $fpath)
 fpath=(~/.zcomplete $fpath)
 
 ##########
