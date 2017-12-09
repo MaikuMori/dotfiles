@@ -55,6 +55,10 @@
     ~/.config/base16-shell:
       create: yes
       path: config/base16-shell
+    # Shell theme.
+    ~/.config/bugwarrior:
+      create: yes
+      path: config/bugwarrior
     # Emacs ;).
     ~/.emacs.d: emacs.d
     # Obnam - backups.

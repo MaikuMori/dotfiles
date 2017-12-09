@@ -1,0 +1,25 @@
+[general]
+targets = head_github
+inline_links = False
+annotation_links = True
+annotation_comments = True
+
+[notifications]
+notifications = True
+backend = gobject
+finished_querying_sticky = False
+task_crud_sticky = True
+only_on_new_tasks = True
+
+[head_github]
+service = github
+github.only_if_assigned = MaikuMori
+github.filter_pull_requests = True
+github.username = OrangeLV
+github.login = MaikuMori
+github.password = @oracle:use_keyring
+github.description_template = {{githubtitle}} ({{githubnumber}})
+github.project_template = HEAD
+github.import_labels_as_tags = True
+github.label_template = github_{{label}}
+github.include_repos = HEAD
