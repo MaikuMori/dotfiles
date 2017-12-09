@@ -45,8 +45,10 @@ alias emc="emacsclient -n -c --socket-name /tmp/emacs1000/server"
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
-alias lt="lt"
-alias ls="exa"
+
+if hash exa 2>/dev/null; then
+    alias ls="exa"
+fi
 
 alias archrss="rsstail -u https://aur.archlinux.org/rss/ -n 10 -d -N -l"
 
