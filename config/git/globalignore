@@ -6,3 +6,5 @@
 .srclib-store/
 # NPM
 npm-debug.log
+
+.vagrant/
