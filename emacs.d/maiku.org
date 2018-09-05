@@ -402,6 +402,13 @@ buffer is not visiting a file."
   (auto-package-update-maybe))
 #+END_SRC
 
+** [[https://github.com/larstvei/Try][Try]]
+
+#+BEGIN_SRC emacs-lisp
+(use-package try
+  :ensure t)
+#+END_SRC
+
 ** [[https://github.com/editorconfig/editorconfig-emacs][EditorConfig]]
 
 #+BEGIN_SRC emacs-lisp
