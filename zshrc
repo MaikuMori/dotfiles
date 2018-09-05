@@ -50,6 +50,10 @@ if hash exa 2>/dev/null; then
     alias ls="exa"
 fi
 
+if hash bat 2>/dev/null; then
+    alias cat="bat"
+fi
+
 alias archrss="rsstail -u https://aur.archlinux.org/rss/ -n 10 -d -N -l"
 
 # Pacman
@@ -111,6 +115,18 @@ if [ -f ~/.local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zs
 else
     zstyle ':prezto:module:prompt' theme 'powerlevel9k'
 fi
+
+#######
+# FZF #
+#######
+
+export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
+alias preview="fzf --preview 'bat --color \"always\" {}'"
 
 #######
 # NVM #
