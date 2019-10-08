@@ -34,7 +34,7 @@ prefix.
 ** Directories
 
 I keep any Elisp files not installed from a package repository in the
-=vendor/= directory:
+ =vendor/= directory:
 
 #+BEGIN_SRC emacs-lisp
 ;; Nothing there yet so commented out.
@@ -402,6 +402,13 @@ buffer is not visiting a file."
   (auto-package-update-maybe))
 #+END_SRC
 
+** Pacfiles-Mode
+
+#+BEGIN_SRC emacs-lisp
+(use-package pacfiles-mode
+  :ensure t)
+#+END_SRC
+
 ** [[https://github.com/larstvei/Try][Try]]
 
 #+BEGIN_SRC emacs-lisp
@@ -692,7 +699,7 @@ whole line when no region is selected.
 #+BEGIN_SRC emacs-lisp
 ;; Very inspired by http://doc.norang.ca/org-mode.html
 (use-package org
-  :ensure t
+  :ensure org-plus-contrib
   :bind (("C-c a" . org-agenda)
          ("C-c c" . org-capture)
          ("C-c l" . org-store-link)
@@ -700,8 +707,6 @@ whole line when no region is selected.
          ("<return>" . org-return-indent))
   :config
   :init
-  (use-package org-plus-contrib
-    :ensure t)
   (setq org-agenda-files (quote ("~/Org"))
         org-directory "~/Org"
         org-default-notes-file "~/Org/refile.org"
@@ -1468,33 +1473,30 @@ A sane wrapper around `ansi-term`.
 ** Clojure
 
 #+BEGIN_SRC emacs-lisp
-(use-package clojure-mode
-  :ensure t
-  :config
-  (add-hook 'clojure-mode-hook #'smartparens-mode))
+;; (use-package clojure-mode
+;;   :ensure f
+;;   :config
+;;   (add-hook 'clojure-mode-hook #'smartparens-mode))
 
-(use-package cider
-  :ensure t
-  :config
-  (add-hook 'cider-mode-hook #'eldoc-mode)
-  (add-hook 'cider-repl-mode-hook #'smartparens-mode)
-  (setq cider-prompt-for-symbol nil
-        cider-repl-use-pretty-printing t
-        cider-repl-use-clojure-font-lock t))
+;; (use-package cider
+;;   :ensure f
+;;   :config
+;;   (add-hook 'cider-mode-hook #'eldoc-mode)
+;;   (add-hook 'cider-repl-mode-hook #'smartparens-mode)
+;;   (setq cider-prompt-for-symbol nil
+;;         cider-repl-use-pretty-printing t
+;;         cider-repl-use-clojure-font-lock t))
 
-(use-package clj-refactor
-  :ensure t
-  :config
-  (add-hook 'clojure-mode-hook (lambda () ((clj-refactor-mode 1)
-                        (cljr-add-keybindings-with-prefix "C-c C-m")))))
+;; (use-package clj-refactor
+;;   :ensure f
+;;   :config
+;;   (add-hook 'clojure-mode-hook (lambda () ((clj-refactor-mode 1)
+;;                         (cljr-add-keybindings-with-prefix "C-c C-m")))))
 
-(use-package clojure-cheatsheet
-  :ensure t)
-
-(use-package flycheck-clojure
-  :ensure t
-  :config
-  (eval-after-load 'flycheck '(flycheck-clojure-setup)))
+;; (use-package flycheck-clojure
+;;   :ensure f
+;;   :config
+;;   (eval-after-load 'flycheck '(flycheck-clojure-setup)))
 #+END_SRC
 
 ** TODO [[https://github.com/abo-abo/hydra][Hydra]]

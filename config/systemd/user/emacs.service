@@ -8,7 +8,6 @@ ExecStart=/usr/bin/emacs --fg-daemon
 ExecStop=/usr/bin/emacsclient --eval "(kill-emacs)"
 Restart=on-failure
 Environment=SSH_AUTH_SOCK=%t/keyring/ssh
-TimeoutStartSec=0
 
 [Install]
 WantedBy=default.target

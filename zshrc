@@ -38,8 +38,8 @@ fi
 #########
 
 # Emacs with correct daemon settings for Archlinux.
-alias e="emacsclient -t --socket-name /tmp/emacs1000/server"
-alias emc="emacsclient -n -c --socket-name /tmp/emacs1000/server"
+alias e="emacsclient -t --socket-name /run/user/1000/emacs/server"
+alias emc="emacsclient -n -c --socket-name /run/user/1000/emacs/server"
 
 # Make these commands ask before clobbering a file. Use -f to override.
 alias rm="rm -i"

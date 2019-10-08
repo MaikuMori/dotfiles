@@ -18,6 +18,11 @@ Host maikumori
      IdentityFile ~/.ssh/protected_rsa
      LocalForward 8889 127.0.0.1:8888
      LocalForward 10001 127.0.0.1:3000
+     LocalForward 9394 127.0.0.1:8384
+
+Host mm
+     HostName 146.185.148.178
+     IdentityFile ~/.ssh/protected_rsa
 
 Host git.maikumori.com
      IdentityFile ~/.ssh/gogs.maikumori.com
@@ -27,3 +32,7 @@ Host archpc.local
 
 Host archbook.local
      IdentityFile ~/.ssh/protected_rsa
+
+Host android
+     Port 2222
+     ProxyCommand adb-channel tcp:%p com.arachnoid.sshelper/.SSHelperActivity 1

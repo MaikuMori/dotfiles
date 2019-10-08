@@ -27,7 +27,8 @@ export PATH=$PATH:$HOME/.cask/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/.yarn/bin
-
+export PATH=$PATH:$HOME/.dotnet/tools
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 export ATOM_REPOS_HOME=$HOME/Projects
 
@@ -38,3 +39,17 @@ export ATOM_REPOS_HOME=$HOME/Projects
 if [ -f /opt/google-cloud-sdk/path.zsh.inc ]; then
     source /opt/google-cloud-sdk/path.zsh.inc
 fi
+
+#########
+# PyEnv #
+#########
+
+if command -v pyenv 1>/dev/null 2>&1; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+fi
+
+
+
+export MSBuildSDKsPath=/opt/dotnet/sdk/$(dotnet --version)/Sdks

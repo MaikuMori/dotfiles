@@ -1,0 +1,23 @@
+#! /usr/bin/env bash
+
+set -o errexit
+set -o pipefail
+
+FILE_REGEX="(DaVinci_.*\.zip)"
+
+resp=$(curl -s 'https://www.blackmagicdesign.com/api/support/latest-version' -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0' -H 'Accept: application/json, text/plain, */*' -H 'Accept-Language: en,en-US;q=0.5' --compressed -H 'Referer: https://www.blackmagicdesign.com/products/davinciresolve/' -H 'Content-Type: application/json;charset=utf-8' -H 'DNT: 1' -H 'Connection: keep-alive' --data '{"product":"davinci-resolve","platform":"linux"}')
+
+version=$(echo $resp | jq -r '"\(.linux.major).\(.linux.minor).\(.linux.releaseNum)"')
+downloadId=$(echo $resp | jq -r '.linux.downloadId')
+
+echo "Downloading version ${version} with download ID ${downloadId}"
+
+resp=$(curl -s "https://www.blackmagicdesign.com/api/register/us/download/${downloadId}" -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:65.0) Gecko/20100101 Firefox/65.0' -H 'Accept: application/json, text/plain, */*' -H 'Accept-Language: en,en-US;q=0.5' --compressed -H 'Referer: https://www.blackmagicdesign.com/products/davinciresolve/' -H 'Content-Type: application/json;charset=utf-8' -H 'DNT: 1' -H 'Connection: keep-alive' -H 'TE: Trailers' --data '{"platform":"Linux","policy":true,"product":"DaVinci Resolve","country":"lv","firstname":"Miks","lastname":"Kalnins","email":"MiksKalnins@MaikuMori.com","phone":"+37128381337","state":"","city":"Riga"}')
+
+if [[ $resp =~ $FILE_REGEX ]]; then
+    pushd ~/Downloads/
+    curl -#L -o "${BASH_REMATCH[1]}" "${resp}"
+    popd
+else
+    echo "ERROR: Couldn't determine filename."
+fi
