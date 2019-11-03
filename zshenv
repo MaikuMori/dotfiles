@@ -15,12 +15,8 @@ export BROWSER='google-chrome-unstable'
 export EDITOR="emacsclient -t --socket-name /tmp/emacs1000/server"
 export VISUAL="emacsclient -t --socket-name /tmp/emacs1000/server"
 
-export GOPATH=$HOME/GoProjects
-export GO15VENDOREXPERIMENT=1
-
 export GPGKEY=24481BFA
 
-export PATH=$GOPATH/bin:$PATH
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.gem/ruby/2.1.0/bin
 export PATH=$PATH:$HOME/.cask/bin
@@ -29,8 +25,6 @@ export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/.yarn/bin
 export PATH=$PATH:$HOME/.dotnet/tools
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-
-export ATOM_REPOS_HOME=$HOME/Projects
 
 ####################
 # Google Cloud SDK #
@@ -49,7 +43,3 @@ if command -v pyenv 1>/dev/null 2>&1; then
     export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
 fi
-
-
-
-export MSBuildSDKsPath=/opt/dotnet/sdk/$(dotnet --version)/Sdks
