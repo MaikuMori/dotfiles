@@ -1,5 +1,6 @@
 emacs.d/custom.el
 *.secret
 /emacs.d/.last-package-update-day
+/emacs.d/transient/
 /config/mpv/watch_later/
 /emacs.d/magithub/cache
