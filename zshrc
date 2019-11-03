@@ -57,8 +57,6 @@ fi
 alias archrss="rsstail -u https://aur.archlinux.org/rss/ -n 10 -d -N -l"
 
 # Pacman
-alias pacman="sudo pacman"
-alias pacup="sudo pacman -Syu"
 alias pacrank="rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup | sudo tee /etc/pacman.d/mirrorlist"
 
 # Fasd
