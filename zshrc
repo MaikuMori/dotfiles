@@ -75,7 +75,9 @@ alias zz="fasd_cd -d -i" # cd with interactive selection
 alias npup="sudo npm -g update --python=/usr/bin/python"
 
 # Hub
-alias git="hub"
+if hash hub 2>/dev/null; then
+   alias git="hub"
+fi
 
 # Random
 alias beepbeep="paplay /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga"
