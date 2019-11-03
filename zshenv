@@ -11,7 +11,7 @@ fi
 # ENVIRONMENT #
 ###############
 
-export BROWSER='google-chrome-unstable'
+export BROWSER='firefox-developer-edition'
 export EDITOR="emacsclient -t --socket-name /tmp/emacs1000/server"
 export VISUAL="emacsclient -t --socket-name /tmp/emacs1000/server"
 
@@ -32,14 +32,4 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 if [ -f /opt/google-cloud-sdk/path.zsh.inc ]; then
     source /opt/google-cloud-sdk/path.zsh.inc
-fi
-
-#########
-# PyEnv #
-#########
-
-if command -v pyenv 1>/dev/null 2>&1; then
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
 fi
