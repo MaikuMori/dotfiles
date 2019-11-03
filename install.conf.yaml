@@ -51,6 +51,10 @@
     ~/.config/base16-shell:
       create: yes
       path: config/base16-shell
+    # Kitty.
+    ~/.config/kitty:
+      create: yes
+      path: config/kitty
     # Shell theme.
     ~/.config/bugwarrior:
       create: yes
