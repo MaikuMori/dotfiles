@@ -54,6 +54,10 @@ dependencies.
 (defvar use-package-verbose t)
 (eval-when-compile
   (require 'use-package))
+
+(use-package diminish
+  :ensure t)
+
 (require 'bind-key)
 (require 'diminish)
 #+END_SRC
@@ -117,8 +121,8 @@ give it a proper try.
 
 #+BEGIN_SRC emacs-lisp
 (set-face-attribute 'default nil
-                    :family "Source Code Pro"
-                    :height 140
+                    :family "Fira Code"
+                    :height 120
                     :weight 'normal
                     :width 'normal)
 #+END_SRC
@@ -192,6 +196,8 @@ And couple more things.
 (global-auto-revert-mode t)
 ;; Use human readable size in dired buffers.
 (setq dired-listing-switches "-alh")
+;; Global pretty mode
+(global-prettify-symbols-mode +1)
 #+END_SRC
 
 ** Registers
@@ -199,7 +205,7 @@ And couple more things.
 Let's try storing common files in registers.
 
 #+BEGIN_SRC emacs-lisp
-(set-register ?e (cons 'file "~/dotfiles/emacs.d/maiku.org"))
+(set-register ?e (cons 'file (concat user-emacs-directory "maiku.org")))
 (set-register ?t (cons 'file "~/Org/todo.org"))
 (set-register ?r (cons 'file "~/Ledger/ledger.org"))
 #+END_SRC
@@ -544,6 +550,7 @@ This makes it much easier to undo things.
          ;;("SPC" . helm-all-mark-rings)
          )
   :config
+  (setq helm-adaptive-history-file (concat user-emacs-directory "helm-adaptive-history"))
   (use-package helm-files)
   (use-package helm-buffers)
   (use-package helm-mode
@@ -1261,12 +1268,12 @@ Snippets
   :ensure t
   :diminish yas-minor-mode
   :commands yas-minor-mode
-  :mode (("/\\.emacs\\.d/my-snippets/" . snippet-mode)
-         ("/\\.emacs\\.d/yasnippets-snippets/" . snippet-mode))
+  :mode (("/my-snippets/" . snippet-mode)
+         ("/yasnippets-snippets/" . snippet-mode))
   :init
   (setq yas-snippet-dirs
-      '("~/.emacs.d/my-snippets"
-        "~/.emacs.d/yasnippet-snippets"))
+      '((concat user-emacs-directory "my-snippets")
+        (concat user-emacs-directory "yasnippet-snippets")))
   :config
   (yas-reload-all)
   (yas-global-mode 1))

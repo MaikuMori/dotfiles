@@ -27,7 +27,7 @@ Inside BODY you can access FRAME variable."
 (setq initial-scratch-message "")
 
 ;; Keep custom variable garbage out of my git.
-(setq custom-file "~/.emacs.d/custom.el")
+(setq custom-file (concat user-emacs-directory "custom.el"))
 (load custom-file 'noerror)
 
 (require 'package)

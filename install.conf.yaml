@@ -4,7 +4,7 @@
   - '~/.tmux/plugins'
 
 - shell:
-  - [mkdir -p ~/Projects ~/GoProjects, Create directory structure (projects)]
+  - [mkdir -p ~/Projects, Create directory structure (projects)]
   - [mkdir -p ~/pacman/package ~/pacman/source ~/pacman/srcpackages, Create directory structure (pacman)]
   - [mkdir -p ~/.local/share/mpd/playlists, Create directory structure (mpd)]
   - [mkdir -p ~/.local/share/beets, Create directory structure (beets)]
@@ -23,10 +23,6 @@
     ~/.zshenv: zshenv
     ~/.zpreztorc: zpreztorc
     ~/.zshrc: zshrc
-    # Hub completions.
-    ~/.zcomplete/_hub:
-        create: yes
-        path: /home/maiku/GoProjects/src/github.com/github/hub/etc/hub.zsh_completion
     # Tmux.
     ~/.tmux/plugins/tpm:
       create: yes
@@ -60,7 +56,7 @@
       create: yes
       path: config/bugwarrior
     # Emacs ;).
-    ~/.emacs.d: emacs.d
+    ~/.config/emacs: emacs.d
     # Obnam - backups.
     ~/.config/obnam:
       create: yes
