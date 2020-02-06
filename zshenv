@@ -12,8 +12,8 @@ fi
 ###############
 
 export BROWSER='firefox-developer-edition'
-export EDITOR="emacsclient -t --socket-name /tmp/emacs1000/server"
-export VISUAL="emacsclient -t --socket-name /tmp/emacs1000/server"
+export EDITOR="emacsclient -t --socket-name /run/user/1000/emacs/server"
+export VISUAL="emacsclient -t --socket-name /run/user/1000/emacs/server"
 
 export GPGKEY=24481BFA
 

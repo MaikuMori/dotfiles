@@ -6,7 +6,7 @@
     user = MaikuMori
 [core]
     excludesfile = ~/.config/git/globalignore
-    editor = emacsclient -t --socket-name /tmp/emacs1000/server
+    editor = emacsclient -t --socket-name /run/user/1000/emacs/server
     pager = tig
     whitespace = blank-at-eol,blank-at-eof,space-before-tab,trailing-space
     untrackedCache = true
