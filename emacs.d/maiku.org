@@ -623,13 +623,13 @@ This makes it much easier to undo things.
 
 Automatically removes trailing whitespaces.
 
-#+BEGIN_SRC emacs-lisp
-(use-package ws-butler
-  :ensure t
-  :diminish ws-butler-mode
-  :config
-  (ws-butler-global-mode t))
-#+END_SRC
+# #+BEGIN_SRC emacs-lisp
+# (use-package ws-butler
+#   :ensure t
+#   :diminish ws-butler-mode
+#   :config
+#   (ws-butler-global-mode t))
+# #+END_SRC
 
 ** [[https://github.com/flycheck/flycheck][Flycheck]]
 
