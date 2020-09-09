@@ -52,3 +52,5 @@
 [lfs "transfer"]
     maxretries = 50
     maxverifies = 50
+[pull]
+    ff = only

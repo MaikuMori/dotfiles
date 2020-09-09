@@ -116,12 +116,9 @@ Disable some keybindings that I don't use.
 
 ** Font
 
-Trying out ~Source Code Pro~. I usually find it too wide, but lets
-give it a proper try.
-
 #+BEGIN_SRC emacs-lisp
 (set-face-attribute 'default nil
-                    :family "Fira Code"
+                    :family "Jetbrains Mono"
                     :height 120
                     :weight 'normal
                     :width 'normal)
@@ -1418,7 +1415,8 @@ A sane wrapper around `ansi-term`.
 
 #+BEGIN_SRC emacs-lisp
 (use-package docker
-  :ensure t)
+  :ensure t
+  :bind ("C-c d" . docker))
 #+END_SRC
 
 ** [[https://github.com/spotify/dockerfile-mode][Dockerfile-Mode]]
