@@ -1,7 +1,0 @@
-[Unit]
-Description=Run obnam backup
-
-[Service]
-Type=simple
-ExecStart=/usr/bin/obnam backup
-ExecStartPost=/usr/bin/obnam forget

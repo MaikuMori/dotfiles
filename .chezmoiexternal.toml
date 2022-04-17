@@ -1,0 +1,18 @@
+[".tmux/plugins/tpm"]
+  type = "git-repo"
+  url = "https://github.com/tmux-plugins/tpm.git"
+  refreshPeriod = "168h"
+
+[".zprezto"]
+  type = "git-repo"
+  url = "https://github.com/sorin-ionescu/prezto.git"
+  refreshPeriod = "168h"
+  [".zprezto".clone]
+    args = ["--recursive"]
+  [".zprezto".pull]
+    args = ["--recurse-submodules"]
+
+[".config/base16-shell"]
+  type = "git-repo"
+  url = "https://github.com/chriskempson/base16-shell.git"
+  refreshPeriod = "168h"

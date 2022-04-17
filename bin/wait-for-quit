@@ -1,7 +1,0 @@
-#!/bin/sh
-"$@"
-if [ -x /usr/bin/zenity ]; then
-    zenity --info --text "Press OK to quit $*"
-else
-    kdialog --msgbox "Press OK to quit $*"
-fi
