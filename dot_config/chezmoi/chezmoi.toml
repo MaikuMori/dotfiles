@@ -1,0 +1,6 @@
+encryption = "age"
+[age]
+  identity = "/home/maiku/key.age"
+  recipient = "age1ll0amj9hkr6zavjpwqk8tt66pvmzt55xnfgaupzfhykpd6s5f3lqcspue4"
+[pinentry]
+  command = "pinentry"
